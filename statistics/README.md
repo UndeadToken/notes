@@ -107,4 +107,4 @@ Differences between data values are meaningful.
 
 - Nominal (applies to categories, labels or names, and cannot be ordered from smallest to largest)
 
-- Ordinal (applies to data that can be arranged in orer in categories, but the difference between data bvalues cannot be determined, or is meaningless.)
+- Ordinal (applies to data that can be arranged in order in categories, but the difference between data values cannot be determined, or is meaningless.)
