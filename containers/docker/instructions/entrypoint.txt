@@ -1,0 +1,13 @@
+ENTRYPOINT
+
+This instruction is used to configure a docker container image to run like an
+application or a command.
+
+ENTRYPOINT ["executable", "param1", "param2"]
+
+FROM alpine
+RUN apk add curl
+ENTRYPOINT ["curl"]
+CMD ["--help"]
+
+docker container run entrypoint:1.0 google.com

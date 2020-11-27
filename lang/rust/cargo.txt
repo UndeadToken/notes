@@ -1,0 +1,37 @@
+Cargo:
+Cargo is Rust’s build system and package manager
+
+cargo --version
+
+cargo --update
+
+cargo doc, cargo doc --open
+
+cargo new hello_cargo --bin
+
+We passed the --bin argument to cargo new because our goal is to
+make an executable application, as opposed to a library. Executa-
+bles are binary executable files often called just binaries. We’ve given
+hello_cargo as the name for our project, and Cargo creates its files in
+a directory of the same name that we can then go into.
+
+--vcs (no version control system)
+
+TOML (Tom’s Obvious, Minimal Language)
+
+cargo build
+cargo run or ./target/debug/<file>
+
+Building for Release
+When your project is finally ready for release, you can use cargo build
+--release to compile your project with optimizations. This will cre-
+ate an executable in target/release instead of target/debug. These opti-
+mizations make your Rust code run faster, but turning them on makes
+your program take longer to compile. This is why there are two differ-
+ent profiles: one for development when you want to be able to rebuild
+quickly and often, and one for building the final program you’ll give to
+a user that won’t be rebuilt and that we want to run as fast as possi-
+ble. If you’re benchmarking the running time of your code, be sure to
+run cargo build --release and benchmark with the executable in
+target/release.
+

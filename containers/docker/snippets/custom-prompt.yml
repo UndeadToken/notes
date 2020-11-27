@@ -1,0 +1,12 @@
+FROM ubuntu
+RUN useradd --create-home -m -s /bin/bash dev
+# whale: "\xF0\xF9\x90\xB3"
+# alien: "\xF0\x9F\x90\xA0"
+# elephant: "\xF0\x9F\x91\xBD"
+# moneybag: "\xF0\xF9\x92\xB0"
+RUN echo 'PS1="\[$(tput setaf 4)\]my-app $(echo -e
+"\xF0\xF9\x90\xB3") \[$(tput sgr0)\] [\\u@\\h]:\\W \\$ "' >>
+/home/dev/.bashrc && \
+  echo 'alias ls="ls --color=auto"' >> /home/dev/.bashrc
+USER dev
+CMD ["/bin/bash"]

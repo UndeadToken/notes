@@ -1,0 +1,38 @@
+
+Creational:
+Creational design patterns concern the creation of objects themselves. Basic
+instantiation of classes without using a design pattern can result in needless
+complexity, but also in significant design problems.
+
+The main usage of creational design patterns is to separate the instantiation of
+a class from the usage of that instance. Failure to use creational design
+can mean your code is harder to understand and test.
+
+Structural:
+Structural design patterns are fairly easy to explain, they act as
+interconnectors between entities. It services as a blueprint for how basic
+classes can be combined to form  bigger entities, all structural design patterns
+involve the interconnections between objects.
+
+Behavioral:
+Behavioral patterns work to explain how objects interact with each other, how
+they can send messages between each of the objects and you can divide the steps
+of various tasks up among classes.
+
+Structural patterns describe the static architecture of a design; Behavioral
+patterns are more fluid and describe a flowing process.
+
+Architectural:
+This not strictly a design pattern (but the gang of Four didn't cover
+Architectural patterns in their book); but is incredibly relevant for PHP
+developers due to the web-oriented nature of PHP. Architectural patterns address
+various different constraints in computer systems through addressing performance
+limitations, high availability, and also minimization of business risk.
+
+Most developers will be familiar with the Model-View-Controller architecture
+when it comes to web frameworks, more recently other architectures have started
+to emerge; for example a microservices architecture works by a set of RESTful
+API's that are independent and interconnected. Some people believe microservices
+move problems from the software development layer to the systems architecture
+layer. The opposite of microservices often referred to as a monolithic
+architecture, is where all the code is together in one application.

@@ -1,0 +1,2 @@
+lea - Load effective address
+lea eax,[ebp-4] Load the familiar address of ebp-4 into the eax register.

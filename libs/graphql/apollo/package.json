@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
+    "apollo-link": "^1.2.13",
+    "apollo-link-http": "^1.5.16",
+    "graphql": "^15.0.0",
+    "graphql-tag": "^2.10.3",
+    "vue-apollo": "^3.0.3"
+  }
+}

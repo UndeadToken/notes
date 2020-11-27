@@ -1,0 +1,35 @@
+find by name:
+find /etc -name passwd
+find /etc -iname '*passwd*'
+
+find by file size:
+find /usr/share -size +10M
+find /usr/share -size +500M -size -5G
+
+find by user:
+find /home -user chris -ls
+find /home -user chris -or -user joe -ls
+find /var/spool -not -user root -ls
+
+find by permissions:
+find /bin -perm 755 -ls
+find /bin -perm 222 -type d -ls
+find /bin -perm +222 -type f -ls
+find /bin -perm -002 -type f -ls
+
+find by date / time:
+find /etc/ -mmin -10 # last 10 minutes
+find /bin /usr/bin -ctime -3 # changed in last three days
+find /bin -atime +300 # not edited for 300 days
+
+find /var/all \( -user joe -o -user chris \) -ls
+find /var/all -user joe -not -user joe -ls
+find /var/all -user joe -and -size +1M -ls
+
+execute commands:
+-execute runs on every file found
+-ok stops at each match and asks
+
+find [options] -exec command {} \;
+find /etc -iname iptables -exec echo "I found {}" \;
+find /etc -size +5M -exec du {} \; | sort -nr

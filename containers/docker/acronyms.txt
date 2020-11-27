@@ -1,0 +1,12 @@
+BIC (The Bureau of International des Containers)
+UFS (Union File System)
+CNM (Container Network Model)
+CNI (Container Network Interface)
+DAB (Distributed Application Bundle)
+WAL (Write Ahead Log)
+SOA (Service Oriented Architecture)
+CaaS (Container as a Service)
+IaaC (Infrastructure as a Code)
+(UCP) Universal Control Plane
+(DTR) Docker trusted register
+(COE) Container Orchestration Engine

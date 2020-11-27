@@ -1,0 +1,12 @@
+# Sidecar pattern
+The sidecar pattern is about co-locating another container in a pod in addition
+to the main application container. The application container is unaware of the
+sidecar container and just goes about its business.
+
+# Ambassador pattern
+The ambassador pattern is about representing a remote service as if it were
+local and possibly enforcing some policy.
+
+# Adapter pattern
+The adapter pattern is about standardizing output from the main application
+container.

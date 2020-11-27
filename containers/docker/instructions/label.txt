@@ -1,0 +1,19 @@
+LABEL
+
+The label instruction is a way to add metadata to your docker image. The instruction adds embedded key
+value pairs to the image. The instruction adds a zero-byte-sized layer to the image when its created. An
+image can have more than one label and each label instruction can provide one or more labels. The most
+common usage is to provide information about the image maintainer. If two labels exist with the same key
+the last matching labels value will be provided.
+
+docker image inspect --format '{{json .Config}}' hello-earl:1.0.1 | jq '.Labels'
+
+LABEL maintainer="Foo Bar foo@bar.com"
+LABEL "description"="My development Alpine image"
+LABEL version="1.0"
+LABEL label1="value1" \
+  label2="value2" \
+  label3="value3"
+LABEL multi-line="This is a \
+multi-line label"
+LABEL support-emails="true" support-phone="(000) 000-000"

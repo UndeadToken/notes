@@ -1,0 +1,55 @@
+# Install scripts for latest version (don't run on production)
+curl -fsSL get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# Ubuntu Install
+### Install required packages
+sudo apt-get install \
+  apt-transport-http \
+  ca-certificates \
+  curl \
+  software-properties-common
+
+### Get docker GPG key
+curl -fsSl https://download.docker.com/linux/ubuntu/gpg/ | \
+  sudo apt-key add -
+
+### Verify fingerprint
+sudo apt-key fingerprint <last_eight_characters>
+
+### Add docker repository
+sudo add-apt-repository \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) \
+  stable"
+
+### Install docker
+sudo apt-get update
+sudo apt-get install docker-ce
+
+### Check version
+docker --version
+
+# Enable docker
+sudo systemctl enable docker
+
+# Start docker
+sudo systemctl start docker
+
+# Add a user to the docker group
+sudo usermod -aG docker $USER
+sudo chmod 666 /var/run/docker.sock
+
+# Hello world
+docker run hello-world
+
+# Ubuntu 19
+sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt update
+sudo apt -y install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker $USER
+newgrp docker
+
+
+

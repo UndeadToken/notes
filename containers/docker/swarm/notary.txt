@@ -1,0 +1,45 @@
+# Docker Notary
+The Docker content trust mechanism is implemented using Docker Notary
+(https://github.com/docker/notary), which is on the Update Framework
+(https://github.com/theupdateframework/tuf). TUF is a secure framework that
+allows us to deliver a collection of trusted content at a time. Notary allows a
+client and a server to from a trusted collection by making it easier to publish
+and verify contents. If we have a Docker image, we can push it to a Notary
+server that can be used to deliver
+trusted images. Notary is the way to enable Secure Software Supply Chain for
+enterprise using Docker
+
+# Notary Server
+Create a Notary server and use it to sign Docker image content before pushing
+to a docker repository. Open the docker-compose.yml and add the image option
+to specify an image name and tag for both signer and server.
+e.g. foo/server:v042 and foo/signer:v042.
+```
+git clone https://github.com/docker/notary.git
+cd notary
+git checkout v0.4.2
+cd notary
+docker-compose up -d
+```
+`https://127.0.0.1:4443`
+
+
+To make it possible for the Docker client to do a handshake with Notary, we need
+to copy the Notary Server certificate as CA of this trusted address. After that
+we enable Docker content trust and point docker content trust server to our own
+Notary.
+```
+mkdir -p ~/.docker/tls/127.0.0.1:4443/
+cp ./fixtures/notary-server.crt ~/.docker/tls/127.0.0.1:4443/ca.crt
+
+export DOCKER_CONTENT_TRUST=1
+export DOCKER_CONTENT_TRUST_SERVER=https://127.0.0.1:4443
+```
+
+Then we tag the image as a new one and push the image while enabling Docker
+Content Trust.
+```
+docker tag busybox chanwit/busybox:signed
+docker push chanwit/busybox:signed
+docker pull chanwit/busybox:signed
+```

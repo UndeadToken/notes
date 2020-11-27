@@ -1,0 +1,55 @@
+
+Integers:
+
+Each signed variant can store numbers from -(2n - 1) to 2n - 1 - 1
+inclusive, where n is the number of bits that variant uses. So an i8 can
+store numbers from -(27) to 27 - 1, which equals -128 to 127. Unsigned
+variants can store numbers from 0 to 2n - 1, so a u8 can store numbers
+from 0 to 28 - 1, which equals 0 to 255.
+
+Additionally, the isize and usize types depend on the kind of
+computer your program is running on: 64-bits if you’re on a 64-bit
+architecture and 32-bits if you’re on a 32-bit architecture.
+
+Length      Signed      Unsigned
+8-bit       i8          u8
+16-bit      i16         u16
+32-bit      i32         u32 
+64-bit      i64         u64
+arch        isize       usize
+
+f32 (IEEE 754 standard for floating point representation)
+f64
+[T; U] A fixed size array, for element type, T, and the non-negative compile-time constant size N.
+[T] A dynamically-sized view into a contiguous sequence, for any type T.
+str String slices
+(T, U, ..) A finite sequence
+fn(i32) -> i32 A function that takes an i32 and returns an i32, functions also have a type.
+
+Number literals         Example
+Decimal                 98_222
+Hex                     0xff
+Octal                   0o77
+Binary                  0b1111_0000
+Byte (u8 only)          b’A’
+
+
+
+let x = 2.0; // f64
+let y: f32 = 3.0; // f32
+
+Unicode Scalar Values range from U+0000 to U+D7FF and U+E000 to U+10FFFF inclusive.
+
+Compound Types:
+Compound types can group multiple values of other types into one type.
+Rust has two primitive compound types: tuples and arrays.
+let tup: (i32, f64, u8) = (500, 6.4, 1);
+let tup = (500, 6.4, 1);
+let (x, y, z) = tup;
+let x: (i32, f64, u8) = (500, 6.4, 1);
+let five_hundred = x.0;
+let six_point_four = x.1;
+let one = x.2;
+let months = ["January", "February"]; 
+let first = a[0];
+

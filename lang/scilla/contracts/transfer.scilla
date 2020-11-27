@@ -1,0 +1,153 @@
+(*Scilla version*)
+scilla_version 0
+
+(*Library section*)
+library WasteTransferNoteContract
+
+type Error =
+	| CodeInvalidAmount = -1
+
+(*Contract Definition*)
+contract WasteTransferNote
+(owner : ByStr20)
+
+field regulation_codes : map String Uint32 = EMP String Uint32
+field carrier_types : map String Uint32 = EMP String Uint32
+
+field businesses : map String ByStr20 = EMP String ByStr20
+field b_addr : map String String
+field b_carrier_type : map String Uint32
+field b_regulation_codes : map String Uint32
+
+field transfers : map String ByStr20 = EMP String ByStr20
+field t_amount : map String Uint128
+field t_descriptions : map String String = EMP String String
+field t_regulation_code : map String Uint32 = EMP String Uint32
+field t_area_code : map String String = EMP String String
+field t_country_code : map String String = EMP String String
+field t_carrier_type : map String String = EMP String String
+field t_from_addr : map String String = EMP String String
+field t_business_addr : map String String = EMP String String
+
+transition RegulationCodeAdd(name: String, code: Uint32)
+	IsOwner
+	CodeDoesntExist name code
+	regulation_codes[name] = code
+
+	e = {_eventname: "RegulationCodeAdded", name: "name"}
+	event e
+end
+
+transition RegulationCodeRemove(name: String)
+	IsOwner
+	CodeExists name
+	builtin remove regulation_codes name
+
+	e = {_eventname: "RegulationCodeRemoved", name: "name"}
+	event e
+end
+
+transition CarrierTypeAdd(name: String, code: Uint32)
+	IsOwner
+	CarrierTypeDoesntExist name code
+	carrier_types[name] = code
+
+	e = {_eventname: "CarrierTypeAdded", name: "name", code: code}
+	event e
+end
+
+transition CarrierTypeRemove(name: String)
+	IsOwner
+	CarrierTypeExists name
+	builtin remove carrier_types name
+
+	e = {_eventname: "CarrierTypeRemoved", name: "name"}
+	event e
+end
+
+transition BusinessAdd(name: String)
+	BusinessDoesntExist name
+	businesses[name] = _sender
+
+	e = {_eventname: "BussesinessAdded", name: "name"}
+	event e
+end
+
+transition BusinessRemove(name: String)
+	BusinessExists name
+	IsBusiness name _sender
+	builtin remove businesses name
+
+	e = {_eventname: "BusinessRemoved", name: "name"}
+	event e
+end
+
+transition TransferAdd(
+	name: String,
+	description: String,
+	regulation_code: Uint32,
+	area_code: Uint32,
+	country_code: String,
+	from_addr: String
+)
+	TransferDoesntExist name
+
+	accept
+
+	transfers[name] = _sender
+	t_amount[name] = _amount
+	t_description[name] = description
+	t_regulation_code[name] = regulation_code
+	t_area_code[name] = area_code
+	t_country_code[name] = country_code
+	t_from_addr[name] = from_addr
+
+	e = {_eventname: "TransferAdded", 
+		name: name, 
+		description: description,
+		amount: _amount}
+	event e
+end
+
+transition TransferRemove(transfer: String)
+	IsTransferOwner transfer _sender
+
+	is_accepted = ...
+	match is_accepted with
+		| True =>
+			amount <- t_amount[name]
+			business_name <- t_business[name]
+			business_addr <- businesses[business_name]
+			send amount business_addr
+
+	builtin remove transfers transfer
+
+	e = {_eventname: "TransferRemoved", transfer: transfer}
+	event e
+end
+
+transition TransferAccept(transfer: String, business: String)
+	IsBusinessOwner business _sender
+	is_amount = builtin eq _amount transfers_amount[transfer]
+	match is_amount with
+		| True =>
+			t_business[transfer] = _sender
+		| False =>
+			ThrowError CodeInvalidAmount
+	end
+
+	e = {_eventname: "TransferAccepted", transfer: transfer, business: business}
+	event e
+end
+
+transition TransferComplete(transfer: String)
+	TransferExists name
+	IsTransferOwner name _sender
+	business_name <- t_business[name]
+	addr <- businesses[business_name]
+	amount <- t_amount[name]
+	send amount addr
+
+	e = {_eventname: "TransferCompleted", transfer: transfer}
+	event e
+end

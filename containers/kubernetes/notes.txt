@@ -1,0 +1,3 @@
+Kubernetes aims to manage and simplify the orchestration, deployment and
+management of distributed systems across a wide range of environments and cloud
+providers.

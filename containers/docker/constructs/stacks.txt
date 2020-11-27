@@ -1,0 +1,30 @@
+Docker stacks instantiates and maintains a complex, multi-image application.
+Technically a stack file is a compose file. Only the 3.0 version is supported
+by docker stacks.
+
+docker stack --help
+
+# Deploy stack
+docker stack deploy -c docker-stack.yml app
+
+# List stacks filtered by desired state
+docker stack ps app --filter desired-state=running
+
+# List service labels
+docker service inspect app --format '{{json .Spec.Labels}}' | jq
+
+# List services associated with a stack
+docker stack services app
+
+--orchestrator
+
+# Bundles
+docker bundle build -f docker-compose.yml -t my-bundle
+docker bundle push my-bundle
+docker bundle pull my-bundle
+docker stack deploy [-c STACK_CONFIG] my-bundle my-stack
+
+# docker-compose --rm -d --file docker-compose.yml up
+# docker-compose --file docker-compose.yml bundle -o wordpress.dab
+# docker deploy --file wordpress.dab wordpress1
+# docker stack deploy -c wordpress.yml wp1

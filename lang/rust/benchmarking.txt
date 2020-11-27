@@ -1,0 +1,17 @@
+Mark as benchmark test with #[bench].
+libtest with a Bencher type resides within the internal test crate.
+
+cargo bench
+
+Cargo benchmarking is unstable, use nightly compiler build.
+Or use criterion-rs.
+
+[dev-dependencies]
+criterion = "0.1" in toml.
+
+[[bench]]
+name = "fibonacci"
+harness = false # dont use default benchmark harness
+
+#[macro_use] # use all macros from crate
+extern crate criterion;

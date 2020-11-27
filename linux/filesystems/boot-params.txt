@@ -1,0 +1,35 @@
+preceed any install question with boot params that end up in the kernel command line.
+/proc/cmdline 
+
+preseed.cfg within initrd
+
+Presseed from a network via boot parameter preseed/url=http://server/preseed.cfg.
+
+auto-install/enable=true to skip defer lcoale configurations etc to allow pressed to run first.
+
+change installation mirror:
+d-i mirror/suite string kali-rolling
+
+debconf-get-selections --installer - provide answers you provided to the installer.
+
+priority=critical to instruct deb-conf to only ask critical questions.
+
+Identify software repositories.
+repo=/dev/sda1:/myrepo
+repo=http://...
+
+specify kickstart file:
+ks=cdrom:/stuff/ks.cfg
+ks=hd:sda2:/test/ks.cfg
+ks=http://www.example.com/ksfiles/ks.cfg
+ks=ftp://gtp.example.com/allks/ks.cfg
+ks=nfs:mynfs.example.com:/someks/ks.cfg
+
+specialised storage:
+Firmware RAID - A firmware device is a type of device that has hooks in the BIOS allowing it to be used to boot the operating system, if you chooses.
+
+Multipath devices - These provide multiple paths between the computer and its storage devices. They are aggregated and appear to be a singel device to the system. Connections can be provided by iSCSI, or fibre channel of ethernet (FCoE).
+
+Other SAN devices - Any device representing a storage area network (SAN).
+
+

@@ -1,0 +1,52 @@
+Software Entropy:
+While software development is immune from almost all physical laws, entropy
+hits us hard. Entropy is a term from physics that refers to the amount of
+"disorder" in a system. Unfortunately, the laws of thermodynamics guarantee that
+the entropy in the universe tends toward a maximum. When disorder increases in
+software, programmers call it "software rot".
+
+The most common cause of software rot is work place psychology.
+
+Don't live with broken windows. The broken window theory suggests 'don't leave
+"broken windows" (bad designs, wrong decisions, or poor code) unrepaired'. Fix
+each one as soon as it's discovered, or "board it up" and prevent further damage.
+
+Neglect accelerates rot faster than any other factor.
+
+Be a Catalyst for Change
+
+Make quality a requirements issue
+
+Your knowledge portfolio
+You're knowledge and experience are expiring assets.
+- Serious investors invest regularly - as a habit
+- Diversification is key to long term success
+- Smart investors balance their portfolios between conservative and high-risk, high reward investments
+- investors try to buy low and sell high for maximum return
+- portfolios should be reviewed and rebalanced periodically
+
+WISDOM:
+- What do you want them to learn?
+- what is their Interest in what you've got to say?
+- how sophisticated are they?
+- how much detail do they want?
+- Whom do you want to own the information?
+- How can you motivate them to listen to you?
+
+Resources:
+Dinosaur Brains - emotional baggage brought to the work place
+
+DRY (Don't Repeat Yourself)
+Every piece of knowledge must have a single, unambiguous, authoritative
+representation within a system.
+- Imposed duplication - developers feel they have no choice - the environment seems to require duplication
+- Inadvertant duplication - developers don't realize that they are duplicating information
+- Impatient duplication - developers get lazy and duplicate because it seems easier
+- Interdveloper duplication - multiple people on a team (or on different teams), duplicate a piece of information
+
+Meyer's Uniform Access Principle
+All services offered by a module should be available through a uniform notation,
+which does not betray whether they are implemented through storage or through
+computation.
+
+Shortcuts make for long delays

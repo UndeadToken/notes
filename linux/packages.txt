@@ -1,0 +1,78 @@
+Check /usr/share/doc/PACKAGE/README when confguring an unknown package with example configurations
+often shown in /usr/share/doc/PACKAGE/examples.
+
+dpkg -l - lists files within package
+dpkg -s - show package meta data
+
+# SSH
+Configuration file: /etc/ssh/sshd_config
+The ssh service(openssh-server) is disabled by default and runs on port 22.
+Each ssh server has its own ssh host keys which are stored in /etc/ssh/ssh_host_*.
+
+enable: sudo systemctl enable ssh && sudo systemctl start ssh
+reload: systemctl reload ssh.
+
+Replace pre-generated host keys:
+passwd
+rm /etc/ssh/ssh_host_*
+dpkg-reconfigure openssh-server
+service ssh restart
+
+/etc/apt/sources.list - lists repositories or sources that publish packages
+/etc/apt/sources.list.d - -additional lists
+
+# bleeding-edge.list
+deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free
+
+use cURL for mirror redirection debugging
+
+main - packages that fully comply with DFSG
+non-free - not necessarily complient but can be distributed without restrictions
+contrib(contributions) - open source software that cannot function without some non-free elements
+
+upgrade kali:
+apt -t kali-rolling upgrade
+add to /etc/apt/apt.conf.d/local then simply apt upgrade
+apt full-upgrade
+
+news : /usr/share/doc/package/NEWS.DEbian
+apt-listchanges
+
+
+------------------------ dkpg
+dkpg --remove ...
+dkpg --unpack --configure 
+dkpg -L base-passwd -- list files installed by package
+dkpg -S - search
+dkpg -s - status
+dkpg -l - list
+dkpg -c - list .deb contents
+dkpg -i - list headers of .deb
+dkpg --compare-versions
+/var/lib/dpkg - dkpg database
+.. /info - configuration scripts
+.. /info/* -list of files the package installed
+.. /status - status of each package installed
+
+apt stores copies in /var/lib/apt/lists
+/var/cache/apt/archives - use apt clean
+apt-cache-search
+
+logs - /var/lib/dkpg.log
+
+apt resides on libapt-pkg
+
+------------------------ apt
+force overwrite install: apt -o Dkpg::Options::="force-overwrite" install zsh
+or add to /etc/apt/apt.conf.d/99local
+Dkpg:Options {
+	"force-overwrite";
+}
+
+or proxies:
+Acquire::ftp::proxy "ftp://yourproxy"
+Acquire::http::proxy "http://yourproxy:3128"
+
+
+no sources? wget -q -O - archive.kali.org/archive-key.asc | apt-key add
+echo deb http://http.kali.org/kali kali-rolling main contrib non-free >> /etc/apt/sources.list

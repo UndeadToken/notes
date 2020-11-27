@@ -1,0 +1,45 @@
+		new Runnable() {
+		    @Override
+		    public void run() {
+		        frame.toFront();
+		        frame.repaint();
+		    }
+		}.run();
+		
+		frame.addKeyListener(new KeyListener() {
+			
+			
+			Robot keys = new Robot();
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub\	
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int keyCode = e.getKeyCode();
+			    switch( keyCode ) { 
+			        case KeyEvent.VK_CONTROL:
+			        	
+			            break;
+			        case KeyEvent.VK_DOWN:
+			            // handle down 
+			            break;
+			        case KeyEvent.VK_LEFT:
+			            // handle left
+			            break;
+			        case KeyEvent.VK_RIGHT :
+			            // handle right
+			            break;
+			     }
+			}
+				
+		});

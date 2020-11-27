@@ -1,0 +1,3 @@
+802.11 radios scan in frequencies of 2.4GHz to 5.85GHz. There are exactly 2
+scanning methods 'active' and 'passive'. By default 802.11 radios perform
+both scans on all channels allowed by the country's laws and operation.

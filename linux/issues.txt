@@ -1,0 +1,10 @@
+# tracker-miner-fs 100% cpu
+
+gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2  
+gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false
+echo y | LANG=en tracker reset -r
+
+# Install settings
+
+sudo apt-get install --reinstall gnome-control-center
+

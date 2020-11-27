@@ -1,0 +1,44 @@
+The virtual file systems /proc/ and /sys/ contain data exported from the kernel regarding detected hardware.
+
+Applications access devices by the way of files within /dev/.
+
+for instance /dev/sda, partitions /dev/sda1, mice /dev/input/mouse0, keyboards /dev/input/event0, sounds cards /dev/snd0/*, serial ports /dev/ttyS*.
+
+Device files are either blocks or characters. Characters start with c and blocks start with b where using ls -la ... Both types can be interfaced with via ioctl system call. 
+
+Making a file system. mkfs.ext3
+
+type can be used to determine location of utility.
+e.g. type ls
+
+/etc/profile or /etc/environment can be used for global interpreter settings.
+
+The filesystem hierarchy(FHS) is consistent across linux systems.
+
+read = 4
+write = 2
+execute = 1
+
+rwx = 4 + 2 + 1 = 7
+
+_ _ _ = user, group, other = ugo
+e.g. chmod 754 rwx for user, rx for group and r for other.
+e.g. chmod -R a+x will recursively add user executable rights.
+
+Memory:
+free - memory usage
+id - identity of user
+uname -a - kernel version etc...
+
+
+Write null bytes to device
+dd if=/dev/zero of=/dev/sdX bs=512 count=1
+
+
+-
+fdisk /dev/sdb
+type d to delete partitions
+type n to create partition
+type w to write
+umount /dev/sdb
+mkfs.vfat -F 32 /dev/sdb1 or sudo mkfs -t vfat -I /dev/sdb1

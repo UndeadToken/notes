@@ -1,0 +1,27 @@
+# Data
+Written to disk every 10,000 entries.
+/var/lib/docker/swarm
+/var/lib/docker/swarm/raft # consists of WAL (Write Ahead Log) and snapshot files.
+ls /var/run/docker/netns -al
+
+nsenter --net=/var/run/docker/netns/wqdqwdqwdq3d ipvsadm
+
+# Neighbor table overflow
+net.ipv4.neigh.default.gc_thresh1 = 30000 # Expected number of hosts
+net.ipv4.neigh.default.gc_thresh1 = 32000 # soft limit
+net.ipv4.neigh.default.gc_thresh1 = 32768 # hard limit
+
+# GUI
+Shipyard (swarmv1) shipyard-project.com
+curl -sSL https://shipyard-project.com/deploy | bash -s
+docker-compose up -d < docker-compose.yml
+
+Portainer
+https://github.com/portainer/portainer
+docker run -d -p 9000:9000 -v /var/run/:/var/run portainer/portainer
+
+# Docker Datacenter
+Single click deploy solution by Docker to use UCP, the Universal Control Panel,
+dockers commercial and enterprise product.
+- Universal Control Plane (UCP) https://docs.docker.com/ucp/overview
+- Docker trusted register (DTR) thr private registry

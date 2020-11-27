@@ -1,0 +1,32 @@
+The architecture (or structure) of a network can be discussed from both a physical and logical viewpoint.
+Distance can differentiate LANS & WANS. The architecture can also describe the rules and processes used on the network. The security relationships that exist among the computers on the network can define different architectures.
+
+--- Peer-to-Peer
+The first types of network to appear. Often referred to as a workgroup. Each computer is in charge of its own security, and the computers have no security relationship with one another. Duplicate accounts required on each device, over 10 devices overwhelms the network. This is because for the computers to locate one another they mus tbroadcast for one another. The computers forget and have to broadcast again after about a minute. Most OS' can only host 10 concurrent connections, meaning unless its a server OS, the resource is locked until a computer disconnects. Many small office and home office (SOHO) networks function well as workgroups.
+
+Advantages
+- Low cost
+- Easy to set up
+- No server requried
+
+Disadvantages
+- No centralized control of security
+- Administrative burden of maintaining accounts on all computers
+- Not scalable
+
+--- Client-Server (domain-based)
+Sometimes called a domain-based-network in which case the server is a special type of server called a directory server or domain controller. The domain controller creates a group security association between the computers that are members of what is commonly called a domain (or realm in unix). After a user is a member of the domain, the user will have two types of accounts a local account(like in the peer-to-peer) and a domain account. The user can log into the domain from any computer that is a member of the domain.
+
+Whenever a user logs in to the domain from a member computer, the login request is sent to the domain controller which verifies the name and password and then sends the user an access token. An access token is a file that contains a list of resources that the user can access in the network, regardless of where the resource is located. The benefit being single sign-on.
+
+Advantages
+- Centralized administration
+- Single sign-on
+- Reduce broadcast traffic
+- Scalability
+
+Disadvantages
+- Higher cost for server software and hardware
+- more challenging technically to implement
+- Single point of failure with a single domain controller or single file server
+

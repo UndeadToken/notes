@@ -1,0 +1,4 @@
+PEP - Policy Enforcement Point
+DPD - Policy Decision Point
+RADIUS - Remote Authentication Dial In User Service
+FCC - Federal Communications Commission

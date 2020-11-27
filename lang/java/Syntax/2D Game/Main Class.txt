@@ -1,0 +1,43 @@
+package myGame;
+
+import org.newdawn.slick.*;
+import org.newdawn.slick.state.*;
+
+public class Main extends StateBasedGame{
+
+	//Game Name
+	public static final String gameName = "2D Game Pre-Alpha 1.0";
+	
+	//Window Width & Height
+	public static final int WIDTH = 640;
+	public static final int HEIGHT = 440;
+	
+	//Define Full Screen true || false
+	public static boolean FULLSCREEN = false;
+	
+	//Define Game States
+	public static final int menu = 0;
+	public static final int play = 1;
+	
+	public Main(String gameName){
+		super(gameName);
+		this.addState(new Menu(menu));
+		this.addState(new Play(play));
+	}
+	
+	public void initStatesList(GameContainer gc) throws SlickException{
+		this.getState(menu).init(gc, this);
+		this.getState(play).init(gc, this);
+		this.enterState(menu);
+	}
+	
+	public static void main(String[] args) {
+		AppGameContainer appgc;
+		try{
+			appgc = new AppGameContainer(new Main(gameName));
+			appgc.setDisplayMode(WIDTH, HEIGHT, FULLSCREEN); //Last parameter defines full screen
+			appgc.start();
+		}catch(SlickException e){
+			e.printStackTrace();
+		}
+	}

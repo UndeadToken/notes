@@ -1,0 +1,28 @@
+Rust is an ahead-of-time compiled language, which means
+that you can compile a program, give it to someone else, and they can
+run it even without having Rust installed.
+
+Install:
+curl https://sh.rustup.rs -sSf | sh
+
+Update:
+rustup update
+
+Uninstall:
+rustup self uninstall
+
+Version:
+rustc --version
+
+Docs:
+rustup doc
+
+Compile:
+rustc <file>.rc
+
+Switch to nightly builds:
+rustup override set nightly
+
+Downgrade:
+rustup install nightly-x
+

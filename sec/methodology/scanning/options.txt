@@ -1,0 +1,50 @@
+-v, --verbose
+	print down hosts + extra information
+
+-g, --source-port <port>
+	some firewall administrators make a ruleset exception in order to keep DNS (port 53) or FTP-DATA (port 20) working.
+
+-n, -R
+	-n disables all dns-resolution, while the -R enables DNS queries for all hosts even down ones. The default is to limit DNS resolution to active hosts.
+
+--dns-servers <server1>[, <server2>[, ...]]
+	defaulting to resolv.conf Nmap will determine your your DNS servers(not honored on IPv6 or --system-dns scans). Generally faster and more 'stealthy'.
+
+--data-length <length>
+	This option adds <length> of random bytes of data to every packet. Works with TCP, UDP and ICMP. Some IDS(Intrusion Detection Systems) including Snort have alerts for zero-byte ping packets. An option of 32 simulates Windows while 56 simulates linux Ping.
+
+--ttl
+	Prevent a scan from propagating beyond a local network.
+
+Canned timing options: -T3, -T4, -T5
+	Higher -T values speed up ping scanning as they do other features.
+
+--max-parallelism, --min-parallelism <value>
+	These affect how many probes may be outstanding at once. With he default ping type (two probes)
+	
+--min-rtt-timeout, --max-rtt-timeout, --initial-rtt-timeout <time>
+	these options control how long nmap waits for a ping response
+
+Input options: -iL <filename>, -iR <number>
+	combine -iL -PN(disable ping) to avoid scanning hosts known to be up.
+
+Output options:
+	-oA, -oN, -oG, -oX
+	
+--randomize-hosts
+	Shuffling the scan host order may make the scan more conspicuous, though it can make the output harder to read.
+
+--reason
+	Output discovery tests targets responded to.
+
+--packet-trace
+	More info than --reason including sequence numbers, TCP flags and TTL.
+
+-D <decoy1, decoy2>
+	Camouflaging the true attacker.
+
+-6 The TCP connect-based ping scans (-PS)
+
+-S <source ip address>, -e <sending device name>
+
+

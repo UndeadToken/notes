@@ -1,0 +1,47 @@
+The use of deception to manipulate individuals into divulging confidential or personal information that may be used for fraudulent purposes.
+
+Phase:
+research target company
+select victim
+develop relationship
+exploit relationship
+
+Human based social engineering:
+impersonation - pretending to be somebody else, normally person of authority
+vishing - using a telephone(voice phishing) e.g. tech support scam
+eavesdropping - listening
+shoulder surfing  - looking over someones shoulder to gain information
+dumpster diving - jump in a dumpster to find shredded passwords etc...
+reverse social engineering - e.g. tech support scam, browser redirect poison cookies etc...
+piggybacking - attacker asks someone to let them in
+tailgating - e.g. fake badge
+phishing - fraudulent practice of sending emails to induce people to reveal personal information or send money.
+smishing - dont click text message links ;)
+insider threats - ermployees, former employees contractors or business associates
+
+types of insider threadts:
+non respoinders: consistent negligence
+inadvertant insiders: copm,ply with policy
+insider collusion
+persistent malicious insiders:L second streams
+disgruntled employees: sabotage, ip theft
+
+social media:
+fake profiles
+
+countermeasures:
+research
+reject requests for help
+do not post personal data or photos
+do noit reveal sensitive data
+follow policies and procedures
+detterence
+know your weak links
+identify valuable information
+monitor ingress and egress points
+
+pretexting: building a sense of trust with victim.
+bating: similar to fishing but promise some type of  goods. dropping usbs etc...
+quid pro quo: similar to baiting e.g. promise of service.
+
+Reconnaissance:

@@ -1,0 +1,25 @@
+Directories:
+/usr/share/lintian/overrides
+  A Debian package checker. The file here overrides rules that would otherwise
+  cause the HAProxy to be flagged as having an error.
+
+/usr/share/doc/haproxy
+  Documentation for HAProxy.
+
+/run/haproxy
+  Contains a UNIX socket thet HAProxy binds to during startup.
+
+/etc/logrotate.d/haproxy
+  Configures HAProxy to use logrotate, which manages how logs are compressed and
+  rotated.
+
+/etc/default/haproxy
+  Contains a defaults file for HAProxy that can override aspects of how the
+  service starts up, such as where to look for its configuration file.
+
+/etc/haproxy
+  Contains the HAProxy configuration file and a directory where HTTP error pages
+  are defined.
+
+/etc/init.d
+  Contains the initialization script for the HAProxy service.

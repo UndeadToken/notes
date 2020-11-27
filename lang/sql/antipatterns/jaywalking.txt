@@ -1,0 +1,59 @@
+"The act of avoiding an intersection."
+
+"Store each value in its own column or row"
+
+Programmers commonly use comma-separated lists to avoid creating an intersection table for a many-to-many relationship.
+
+OBJECTIVE
+The objective is to store multi value attributes.
+
+ANTIPATTERN
+The antipattern is when a developer redefines a column as VARCHAR so you can list multiple values inside, separated by commas. 
+
+This may require a technique like pattern matching to resolve entries i.e 
+
+SELECT * FROM foo WHERE bar REGEXP '[[:<:]]12[[:>:]]'
+
+Pattern-matching expressions may return false matches and can't benefit from indexes. It is also costly to join a comma-separated list to matching rows in the reference table.
+
+SELECT * FROM foo AS f 
+JOIN bar AS b ON f.fizz_id REGEXP '[[:<:]]' OR b.fizz_id OR '[[:>:]]'
+WHERE f.buzz_id = 1;
+
+Aggregate queries use functions like COUNT(), SUM(), and AVG(). These are designed to be used over groups of rows not comma-separated lists. You have to resort to tricks like the following which are time consuming to write and hard to debug.
+
+SELECT fizz_id, LENGTH(buzz_id) - LENGTH(REPLACE(buzz_id, ',', '')) + 1
+AS foos_per_bar
+FROM foo;
+
+In updating values, you first need to fetch the given row, concatenate the additional value in a sorted fashion, then persist the row. This is constly as it introduces an additional query.
+
+Additional validation may be required.
+
+The separator character introduces ambiguity if the values stored are strings as opposed to integers.
+
+There is a limitation to the length of the attribute list as defined by the VARCHAR column length.
+
+LEGITIMNATE USES OF THE ANTIPATTERN
+- performance improvements through denormalization (storing lists as a comma-separated list)
+- the field requires the comma-separated list format
+- the field has no need to access individual items in the list
+
+SOLUTION
+Create an intersection table. 
+
+When a table has foreign keys referencing 2 tables, it's called an intersection table.
+
+SELECT * from foo AS f
+JOIN bar AS b ON (f.fizz_id = b.fizz_id)
+WHERE b.buzz_id = 1;
+
+BENEFITS
+- retains referential integrity
+- restrict entry types
+- no separator character ambiguity
+- no list length limitations
+- indexes increase performance
+- entries may have multiple fields i.e created_at
+
+

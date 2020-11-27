@@ -1,0 +1,39 @@
+Target Enumeration
+Nmap researches the host specifiers provided by the user which are resolved to ipv4, ipv6 addresses for scanning.
+-sL -n (no reverse-DNS resolution)
+
+Host Discovery (Ping Scanning)
+-PN (no ping, treat all hosts as alive)
+-sP -n (quit after host discovery)
+
+Reverse DNS resolution
+Once Nmap has determined which hosts to scan, it looks up the  reverse-DNS names of all hosts found online by the ping scan.
+-n (skip, no resolution)
+-R (resolve all)
+
+Port scanning
+Probes are sent and the responses (or non-responses) to those probes are used to classify remote ports into states such as open, closed, filtered.
+-sP (ping scan)
+
+Version detection
+Nmap matches probe responses to a database of thousands of known service signatures to identify services running on ports.
+-sV (enable version detection)
+
+OS detection
+Nmap detects an OS by matching probe repsonses to a database of signatures.
+-O (enable OS detection)
+
+Traceroute
+Attempt to find network routes to hosts.
+--traceroute (enable trace routing)
+
+Script scanning
+Nmap scripting engine (NSE) scripts allow for gaining for information about a system. Powered by Lua. Features include advanced version detection, notification of service vulnerabilities and discovery of backdoors and other malware.
+--script {name}
+-sC {name e.g. vuln}
+
+Output
+Collects information and outputs to the screen or file. Default is interactive format, also included is XML.
+
+Methodology:
+Open Source Security Testing methodology Manual (OSSTMM)

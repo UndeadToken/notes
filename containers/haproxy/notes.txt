@@ -1,0 +1,9 @@
+HAproxy listens for incoming requests then forwards them to various servers.
+It is a software package that acts as both a reverse proxy and a load balancer
+for TCP-connected applications.
+
+A reverse proxy sits in front of your server and accepts requests from clients
+on its behalf.
+
+Check for errors:
+haproxy -f /etc/haproxy/haproxy.cfg -c

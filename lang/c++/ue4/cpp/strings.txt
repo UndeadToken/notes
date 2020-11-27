@@ -1,0 +1,17 @@
+// Dereference FString to C-Style string with *.
+FString foo= "foo";
+int32 bar = 450;
+FString str  = FString(Text("Name = %s Mana = %d"), *foo, bar);
+
+// Format.
+FString foo = "foo";
+int32 bar = 450;
+
+TArray<FStringFormatArg> args;
+
+args.Add(FStringFormatArg(foo));
+args.Add(FStringFormatArg(bar));
+
+FString str = FString::Format(Text("Name = {0} mana = {1}"), args);
+
+UE_LOG(LogTemp, Warning, Text("Your string: %s"));

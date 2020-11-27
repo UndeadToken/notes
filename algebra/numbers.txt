@@ -1,0 +1,10 @@
+Natural Numbers: whole positive numbers.
+Integers: whole positive or negative numbers.
+Prime number: "Unbreakable" can only factored into a product of itself and 1
+Prime factors: any nonprime natural number factors
+Composite number: The product of prime factors
+Perfect square: A natural number multiplied by itself
+identity element:
+  0 for addition (can add or subtract to any value without changin its value)
+  1 for multiplication and divistion
+Rational number: denominator is non zero, R represents all rational numbers that can exist

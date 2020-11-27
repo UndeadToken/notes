@@ -1,0 +1,45 @@
+behavioural design patterns are all about the communication between objects.
+
+--- Observer
+The observer design pattern essentially allows an object (the subject) to
+maintain a list of observers that are automatically notified when the state of
+the object changes. This pattern applies a one-to-many dependency between
+objects; there is always one subject that updates many observers.
+
+--- Iterator
+The iterator design pattern is where an iterator is used to traverse a container.
+Iterator and IteratorAggregate are very similar except the IteratorAggregate
+creates an external iterator and must return an instance of type ArrayIterator.
+
+--- Generator
+A generator is essentially a forward-only iterator.
+
+--- Template Method
+The Template Method design pattern is used to create a group of subclasses that
+have to execute a similar group of behaviors. This consists of a template method,
+which is an abstract class. The Template method consists of a skeleton of an
+algorithm; the subclasses can use to change the concrete behavior of the algorithm.
+
+--- Chain of Responsibility
+When one object can't solve a problem, a chain can be used to delegate the
+processing of the task to another object, thus introducing a chain of
+responsibility.
+
+--- Strategy
+The Strategy Design pattern exists to allow us to alter the behavior of an
+object at runtime.
+
+--- Specification
+The Specification Design Pattern is used top codify business rules that state
+something about an object. They tell us whether an object satisfies some business
+criteria or not.
+
+We can use them in the following ways:
+  - To make assertions about an object
+  - To fetch a selection of objects from a collection
+  - To specify how an object can be created by `builder to order`
+
+--- Scheduled Task
+A scheduled task fundamentally consists of three things: the task itself, the
+jobs that do the scheduling by defining when the task that is being run and
+when it is permitted to run, and finally the job registry that executes the job.

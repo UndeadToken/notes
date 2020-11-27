@@ -1,0 +1,83 @@
+Passive Network Traffic Capture:
+
+Passive network capture can take place either on the network by tapping the
+traffic as it passes in some way or by sniffing directly on either the client
+or host.
+
+To capture traffic from an Ethernet interface (wired or wireless), the capturing
+device must be in promiscuous mode. A device in promiscuous mode receives and
+processes any Ethernet frame it sees, even if that frame wasn't destined for
+that interface.
+
+Alternative packet sniffing tools:
+
+System Call Tracing
+  Modern OS' provide 2 modes of execution. Kernel mode and user mode. The kernel
+  provides services to user mode by exporting a collection of special system
+  calls.
+
+  Common Unix System Calls for Networking:
+
+  - socket
+    Creates a new socket file descriptor.
+
+  - connect
+    Connects a socket to a known IP address and port.
+
+  - bind
+    Binds the socket to a local known IP address and port.
+
+  - recv, read, recvfrom
+    Receives data from the network via the socket. The generic function read is
+    for reading from a file descriptor, whereas recv and recvfrom are specific to
+    the sockets API.
+
+  strace -e trace=network,read,write /path/to/app args
+  dtrace -s traceconnect.d
+
+Active Network Traffic Capture:
+
+Influence the flow of traffic, usually by means of man-in-the-middle attack.
+This provides the ability to modify traffic and disable features like
+encryption or compression.
+
+Network Proxies
+
+- Port-Forwarding Proxy
+  The easiest way to forward a connection. Setup a listening server (TCP or UDP)
+  and wait for a new connection. When that new connection is made to the proxy
+  server, it will open a forwarding connection to the real service and logically
+  connect the two.
+
+  Redirecting Traffic to Proxy
+  /etc/hosts
+  C:\Windows\System32\Drivers\etc\hosts
+
+- SOCKS Proxy
+  Starts with a simple handshake protocol that informs the proxy of the ultimate
+  destination rather than having it fixed, it can also support listening
+  connections.
+
+  Mac: System Preferences > Network > Advanced > Proxies
+
+- Forwarding an HTTP Proxy
+  The HTTP protocol is specified in RFC 1945 for version 1.0 and RFC 2616 for
+  version 1.1; both version provide a simple mechanism for proxying HTTP
+  requests.
+
+  GET /image.jpg HTTP/1.1
+
+  RFC 2817 Provides the ability to upgrade a connection to encryption and
+  CONNECT HTTP method for creating transparent, tunneled connections over
+  HTTP proxies.
+
+  CONNECT www.domain.com:443 HTTP/1.1
+
+- Reverse HTTP Proxy
+  HTTP 1.1 compliant clients must send a Host HTTP header in the request that
+  specifies the original hostname. HTTP 1.0 has no restriction, but most clients
+  using that version will send the header anyway. With the Host header
+  information, you can infer the original destination of the request, making
+  a proxy connection to that server.
+
+  dnsspoof

@@ -1,0 +1,13 @@
+Access Control Lists
+
+# Get the ACL of a file
+getfacl filename
+
+# Set ACL for user with file
+setfacl -m u:username:rwx filename
+
+# Set ACL for group with file
+setfacl -m g:foo:rwx filename
+
+# Set default ACLs
+setfacl -m d:g:foo:rwx /tmp/bar

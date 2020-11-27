@@ -1,0 +1,52 @@
+Aircrack-ng - Security auditing suite. Airodump-ng, aireplay-ng
+Nessus - Vulnerability scanner provides patches, configurations, and compliance auditing; mobile, malware and botnet discovery.
+Armitage - Visual metasploit.
+Nmap - network scanner.
+Wireshark - Packet analyzer.
+Scapy - Packet manipulation tool.
+
+Windows:
+HashCalc - Allows the computing of message digests, checksums and HMAC's for files as well as text and hex strings.
+NetSumbler - Shows a list of wireless networks.
+inSSIDer - commerical wireless Windows application that can scan networks to determine security settings.
+Kismet - 802.11 layer2 wireless detector, sniffer and intrusion detector.
+WEPCrack - crack WEP encyrption.
+DStumbler
+
+Evil Twin AP:
+Honeypot
+CqureAP
+D-Link G200
+HermesAP
+RoqgueSquadron
+WifiBSD
+
+PSK Cracking:
+coWPAtty
+genpmk
+KisMAC
+
+VPN login cracking:
+-scan
+IKECrack
+anger
+TCH-pptp-bruter
+
+LEAP cracking:
+Anwrap
+Asleap
+THC-LEAPcracker
+
+EAP downgrade attacks:
+File2air
+libradiate
+
+AP Phishing:
+Airpwn
+Airsnarf
+Hotspotter
+Karma
+RGlueAP
+
+Credential attacks:
+Social Engineering Toolkit (SET)

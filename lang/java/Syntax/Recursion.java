@@ -1,0 +1,16 @@
+public class myClass {
+	
+	//main
+	public static void main(String args[]){		
+		System.out.print(fact(5));
+		
+	}
+	
+	//fact
+	public static long fact(long n){
+		if(n<=1)
+		   return 1;
+		else
+			return n * fact(n-1);
+	}
+}

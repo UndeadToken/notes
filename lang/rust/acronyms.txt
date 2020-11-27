@@ -1,0 +1,8 @@
+RAII (Resource Acquisition Is Initialization)
+RFC (Request For Comments)
+ORM (Object Relational Mapper)
+rustfmt (Rust Formatting Tool)
+RLS (Rust Language Server)
+ADTs (Algebraic Data Types)
+CVEs (Common Vulnerabilities & Exposure)
+OOM (Out Of Memory)

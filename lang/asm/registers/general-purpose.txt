@@ -1,0 +1,43 @@
+The x86-64 execution unit contains 16 64-bit general-purpose registers, which are used to perform arithmetic, logical compare, data transfer, and address calculation operations.
+
+They can also be used as temporary storage locations for contant values, intermediate results, and pointers to data values stored in memory.
+
+General purpose, pinters & indexes.
+Instruction Pointer, Stack Pointer, Base Pointer, Source Index, Destination Index
+EIP, ESP, EBP, ESI, EDI
+
+Perform 32-bit calculations
+Accumulator, Counter, Data & Base
+EAX, EBX, ECX, EDX
+
+Perform 64-bit calculations (low-order bytes).
+RAX, RBX, RCX, RDX
+
+Perform 8-bit calculations.
+AL, BL, CL, DL
+
+Legacy byte registers (aliased to high-order bytes of following registers)
+AH, BH, CH, DH
+
+perform 16-bit calculations.
+AX, BX, CX, DX
+
+Some variations of imul instruction save the calculated product to
+(the colon signifies that the final product is contained in 2 registers)
+RDX:RAX, EDX:EAX, DX:AX, or AX
+
+Some variations of idiv instruction requires the integer dividend to be
+RDX:RAX, EDX:EAX, DX:AX, or AX
+
+The x86 string instructions require that the addresses of the source and destination operands
+be placed in registers RSI and RDI. String instructions that include a repeat prefix must use RCX
+as the count register while variable bit-shift and rotate instructions must load the count value
+into register CL.
+
+The processor uses register RSP to support stack-related operations such as fucntion calls and returns.
+The RSP register always points to the stacks top most item.
+
+The stack itself is a contiguous block of memory that is assigned to a process or thread by the operating system.
+Stack push and pop operations are performed using 64-bit wide operands. This means that the location of
+the stack in memory is usually aligned to an 8-byte boundary. (64 bit c++ and Windows align stack memory and RSP
+to a 16-byte boundary in order to avoid improperly aligned memory transfers between the XMM registers and 128-bit wide opearnds stored on the stack).

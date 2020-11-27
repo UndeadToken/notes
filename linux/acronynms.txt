@@ -1,0 +1,14 @@
+UNIX: Uniplexed Information and Computing Service
+BSD: berkely software distribution
+posix: portable operating system interface
+SVID: System V Interface Definition
+USL: Unix System Laboratories
+fsf: free software foundation
+gnu: Gnu's Not Unix
+OSI: Open Source Initiative (opensource.org)
+BSD License: berkley Software Distribution license
+LGPL: The GNU lesser general public license
+GPL: GNU public license
+rhel: Redhat enterprise linux
+rhce: Red hat certified engineer
+rhcsa: red hat certified systems administrator

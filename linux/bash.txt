@@ -1,0 +1,57 @@
+useful programs: grep, cut, tr, awk, sed
+
+$# num args
+$@ holds all args
+$? exit status of last command
+
+input:
+read -p "Enter a, b & c" a b c
+echo $a
+
+expansions:
+${var:-value} - if unset expand to value
+${var#pattern} - chop the shortest match from the start
+${var##pattern} - chop the longest match for the pattern
+${var%pattern} - chop the shortest match from the end
+${var%%pattern} - chop the longest match from the end
+
+increment value:
+$((++VAR))
+
+VARIABLE=1
+if [ $VARIABLE -eq 1 ] ; then
+	echo "The variable is 1"
+fi
+
+case "VAR" in
+	RESULT)
+		{ body } ;;
+	RESULT2)
+		{ body } ;;
+	*)
+		{ body } ;;
+esac
+
+for VAR in LIST
+do
+	{ body }
+done
+
+for file in `/bin/ls`
+do
+	echo $FILE
+done
+
+for ((a=1; a <= LIMIT; a++)); do
+	echo "$a"
+done
+
+while [ $N -lt 10 ]; do
+	echo -n $N
+	let N=$N+1
+done
+
+until [ $N -eq 10 ]; do
+	echo -n $N
+	let N=$N+1
+done

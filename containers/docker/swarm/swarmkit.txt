@@ -1,0 +1,58 @@
+SwarmKit is the orchestration mechanism released to handle clusters of services
+of any size.
+
+"Toolkit for orchestrating distributed systems at any scale. It includes
+primitives for node discovery, raft-based consensus, task scheduling, and more."
+
+Swarm clusters are made of active nodes, that can either act as managers or workers.
+Managers, that coordinate via Raft, are responsible for allocating resources,
+orchestrating services, and dispatching tasks along the cluster. Workers run
+tasks.
+
+The cluster goal is to execute services, so what's required to be run is defined
+at a high level. Work units assigned to nodes are instead called tasks. A task
+allocated for a "web" service could be, for example, a container running The
+nginx container, and may be named as web.5.
+
+It's important to notice that we are speaking of services and that a service may
+be containrs. May be, not necessary. The intention of SwarmKit is to theoretically
+abstract orchestration of any object.
+
+# Architecture
+In a SwarmKit cluster, nodes can be either managers (of the cluster) or workers
+(the work horses of the cluster, nodes that execute compute operations). There
+should be an odd number, preferably 3 or 5, so that there will be no split brains.
+And a majority of managers will drive the cluster. A quorum is always required by
+the Raft consensus algorithm.
+
+A SwarmKit cluster can host any arbitrary number of workers: 1, 10, 100, 2000.
+On managers, services may be defined and load balanced. For example a service
+may be "web". A "web" service will be physically made of several tasks, running
+on the cluster nodes, including managers, for example one task can be a single
+nginx Docker container.
+
+In SwarmKit, an operator uses a swarmctl binary to interact with the system
+remotely, invoking operations on the leader master. Masters, that run a binary
+called swarmd, agree on a leader via Raft, keep the status of services and tasks,
+and schedule jobs on workers.
+
+Workers run the Docker Engine, and take jobs running them as separate containers.
+
+# How a manager chooses the best node for a task.
+The way that SwarmKit spawns tasks over the cluster is called scheduling. The
+scheduler is an algorithm that uses criteria such as filters to decide where to
+physically start a task.
+
+# The heart of SwarmKit: swarmd
+The core binary to start a SwarmKit service is called swarmd, and that's the daemon
+to create both the master and join slaves.
+
+It can bind itself to either a local UNIX socket and to a TCP socket, but in
+both cases manageable by the swarmctl utility by connecting (another) dedicated
+UNIX local socket.
+
+# The controller of SwarmKit: swarmctl
+docker run -ti fsoppelsa/swarmkit swarmctl --help
+
+swarmctl is the client of SwarmKit. It's the tool used for operating SwarmKit
+clusters.

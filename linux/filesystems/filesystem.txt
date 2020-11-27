@@ -1,0 +1,31 @@
+/bin  - common linux user commands such as ls; sort, date and chmod.
+
+/boot - has the bootable linux kernel and bootloader configuration files(GRUB).
+
+/dev - contains files representing access points to devices on your systems. These include terminal devices tty* floppy disks fd* hard disks hd* or sd* ram ram* and cdrom cd*. Users can access these devices directly through these files;    however applications often hide actual device names from end users.
+
+/etc - contains administrative configuration files. 
+
+/home - contains directories assigned to each regular user with a login account. besides root which uses /root for it's home directory.
+
+/media - provides a standard location for automounting devices, particularly removable media. Typically the media volume name is used as a reference e.g. /media/thingy.
+
+/lib - contains shared libraries needed by applications in /bin and /sbin to boot the system.
+
+/mnt - a common mount point for many devices before it was supplanted by the standard /media directory. Some bootable linux systems still use this directory to mount hard drisk partitions and remote filesystems.
+
+/misc - a directory sometimes used to automount filesystems upon request.
+
+/opt - directory structure available to store add-on application software
+
+/proc - contains information about system resources
+
+/root - represents the root users directory.
+
+/sbin - contains administrative commands and daemon processes
+
+/tmp - contains temporary files used by applications
+
+/usr - contains user documentation, games, graphical files, libraries and a variety of other commands  and files that are not needed during the boot process. The /usr directory is meant for files that don't change after installation (in theory /usr could be mounted read-only).
+
+/var - contains directories of data used by various applications. in particular webserver, ftp server files and system log files. Contains files that are meant to change often. 

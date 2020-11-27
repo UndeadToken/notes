@@ -1,0 +1,35 @@
+Creational design patterns are patterns that concern object creation mechanisms.
+
+--- Software design Process:
+definition:
+  "The process of defining the architecture, components, interfaces and other
+  characteristics of a system or component." and "the result of [that] process"
+
+Software design can be split into two levels of hierarchy:
+  - Architectural design, describing how software is split into composite components
+  - Detailed design, describing the specifics of each component in sufficient detail as to describe its component
+
+--- Simple Factory:
+A simple way to provide objects. For example a FooFactory may provide Bar's of
+type Fizz or Buzz depending on the requested type. This may include the simple
+use of a switch statement from which an instance can be derived.
+
+--- Factory Method:
+The factory method allows you to group certain classes together and deal with
+them by means of an individual factory for a group of classes.
+
+--- Abstract Factory
+An abstract factory consists of the following classes: an Abstract Factory;
+Concrete Factory, Abstract Product, Concrete Product and our client.
+
+--- Lazy Initialization / lazy loader:
+Load instances only when required, then return the pre made instance on
+subsequent calls.
+
+--- Builder
+The builder pattern solves the Telescoping constructor anti-pattern by providing
+functions that set, mutate, apply logic.
+
+--- Prototype
+Duplicate objects while minimizing the performance impacts of having to
+re-instantiate objects. __construct is not run after after an object is cloned.

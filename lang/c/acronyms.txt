@@ -1,0 +1,3 @@
+SDMI - Secure Digital Music Initiative
+DMCA - The Digital Mellenium Copyright Act
+GCC - GNU Compiler Collection

@@ -1,0 +1,5 @@
+perl -e 'print "A" x 20;'
+perl -e 'print "\x41" x 20;'
+perl -e 'print "A"x20' . '"BCD";'
+$(perl -e 'print "uname";')
+`perl -e 'print "uname";'`

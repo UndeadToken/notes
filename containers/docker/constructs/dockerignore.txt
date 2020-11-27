@@ -1,0 +1,7 @@
+.dockerignore
+
+Similar to .gitignore, exlude files and folders that get sent with the build context to the docker daemon
+during a docker image build.
+
+**/*.log
+./idea

@@ -1,0 +1,3 @@
+Locards Exchange Principle
+Says that, in the physical world, whenever perpetrators enter or leave a crime scene, they will leave something behind or take something with them. Examples include DNA, latent prints, hair and fibres. Though in digital forensics this is more kinda like registry keys and log files.
+

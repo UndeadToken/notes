@@ -1,0 +1,8 @@
+Desktop.getDesktop().browse(new URL("http://www.google.com/").toURI());
+
+windows specific:
+
+String url = "http://www.google.com/";
+String cmd = "cmd.exe /c start " + url;
+
+Runtime.getRuntime().exec(cmd);

@@ -1,0 +1,3 @@
+LDAP - The Lightweight Directory Access Protocol
+NIS - The Network Information Service
+Windbind - Microsoft Active Directory

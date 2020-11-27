@@ -1,0 +1,9 @@
+Instruction Pointer
+
+The instruction pointer register (rip) contains the logical address of the next instruction to be executed. It is not possible for an executing task to directly access the contents of the RIP register.
+
+The call (Call procedure) pushes the contents of the RIP register onto the stack and transfers program control to the address designated by the specified operand.
+
+The ret (Return from procedure) transfers program control by popping the top-most eight bytes off the stack and loading them into the RIP register.
+
+The jmp (Jump) and jcc (Jump if Condition is Met) also transfer program control by modifying the contents of the RIP register.

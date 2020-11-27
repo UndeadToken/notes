@@ -1,0 +1,1 @@
+MYVAR=/some/path ; export MYVAR

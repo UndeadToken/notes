@@ -1,0 +1,16 @@
+By commiting to a specific type for the elements of the sequence:
+auto rates = GetRates();
+for (int rate : rates)
+	std::cout << rate << std::endl;
+for (int& rate : rates)
+	rate *= 2
+
+By not specifying a type and letting the compiler decude it:
+for (auto&& rate : GetRates())
+	std::cout << rate << std::endl;
+for (auto & rate : rates)
+	rate *= 2
+
+By using structured bindings and decomposition declaration in C++17:
+for (auto&& [rate, flag] : GetRates())
+	std::cout << rate << std::endl; 

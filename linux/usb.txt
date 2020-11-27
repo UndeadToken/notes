@@ -1,0 +1,4 @@
+Create a bootable usb:
+dd if=sample.iso of=/dev/sdb
+
+if equals input file and of equals output file.

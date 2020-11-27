@@ -1,0 +1,8 @@
+ONBUILD
+
+The onbuild instruction is a tool used when creating images that will become the
+parameter to the FROM instructions in another Dockerfile. This instruction just
+adds metadata, specifically a trigger that is stored in the image. This trigger
+is used if the image is supplied as a parameter to another image.
+
+ONBUILD LABEL version="1.0"

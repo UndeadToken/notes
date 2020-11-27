@@ -1,0 +1,50 @@
+read = 4
+write = 2
+execute = 1
+
+rwx = 4 + 2 + 1 = 7
+
+_ _ _ = user, group, other = ugo
+e.g. chmod 754 rwx for user, rx for group and r for other.
+e.g. chmod -R a+x will recursively add user executable rights.
+
+Each directory begins with a 'd'.
+Regular files begin with '-'.
+
+For applications that can be run(executed) by any user you may see the 's' bit in pace of the 'x' bit in a permissions listing e.g. -rwsr-xr-x for user or -rwxr-sr-x or both -rwsr-sr-x. However ownership of the running processes is assigned to the applications user/group instead of the the user launching the command.
+
+By appending the 't' bit e.g. drwxr-xr-x-t a directories owner can allow other users and groups to add files to a directory but prevent users from deleting eachothers files. A capital S or T in place of the execute bit may also represent this but the execute, for some reason, is not turned on.
+
+The '+' bit appended to permissions sets means that extended attributes such as Access Control lists (ACL's) or SELinux are set on the file..
+
+d - directory
+l - symbolic link
+b - block device
+c - character device
+s - socket
+p - named pipe
+
+chmod a-w file -r-xr-xr-x
+chmod o-x file -rwxrwxrw-
+chmod go-rwx file -rwx------
+chmod u+rw file -rw-------
+chmod a+x file ---x--x--x
+
+default masks:
+regular user file: rw-rw-r--
+directory: rwxrwxr-x
+root user file: rw-r--r--
+root directory: rwxr-xr-x
+
+`umask` can be used to determine your umask value.
+
+change ownership:
+
+chown joe /my/dir
+chown joe:joe /my/dir
+
+
+Use files:
+set user ID bit                     4                       u+s
+Set group ID bit                    2                       g+s
+Sticky bit                          1                       o+t

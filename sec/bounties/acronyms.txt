@@ -1,0 +1,6 @@
+VDP (Vulnerability Disclosure Program)
+HPP (HTTP parameter pollution)
+CSRF (Cross-site Request Forgery)
+CORS (Cross-origin Resource Sharing)
+CRLF (Carriage Return Line Feed)
+SOP (Same Origin Policy)

@@ -1,0 +1,13 @@
+Dispatch
+The process by which a an API has to figure out the method implementation to invoke
+on an instance of a type that's passed to teh API. This process of methjod resolution
+in a polymorphic context is caled dispatch, and invoking the method is called dispatching.
+
+Monomorphization
+The process of generating specialized functions with concrete types at compile time.
+Also known as Static Dispatch, when the method to invoke is decided at compile time.
+
+Polymorphism
+The process by which an abstraction superseeds its parents implementation during runtime.
+Dynamic Dispatch, when the method call isn't decided until runtime.
+(Looks through interface implementations in vtable, which is a list of function pointers which point to each types implemented method.)

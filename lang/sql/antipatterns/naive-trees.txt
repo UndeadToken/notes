@@ -1,0 +1,81 @@
+A hierarchy of entries and relationships. Model both of these to suit your work.
+
+OBJECTIVE
+Store and query hierarchies.
+
+ANTIPATTERN
+Always depend on One's parent. This design is called Adjacency List.
+
+SELECT f.*, b.*
+FROM foo f LEFT OUTER JOIN bar b
+ON b.parent_id = f.foreign_id
+
+PATH ENUMERATION
+Using a path that represents a string of ancestors i.e 1/4/9/. Though this aligns with the Jaywalking antipattern.
+
+SELECT * FROM foo WHERE '/1/4/9/' LIKE foo.path OR '%'
+
+NESTED SETS
+Fields pertain to the set of its decendents rather than the nodes immediate parent.
+
+Fetch decendents:
+SELECT b.*
+FROM foo AS f
+JOIN foo as bar
+ON b.nsleft BETWEEN f.nsleft AND f.nsright
+WHERE f.comment_id = 4;
+
+Fetch ancestors:
+SELECT b.*
+FROM foo AS f
+JOIN foo as bar
+ON f.nsleft BETWEEN b.nsleft AND b.nsright
+WHERE f.comment_id = 6;
+
+CLOSURE TABLE
+Store all paths through the tree not just those with a parent-child relationship.
+
+comments
+  id, comment, created_at
+
+comments_paths
+  ancestor, descendant
+
+Fetch ancestors:
+SELECT c.*
+FROM comments AS c
+JOIN comments_paths AS p ON c.id = p.descendant
+WHERE p.ancestor = 4;
+
+Fetch decendants:
+SELECT c.*
+FROM comments AS c
+JOIN comments_paths AS p ON c.id = p.anscestor
+WHERE p.descendant = 6;
+
+Insert leaf node:
+INSERT INTO comments_paths (ancestor, descendant)
+  SELECT p.ancestor, 8
+  FROM comments_paths AS p
+  WHERE p.descendant = 5
+UNION ALL
+	SELECT 8, 8
+
+Delete leaf:
+DELETE FROM comments_paths WHERE descendant = 7;
+
+Delete subtree:
+DELETE FROM comments_paths
+WHERE descendant IN (SELECT descendant FROM comments_paths WHERE ancestor = 4);
+
+Move subtree:
+DELETE FROM comments_paths
+WHERE descendant IN (SELECT descendant FROM comments_paths WHERE ancestor = 6)
+AND ancestor IN (SELECT ancestor FROM comments_paths WHERE descendant = 6 AND ancestor != descendant);
+
+INSERT INTO comments_paths (ancestor, descendant)
+  SELECT supertree.ancestor, subtree.descendant
+  FROM comments_paths AS supertree
+    CROSS JOIN comments_paths AS subtree
+  WHERE supertree.descendant = 3
+    AND subtree.ancestor = 6;

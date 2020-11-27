@@ -1,0 +1,48 @@
+host -t ns {host}
+host -t a {host}
+host -t aaaa {host}
+host -t mx {host}
+host -t soa {host}
+
+dig (domain information groper)
+dig @{dns host} -t AFXR {host}
+
+zone transfer (hit the mother fucking mother load of ips)
+
+https://searchdns.netcraft.com/?host
+ARIN (American registery for Internet Numbers) (North America)
+RIPE (Europe & Middle East)
+
+Determine netblock size of target for small organsiation if ISP uses.
+SWIP Shared Whois
+RWhois Referal Whois
+
+ARIN query syntax(lookup address, phone numbers, emails)
+whois -h whois.arin.net \?
+whois -h whois.arin.net @{host} (shows all the ARIN contacts with email addresses at {host})
+whois -h whois.arin.net "n target*" (shows all net handles starting with 'target')
+whois -h whois.arin.net "o target*" (shows all of the organisational names startig with 'target')
+
+
+resulting hosts are part of an organisation?
+DNS reverse-resolution, traceroute, whois
+
+nmap -PN -T4 --traceroute {host}
+
+Internet routing information
+Core routing protocol of the internet is the Border Gateway Protocol (BGP)
+BGP routing tables can help find IP subnets all over the world.
+
+Anonymous System (AS) numbers
+large entities such as mircosoft are assigned as numbers for routing purposes.
+determine AS number http://asn.cymru.com/
+find ip prefixes that route to AS http://www.robtex.com/as/
+
+telnet route-views.routeviews.org or http://routeviews.org/
+
+DNS Resolution
+
+-n No DNS resolution
+-R DNS resolution for all targets
+--system-dns Use system DNS resolver
+--dns-servers Servers to use for reverse dns queries (defaults to resolv.conf)

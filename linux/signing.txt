@@ -1,0 +1,11 @@
+PGP Signatures
+
+GNU Privacy Guard (GPG)
+
+Nmap
+wget http://nmap.org/data/nmap_gpgkeys.txt
+gpg --import nmap_gpgkeys.txt
+gpg --fingerprint nmap fyodor
+
+keys often stored in ..b2z.digest.txt
+

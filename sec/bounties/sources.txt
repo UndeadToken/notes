@@ -1,0 +1,15 @@
+owasp.org
+hackerone.com
+gchq.github.io/CyberChef
+blackhat.com
+rcesecurity.com
+https://blog.innerht.ml/csp-2015/#contentexfiltration
+http://html5sec.org/
+https://blog.innerht.ml/the-misunderstood-x-xss-protection
+https://githib.com/masatokinugawa/filterbypass/wiki/Browser's-XSS-Filter-Bypass-Cheat-Sheet
+https://xsshunter.com/
+https://whitton.io/articles/uber-turning-self-xss-into-good-xss
+https://mahmoudsec.blogspot.com/2015/09/how-i-found-xss-Vulnerability-in-google.html
+https://blog.it-securityguard.com/bugbounty-th-5000-google-xss
+http://strukt93.blogspot.jp/2016/07/united-to-xss-united.html
+https://pyson.org/tools/ip_address_converter.php?ip=127.0.0.1/

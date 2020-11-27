@@ -1,0 +1,25 @@
+HEALTHCHECK
+
+Defines the command to run in the container to test the containers application health.
+When the container has a HEALThCHECK it gets a special status variable which is initially
+`starting`. Anytime a healthcheck is perfomed successfully the status is `healthy`.
+If the healthcheck fails a value will be incremented until it exceeds the retries value then
+the status will be set to `unhealthy`.
+
+HEALTHCHECK none
+
+# options
+--interval=DURATION # (default: 30s)
+--timeout=DURATION # (default: 30s)
+--start-period=DURATION # (default: 0)
+--restries=N # (default: 3)
+
+0 exit status is success
+1 exit status is fail
+
+FROM alpine
+RUN apk add curl
+EXPOSE 80/tcp
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD curl -f http://localhost/ || exit 1
+CMD while true; do echo 'DQS Expose Demo' | nc -l -p 80; done

@@ -1,0 +1,37 @@
+The Commutative Law:
+Swapping numbers positions...
+
+a - b = a + (-b)
+
+ab = ba
+a/(-a) = (-a)/a
+
+The Associative Law:
+Group the addends together any way you want and you'll end up with the same
+result. This fails when  you subtract, so add then subtract. Hardly ever works
+for division.
+
+(a + b) + c = a + (b + c)
+
+(a + b) - c = a + [b + (-c)]
+
+(ab)c = a(bc)
+
+Distributive Laws:
+Expand an expression into a sum or difference of numbers.
+
+Multiplication over division - a(b + c) = ab + ac, (a + b)c = ac + bc
+Multiplication over subtraction - a(b - c) = ab - ac, (a - b)c = ac - bc
+Addition over Division - (a + b)/c = a/c + b/c
+Left hand division over addition / subtraction fails.
+
+a(b - c)
+a[b + (-c)]
+ab + a(-c)
+ab + ac(-1)
+ab + a(-1)b
+ab + (-1)ac
+ab + (-ac)
+ab - ac
+
+

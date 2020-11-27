@@ -1,0 +1,57 @@
+if(TEST) {
+
+} else if(TEST) {
+
+} else {
+
+}
+
+switch(OPERAND) {
+	case CONSTANT:
+		CODE;
+		break;
+
+	default:
+		CODE;
+}
+
+while(TEST) {
+	CODE;
+}
+
+do {
+
+} while(TEST);
+
+for(INIT; TEST; POST) {
+
+}
+
+enum { CONST1, CONST2, CONST3 } NAME;
+
+goto fail;
+fail:
+	CODE;
+
+TYPE NAME(ARG1, ARG2, ...) {
+	CODE;
+	return VALUE;
+}
+
+typedef DEFINITION IDENTIFIER; # e.g. typedef unsigned char byte
+
+struct NAME {
+	ELEMENTS;
+} [VARIABLE_NAME]; # variable name is optional
+
+typedef struct [STRUCT_NAME] {
+	ELEMENTS;
+} IDENTIFIER;
+
+union NAME {
+	ELEMENTS;
+} [VARIABLE_NAME];
+
+
+
+

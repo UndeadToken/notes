@@ -1,0 +1,42 @@
+# Install
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version
+
+# hello-minkube
+NodePort means it is exposed to the host on some port.
+kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
+kubectl expose deployment hello-minikube --type=NodePort --port=8080 # expose as a service
+kubectl get service hello-minikube --output='jsonpath="{.spec.ports[0].NodePort}"'
+
+# List pods
+kubectl get pod
+
+# service
+minikube service hello-node
+
+# List services
+kubectl get services
+
+# Delete service
+kubectl delete services hello-minikube
+
+# Delete deployment
+kubectl delete deployment hello-minikube
+
+# List deployments
+kubectl get deployments
+
+# List events
+kubectl get deployments
+
+# View config
+kubectl config view
+
+# Expose service outside of cluster
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+
+
+# Get cluster information
+kubectl cluster-info

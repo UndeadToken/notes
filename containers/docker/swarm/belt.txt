@@ -1,0 +1,17 @@
+A variant for provisioning Docker.
+
+# Install
+go get https://github.com/chanwit/belt
+
+# config.yaml
+digitalocean:
+  image: 'docker-1.12-rc4'
+  region: nyc3
+  ssh_key_fingerprint: "your ssh ID"
+  ssh_user: root
+
+# Create nodes
+belt create 16gb mg[0:2]
+belt status --wait active=3
+belt create 512mb node[1:10]
+belt status --wait active=13

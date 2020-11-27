@@ -1,0 +1,68 @@
+lowest term / lowest form:
+The numerator and denominator are as small as possible.
+95/155
+95 = 5 x 19
+155 = 5 x 31
+19:31
+
+Negative Denonimators
+-3/5 = 3/(-5)
+-1/(-1) = 1 = multiplative identify element
+
+Common factor:
+6/10 = (6/2)/(10/2) = 3/5
+
+"Brute-force"
+1) factor numerator and denominator into products of primes, if original number
+   is negative attach -1, making sure all prime factors are positive
+2) remove common prime factors (occurs in both numerator and denominator prime
+   factors)
+3) multiple all factors in numerator, then denominator
+4) if denominator is negative, multiple numerator and denominator by -1
+
+210/(-390)
+210 = 2 x 3 x 5 x 7 = 7
+-390 = -1 x 2 x 3 x 5 x 13 = -1 x 13 = -13
+7/-13 = -7/13
+
+-ab^3cde/(-ab^2ce^3f) = b^1d/e^2f = bd/e^2f or
+-1 . a . b . b . b . c . d . e / -1 . a . b . b . c . e . e . e . f = b . d / e . e . f
+
+A fraction times a fraction:
+1) ensure they are both pure fractions(they both consist of an integer divided
+   by a positive integer)
+2) a,c can be integers(positive, negative, 0) and b,d can be positive integers
+(a/b)(c/d) = ac/bd
+
+The recipricol of a fraction:
+The recipricol of an integer, also called the multiplicative inverse, is the
+quantity by which you must multiply the original integer to get 1. The
+recipricol of any integer is equal to 1 divided by that integer. 0 has no
+recipricol, 1 is its own recipricol and so is -1.
+(a/b)(b/a) = ab/ba
+ab/ba = ab/ab = 1 #commutative law
+
+A fraction divided by a fraction:
+1) Find the recipricol of the second fraction (the divisor)
+2) multiply the first fraction (the dividend) by the second fraction
+(a/b)/(c/d) # compound fraction (a fraction made of other fractions, ratio of ratios)
+= (a/b)/(d/c) = ad/bc
+
+(a/b)/(c/d)/(e/f)
+(a/b)/(d/c)/(e/f)
+(ad/bc)/(e/f)
+(ad/bc)/(f/e)
+adf/bce
+
+Adding and subtracting fractions:
+1) ensure no negative denominators
+2) find the common denominator (both fractions have the same denominator)
+3) Add numerators and put them over the common denominator
+a/b + c/d
+(a/b)/(d/d) + (c/d)/(b/b)
+(a/b)/d + (c/d)/b
+ad/bd + cb/db
+ad/bd + bc/bd
+(ad + bc)/bd
+
+formula: a/b + c/d = (ad + bc)/bd

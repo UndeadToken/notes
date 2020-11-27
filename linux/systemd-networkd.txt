@@ -1,0 +1,31 @@
+Place .network files within /etc/systemd/network/
+alternatively /lib/systemd/network for packaged files or
+/run/systemd/network for files generated at runtime.
+
+Disabled by default and depends on systemd-resolved.
+Replace /etc/resolv.conf with a symlink.
+(Note: suffers frin the lack of integrated support for wireless networks. Use external wpa_supplicant for configuration.)
+
+systemctl enable systemd-networkd
+systemctl enable systemd-resolved
+systemctl start systemd-networkd
+systemctl start systemd-resolved
+ln -sf /run/system/resolve/resolv.conf /etc/resolv.conf
+
+.network
+
+[Match]
+Name=en*
+
+[Network]
+DHCP=yes
+
+Static configuration.
+
+[Match]
+Name=enp2s0
+
+[Network]
+Address=102.168.0.15/24
+Gateway=192.168.0.1
+DNS=8.8.8.8

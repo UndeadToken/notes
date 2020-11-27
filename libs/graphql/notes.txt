@@ -1,0 +1,18 @@
+GraphQL is a layer between a client and a datastore like a personal assistant.
+With GraphQL, your API schema and your database schemas are decoupled.
+GraphQL API is organized around three main building blocks: the schema, queries, and resolvers.
+
+Queries:
+The request you make to your GraphQL personal assistant is the query, and it looks something like this:
+
+query { stuff }
+
+query { post(id: "123foo"){ title # Argument
+
+query getMyPost($id: String) {  post(id: $id){ # Dynamic Argument
+
+# Install for js
+yarn add @apollo/client
+
+# Install for vue
+yarn add vue-apollo graphql apollo-boost

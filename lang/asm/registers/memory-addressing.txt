@@ -1,0 +1,16 @@
+An x86-64 instruction requires up to four separate components in order to specify the location of an operand in memory. The four components include a constant displacement value; a base register, an index register and a scale factor. Using these components, the processor calculates an effective address for a memory operand as follows:
+
+EffectiveAddress = BaseReg + IndexReg * ScaleFactor + Disp
+
+The base register (BaseReg) can be any general-purpose register.
+
+The index register (IndexReg) can be any general-purpose register except RSP.
+
+Valid scale factors (ScaleFactor) include 2, 4 and 8.
+
+The dispalcement (Disp) is a constant 8-bit, 16-bit, or 32-bit signed offset that's encoded within the instruction.
+
+
+The final size of an effective address is always 64-bits.
+
+A default value of zero is used for the displacement if an explicit value is not specified. 

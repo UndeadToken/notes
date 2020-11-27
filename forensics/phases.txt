@@ -1,0 +1,41 @@
+Search Authority
+A search warrant, subpoena or consent. Exigent circumstances include child endangerment.
+
+Chain of Custody
+The integrity of artefacts, the time its collected to the time its presented to the court. If the chain is broken, the evidence could be excluded from the trial.
+
+Imaging/Hashing Function
+A forensic clone (or bitstream) of every bit on the media. The process of creating a bitstream is called imaging. Copies are not acceptable in court unless they mathematically, via hashing, replicate the original media.
+
+Validated Tools
+Tools must be tested before they are used to verify the accuracy of their results.
+
+Analysis
+Locate and interpret artefacts
+- linking some activity with a specific user account
+- establishing a timeline of events
+- determining whether a usb storage device was connected to a machine
+- breaking encryption
+- identifying relationships/connections between individuals (i.e suspect andf victim)
+- identifying websites that have been visited
+- identifying whether certain files were opened or downloaded
+- identifying what search engine quiries have been entered
+- locating contraband
+- determining what applications have been installed or uninstalled
+- recovering deleted files
+- determining whether or not the system has been compromised in some way
+
+Repeatability (Quality Assurance)
+The results of a forensic examination (and the process used to reach them) should be able to be duplicated.
+
+Reporting
+- executive summaries
+- list of evidence items examined
+- methods and tools used to perform analysis
+- findings
+- conclusion
+- relevant exhibits
+
+Possible Expert Presentation
+Presentation of the findings to a judge or a jury.
+

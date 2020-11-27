@@ -1,0 +1,39 @@
+Capitalized letters denote public visibility and can be access outside of the
+package. It is "exported". The name of each package level entity is visible
+not only throughout the source file  that contains its declaration but
+throughout all the files of the package.
+
+Types:
+
+Basic Types
+numbers, strings booleans
+
+Aggregate Types
+arrays, structs
+
+Reference Types
+pointers, slices, maps, functions, channels
+
+Interface Types
+
+GOMAXPROCS=3 go run foo.go
+
+go test -v -run="Foo|Bar"
+go test -bench=.
+
+# In using scratch image, go has a dependency on GLibC(net, os/user packages).
+# This needs to be statically linked with scratch.
+CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -a -installsuffix cgo -ldflags '-s' -o server
+
+GOOS=linux GOARCH=amd64
+
+```
+FROM scratch
+MAINTAINER foo@bar.com
+
+EXPOSE 8080
+
+COPY ./server ./
+
+ENTRYPOINT ./server
+```

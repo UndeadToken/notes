@@ -1,0 +1,51 @@
+# Install
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
+sudo mkdir -p /usr/local/bin/
+sudo install minikube /usr/local/bin/
+
+# Start
+minikube start
+
+# Clear state
+minikube delete
+
+# Get url of exposed service
+minikube service hello-minikube --url
+
+# Stop
+minikube stop
+
+# Specify version
+minikube start --kubernetes-version v1.16.0
+
+# Specify driver
+minikube start --vm-driver=<driver_name>
+
+# Reuse Minikubes built in docker daemon
+eval $(minikube docker-env)
+
+# Extra config
+--extra-config=kubelet.MaxPods=5.
+
+# Context
+Minikube start command creates a kubectl context called minikube which contains
+the configuration to communicate with your minikube cluster.
+This is set automatically.
+kubectl config use-context minikube
+
+# View dashboard
+minikube dashboard
+
+# Access a service
+minikube service [-n NAMESPACE] [--url] NAME
+
+# Networking
+The Minikube VM is exposed to the host system via a host-only IP address, that
+can be obtained with the minikube ip command. Any services of type NodePort can
+be accessed over that IP address, on the NodePort. To determine the NodePort for
+your service, you can use a kubectl command like this:
+
+kubectl get service $SERVICE --output='jsonpath="{.spec.ports[0].nodePort}"'
+
+# Get ip
+minikube ip

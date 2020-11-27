@@ -1,0 +1,20 @@
+ADD
+
+The add instruction is used to copy files and folders into the docker image being built. The add
+instruction can do more than the copy instruction. copy is limited to files and folders where as add
+can copy files; folders, tar files and urls. When the add copies a tar file the contents are extracted.
+This does not copy the file permissions, you will need to run RUN chown -R X:X after you add tar file.
+ADD [--chown=<user>:<group>] <src>... <dest>
+ADD [--chown=<user:<group>] ["<src>",... "<dest>"]
+
+ADD
+https://github.com/docker-library/
+hello /
+RUN chmod +x /hello
+CMD ["/hello"]
+
+Adding urls is not recommended, instead do this:
+RUN mkdir -p /usr/src/thins \
+  && curl -SL https:/example.com/big.tar.xz \
+  | tar -xJC /usr/src/things \
+  && make -C /usr/src/things all

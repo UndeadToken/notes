@@ -1,0 +1,14 @@
+CMD
+
+The cmd action is used to define the default action taken when containers are run.
+This instruction runs when the container runs. This instruction adds a zero-byte-sized
+layer to the image.
+
+CMD ["executable", "param1", "param2"]
+CMD ["param1", "param2"] # as default parameters to entrypoint.
+
+CMD ["/bin/bash"]
+CMD while true; do echo 'DQS Expose Demo' | nc -l -p 80; done
+CMD echo "Something" | wc -
+CMD tail -f /dev/null
+CMD ["-latr", "/var/opt"]

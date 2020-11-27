@@ -1,0 +1,22 @@
+# Provisioning a SwarmKit cluster with ansible:
+`ansible-playbook aws_provision_master.yml`
+
+```
+docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 4242:4242 \
+  fsoppelsa/swarmkit swarmd --listen-remote-api 0.0.0.0:4242
+```
+
+slave:
+`for i in $(seq 5); do ansible-playbook aws_provision_slave.yml; done`
+```
+docker run -d -v /var/run/docker.sock:/var/run/docker.sock fsoppelsa/swarmkit swarmd --join-addr $(docker-machine ip swarmkit-master):4242
+```
+
+eval $(docker-machine env swarmkit-master)
+
+```
+docker exec -ti djudgu3dg83dg swamrctl -s /swarmkitstate/swarmd.sock node ls
+```
+
+# resources:
+https://github.com/fsoppelsa/ansible-swarmkit

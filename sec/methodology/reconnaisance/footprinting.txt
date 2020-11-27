@@ -1,0 +1,43 @@
+Gathering intelligence on a given target.
+
+Passing footprinting:
+hands off, public info search. e.g google, social media.
+
+Active Footprinting:
+Interaciton with out target e.g. port scan, talking to employees..
+
+Benefits of footprinting:
+Know security posture - types of software, operating systems, web servers etc.. 
+Reduce focus area.
+Identify vulnerabilities
+Network map - figure out what to hack.
+
+Ways of doing footprinting:
+Search Engines
+Google hacking
+shodan
+whois
+nslookup
+social media
+competitive intelligence - sec.gov/
+job boards
+alerts - https://visualping.io/
+mirror website
+email footprinting - theharvester
+
+Google Fu
+
+info:string
+filetype:type
+link:string
+inurl:string
+
+"password.xlsx" ext:xlsx
+intitle:"D-Link VoIP Router" "Welcome"
+
+tools:
+maltego
+recon-ng
+OSRFramework - open source research framework
+Nikto - nikto -e 1 -h {site}
+theHarvester

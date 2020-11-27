@@ -1,0 +1,7 @@
+Run-time Errors
+A contract can raise errors by throwing exceptions. Any error in the execution of a transition (including those due to thrown exceptions, out-of-gas errors and others such as integer overflows) results in the blockchain aborting the execution of the contract as well as aborting any other contracts that were executed before in that chain.
+
+The syntax for raising errors is similar to that of events and messages.
+
+e = { _exception : "InvalidInput"; <entry>_2; <entry>_3 };
+throw e

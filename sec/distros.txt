@@ -1,0 +1,21 @@
+Kali Linux (Backtrack)
+Parrot OS
+Anonym.OS
+Auditor
+Arudius
+BlackArch
+BackBox
+CQure AP
+Frenzy
+Knoppix-STD
+Linux LiveCD Router
+Less Networks Hotspot Server
+Operator
+Pentoo
+Phlak
+ProTech
+Russix
+Sisela
+Talos Security LiveCD
+WarLinux
+WHAX

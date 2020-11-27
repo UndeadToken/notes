@@ -1,0 +1,117 @@
+Methodology
+
+Reconnaissance
+Scanning
+Gaining Access
+Maintaining Access
+Covering Tracks
+
+-----
+
+Testing:
+
+Black Box Testing
+outside access leve based attacks, e.g. criminal hacker
+
+White Box Testing
+insider thread level(knows about servers, has access)
+
+Gray Box Testing
+User level access
+
+-----
+
+Identity  and Access management (IAM):
+Providing the right people with the right access at the right time.
+
+Access Management
+Authentication - Single sign-on, session management, password service, strong authentication
+Authorization - role-based, rule-based, attribute-based, remote authorization
+
+Identity Management
+user management - delegated administration, user and role management, provisioning, password management, self-service
+central user repository - directory, data synchronization, meta-directory, virtual directory
+
+-----
+
+Red vs Blue:
+
+Blue: Defender
+Red: Offender
+
+-----
+
+C.I.A:
+Confidentiality - Only people who need to know information can access it.
+Integrity - information is valid and not altered.
+Availability - people who need information has access.
+
+-----
+
+Authentication / Non-repudiation:
+
+Authentication:
+Something you are (biometric)
+Something you have (badge)
+Something you know (password)
+
+Nonrepudiation: I can prove you did it.
+
+-----
+
+Physical Security(protecting your assets):
+
+Plans, steps and procedures to protect your assets
+Physical measures: touch, taste
+technical measures: smartcards
+Operation measures: policies
+
+-----
+
+Laws:
+
+HIPPA - Health Insurance Portability and Accountability 
+safeguarding private and medical information
+
+ PCI-DSS - PCI Data Security Standard - High Level Overview
+ Build and Maintain a secure Network and Systems
+  - Install and maintain a firewall configuration to protect cardholder data
+  - Do not use vendor-supplied defaults for system passwords and other security parameters
+
+ Protect Cardholder Data
+  - Protect stored cardholder data
+  - Encrypt transmission of cardholder data across open, public networks	
+
+ Maintain a vulnerability management program  
+  - Restrict access against malware and regularly update anti-virus software or programs
+  - Develop and maintain secure systems and applications
+
+ Implement Strong Access Control Measures
+  - Restrict access to cardholder data by business need to know
+  - Identify and authenticate access to system components
+  - Restrict physical access to cardholder data
+
+ Regularly Monitor and Test Networks
+  - Track and monitor all access to network resources and cardholder data
+  - Regularly test security systems and processes
+
+ Maintain an information security policy
+  - Maintain a policy that addresses information security for all personnel
+
+SOX - Sarbanes-Oxley Act, SOX Section 404 Internal Controls:
+What are the requirements for Section 404?
+
+- Management document controls and asses the effectiveness of internal controls. over financial reporting.
+- The external auditors to test the internal controls over financial reporting.
+
+DMCA - Digital Millennium Copyright Act:
+Report copyrighted content. Covers type of material you create.
+
+FISMA - Federal Information Security management Act
+requires annual reviews of information security programs.
+
+ISO/IEC 27001:2013 - (a standard) Management needs to:
+- Examine information security risks.
+- Design/implement security controls.
+- Monitor controls.
+

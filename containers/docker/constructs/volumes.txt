@@ -1,0 +1,68 @@
+Docker uses a special file system called a union file system. The one thing that the Union File System
+does not provide is persistent storage of data. The layers of a docker image are read-only.
+
+A Docker volume is a storage location that is completely outside of the Union File System. The volume is,
+by default on the host that is running the container that uses the volume.
+
+You cannot mount a precreated volume with the VOLUME instruction.
+
+docker volume create
+docker volume inspect
+docker volume ls
+docker volume rm
+docker volume prune # remove all unused local volumes
+
+docker volume create [OPTIONS] [VOLUME]
+
+-d, --driver string # driver name (default: "local")
+--label list # set metadata fro a volume
+-o, opt map # set driver specific options
+
+ls -l /var/lib/docker/volumes/
+
+screen ~/Library/Containers/com/docker.docker/Data/com.docker.driver.amd64-linux/tty
+screen ~/Library/Containers/com.docker.docker.Data/vms/0/tty
+Use CTRL + AK to kill the screen session.
+Detach with CTRL + A CTRL + D then reconnect with screen -r
+
+Mount a pre-created volume
+docker container run --rm -d \
+--mount source=my-vol-2,target=/myvol \
+--name vol-demo2 \
+volume-demo2:1.0 tail -f /dev/null
+
+one-to-one file mapping
+docker container run --rm -d \
+-v /tmp/data-file.txt:/myvol/data-file.txt \
+--name vol-demo \
+volume-demo2:1.0 tail -f /dev/null
+
+--mount source=my-volume,target=/myvol,readonly
+--mount source=my-volume,destination=/myvol,readonly
+-v my-volume:/myvol:ro
+
+# Check which container have a mounted volume by name
+docker ps -a --filter volume=in-use-volume
+
+List volumes not attached to a container
+docker volume ls --filter dangling=true
+
+# Data volume containers
+Share volumes between containers using --volumes-from to define the
+precreated volumes that should be shared.
+
+docker container run \
+--rm -d \
+-v data-vol-01:/data/vol1 -v data-vol-2:/data \
+--name data-container \
+vol-demo2:1.0 tail -f /dev/null
+
+docker container run \
+--rm -d \
+--volumes-from data-container \
+vol-demo2:1.0 tail -f /dev/null
+
+docker container exec app-container ls -l /data
+docker container inspect -f '{{ range .Mounts }}{{ .Name }} {{ end }}' app-container
+
+docker volume create --driver local --opt type=tmpfs --opt device=tmpfs --opt o=size=10m

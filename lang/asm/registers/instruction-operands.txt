@@ -1,0 +1,14 @@
+All x86-64 instructions use operands, which designate the specific values which the instruction will act upon. nearly all instructions require one or more source operands and a single destination operand.
+
+Types of Operands:
+
+Immediate
+A constant value that is encoded as part of the instruction. These are typically used to specify constant values. Only source operands can specify an immediate value.
+
+Register
+Operands that are contained in general-purpose or SIMD register.
+
+Memory
+A memory operand specifies a location in memory, which can contain data types. An instruction can specify either a source or destination as a memory operand but not both.
+
+

@@ -1,0 +1,27 @@
+type *ptr   a pointer of type named ptr
+*ptr        the value of whatever ptr is pointing at
+*(ptr + i)  the value of (whatever ptr is pointing at plus i)
+&thing      The address of thing
+type *ptr = &thing a pointer of type named ptr set to the address of thing
+ptr++       increment where ptr points
+
+# point  to start of an array
+int ages[] = {1,2,3,4};
+char *letters[] = {'a', 'b', 'd', 'e'};
+
+int *ages_index = ages;
+int **letters_index = letters;
+
+# safely get the size of ages
+int count = sizeof(ages) / sizeof(age);
+int i = 0; 
+
+for (i = 0; i<count; i++) {
+	printf("Age: %d", *(ages_index + i)); # or ages[i]
+}
+
+# another way...
+
+for (ages_index = ages; (ages_index - ages) < count; ages_index++) {
+	printf("Age: %d", *age_index);
+}

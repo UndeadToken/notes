@@ -1,0 +1,72 @@
+# --args supplies arguments to the program instead of gdb
+thread apply all bt = dump a backtrace for all threads
+gdb --batch --ex bt q --args = if it bombs, get backtrace
+
+run [args] = start your program with [args]
+break [file:]function = set a break point at [file:]function
+backtrace = Dump a backtrace of the curent calling stack, shorthand is bt
+print expr = print the value of expr, shorthand is p
+continue = continue running the program, shorthand is c
+next = next line, but step over the function calls, shorthand is n
+nexti
+step = next line, but step into function calls, shorthand is s
+quit = quit gdb
+cd, pwd, make = same as shell commands
+shell = quickly starts a shell
+clear = clear a breakpoint
+info break, info watch = show information about breakpoints and watchpoints
+attach pid = attach to a running process so you can debug it
+detach = detach from the process
+list = list out the next 10 source lines, add a - to list the previous 10 lines
+bt - backtrace stack
+
+# macos users use LLDB
+
+(gdb) set disassembly intel
+(gdb) set dis intel
+echo "set dis intel" > ~/.gdbinit
+
+debugging info:
+gcc -g foo.c
+
+info registers
+info register eip
+i r eip
+
+x/t 0x982398 or x/t $rip
+x/i
+x/2x
+o - display in octal
+x - display in hexadecimal
+u - display in unsigned, standard base-10 decimal
+t - display in binary
+d - decimal
+
+x/8xb
+b - a single byte
+h - a half word (2 bytes in size)
+w - a word (4 bytes)
+g - a giant (8 bytes)
+
+print $ebp - 4
+
+x/6cb $rip
+c - character
+s - string
+
+TUI (Text user interface)
+CTRL + X + A
+CTRL + L repaint
+CTRL + X + 2
+
+python print('hello world')
+python gdb.Breakpoint('7')
+
+disass main
+
+list stack frame:
+i r eip
+x/32xw $esp
+
+omit saved frame pointer in compilation
+-fomit-frame-pointer

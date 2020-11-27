@@ -1,0 +1,29 @@
+
+Tracing routes:
+
+The OS uses routing tables to figure out which gateway to send traffic to.
+
+- Windows
+  tracert <domain> -h <maxhops>
+  route print
+
+- Linux
+  traceroute <domain> -m <maxhops>
+  netstat -r
+
+Notes:
+
+- A TCP header contains a source and destination port number.
+- A TCP payload and header are commonly called a segment
+- A UDP payload and header are commonly called a datagram
+- An IP payload and header are commonly called a packet
+- A list of assigned port numbers /etc/services
+- IPv4 uses 32 bit addresses
+- IPv6 uses 128-bit addresses
+- long strings of 0000 can be collapsed into :: e.g. fe80:0000:897b:581e:44b0:2057 -> fe80::897b:581e:44b0:2057
+- IEEE Standard for Floating-Point Arithmatic (IEEE 754)
+- Big endian stores the most significant byte at the lowest address
+- Little endian stores the least significant byte at the lowest address
+- The endiannes of a value is commonly called network order or host order
+- Ethernet defines the maximum size of traffic frames to 1500 octets where as IP on top of that can have up to 65536 bytes.
+- Fragmentation allows the network stack to convert large packets into smaller fragments when the application or OS knows the entire packet cannot be handled by the next layer

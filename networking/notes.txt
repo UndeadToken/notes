@@ -1,0 +1,33 @@
+Proprietary vs Standard
+Works on a single vendors system as opposed to a standard which works on all systems as an industry standard.
+
+
+Standards
+ISO (International Organisation for Standardization)
+IEEE (Institute of Electrical and Electronics Engineers)
+DoD (Department of defence)
+
+
+Highspeed indicates at least 10 Mbps though is quite often 100 or 1,000 Mbps.
+
+A network is scalable when a network can be grown (with respect to the number of computers) without causing additional network traffic or additional adminsitrative effort.
+
+
+When a WAN connection is leased from a telecommunications provider the company offloads all maintenance and simply uses the existing network that the telecommunication provider built. The advantage being that your connection is dedicated meaning theres no other traffic on it.
+
+
+LAN - Local Area Network
+High-speed data network covering a small geographical area. This can be a single location; office, building or a complex of buildings. Cisco describes a LAN as a single layer 2 enivonrment. Though a LAN, in many discussions, may be a single physical location composed of multiple IP subnets each of which is a separate layer 2 network.
+
+
+WAN - Wide Area Network
+A collection of LAN's connected with WAN technology or the internet allowing it to function as one large network.
+
+Connection Types:
+	Frame Relay
+	Integrated Services Digital Network(ISDN)
+	Point-to-Point Protocol(PPP)
+	Internet(through a logical connection called a Virtual Private Network using the internet as a physical medium)
+
+
+	

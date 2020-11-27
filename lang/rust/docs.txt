@@ -1,0 +1,27 @@
+cargo doc --no-deps   Run without dependencies
+cargo doc --open      Open docs in browser
+
+#[doc="your doc comment"]
+
+Resources:
+https://github.com/rust-lang-nursery/mdBook
+
+//! Something something dark side...
+/// Lulz
+
+Doc attributes:
+
+#! [doc(html_logo_url = "image url")]
+
+#! [doc(html_root_url = "")]
+
+#! [doc(html_playground_url = "https://play.rust-lang.org/"]
+
+#[doc(hidden)]
+
+#[doc(include)]
+
+Documentation tests:
+/// ```
+/// assert_eq!(true);
+/// ```

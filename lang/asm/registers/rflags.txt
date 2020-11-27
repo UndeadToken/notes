@@ -1,0 +1,21 @@
+The RFLAGS register contains a series of status bits (or flags) that the processor uses to signify the results of an arithmetic, logical, or compare operation. It also contains a number of control bits that are primarily used by operating systems.
+
+For application programs the most important FLAGS register are the following status flags:
+- carry flag (CF)
+- overflow flag (OF)
+- parity flag (PF)
+- sign flag (SF)
+- zero flag (ZF)
+
+The carry flag is set by the processor to signify an overflow condition when performing unsigned integer arithmetic. It is alos used by some register roate and shift instructions.
+
+The overflow flag signals that the result of a signed integer operation is too small or too large.
+
+The processor sets the parity flag to indicate whether the least-significant byte of an arithmetic, compare or logical
+operation contains an even number of 1 bits (parity bits are used by some communication protocols to detect transmission errors).
+
+The sign and zero flags are set by arithmetic and logical instructions to signify a negative, zero, or positive result.
+
+The RFLAGS register contains control bit called the direction flag (DF). An application can set or reset the direciton flag, which defines the auto increment direction (0 = low to high addresses, 1 = high to low addresses) of the RSI and RDI registers durign execution of strign instructions.
+
+The remaining bits in the RFLAGS register are used exclusively by the operating system to manage interrupts, restriction I/O operations, support program debugging, and handle virtual operations. They should never be modified by an application program. 

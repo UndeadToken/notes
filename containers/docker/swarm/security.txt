@@ -1,0 +1,82 @@
+Each component in the orchestration must have a limitation of what it can do.
+
+A manager, as well as the workers, must be able to access only the information
+and resource that are necessary to perform a given task.
+
+# Node management
+A cluster operator may instruct an Orchestrator to perform actions for a set of
+nodes.
+
+# Task assignment
+The Orchestrator is also responsible for assigning tasks to each node.
+
+# Cluster state reconciliation
+The Orchestrator maintains the state of the cluster by reconciling each state
+to the desired state.
+
+# Resource management
+The Orchestrator offers and revokes resources for submitted tasks.
+
+# Attack models
+- External attacker: Outside of the firewall trying to compromise the cluster.
+- Internal attacker: Doesn't own the switch but has access to the switch. It can
+  send packets to communicate with nodes in the cluster.
+- Main-in-the-middle: An attacker who can listen to everything going in the
+  network and can conduct an active attack. With this model, there is a swarm
+  cluster and the communications of worker nodes to the manager nodes are
+  intercepted.
+- Malicious worker node: The resource owned by the worker are effectively owned
+  by the attacker.
+- Malicious manager node: The manager is an attacker who can control the
+  complete Orchestrator and gain access to all available resources. It is the
+  worst case scenario. If we could implement the least privileges, the malicious
+  manager node can only attack the workers associated to it.
+
+# Checklist
+- Certificate authority
+  When you forma cluster with the first node, it will automatically create a
+  self-signed CA for the whole cluster. After spinning up it creates CA, signs
+  the certificate itself, adds the certificate for the manager, which is itself,
+  and becomes the ready-to-operate 1-node cluster. When a new node joins, it gets
+  the certificate by providing the correct token. Every node has its own identity
+  which is cryptographically signed. Also, the system has a certificate for each
+  rule, worker or manager. The role is inside the identity information to tell
+  who a node is. In the case that a manager leaks the root CA, the whole cluster
+  is compromised. Docker swarm mode supports external CA's to maintain the
+  managers identity. The manager can simply forward the CSR to the external CA
+  so it does not need to maintain its on CA. Protocol support includes cfssl.
+
+  docker swarm init --external-ca protocol=cfssl,url=https://ca.example.com
+
+- Certificate and Mutual TLS
+  Every single endpoint communication on the network control plane must have a
+  mutual TLS and encrypted and authorized by default. This means that a worker
+  cannot fake to be a manager. Each node must provide a valid CA signed certificate
+  which has the OU field that matches each rule of the cluster.
+
+  docker swarm update --cert-expiry 1h
+
+- The join token
+  Each token, used by nodes to join the cluster, has the following four components:
+  - SWMTKN, the swarm prefix that allows finding, or grepping, when tokens are leaked
+  - the token version, which is currently 1
+  - the cryptographically hashed value of the CA root certificate to allow bootstrap
+  - A randomly generated secret
+
+  docker swarm join-token --rotate worker
+  docker swarm join-token --rotate manager
+
+- Add TLS with Docker Machine
+  Another good practice is provisioning all manager nodes with Docker Machine to
+  setup an extra layer of TLS, automatically, so that each manager can be accessed
+  by remote Docker clients in a secure manner.
+
+  docker-machine create --driver generic --generic-ip-address=<IP> mg0
+
+- Form a cluster on a private network
+  If forming a hybrid cluster is not a requirement, one of the best practices is
+  that we should form a cluster with all the nodes being on a local private network.
+  With this, the data of the overlay network will not need to be encrypted and
+  the performance of cluster will be fast. When forming this kind of cluster,
+  the Routing Mesh allows us to expose any worker, not necessarily a manager,
+  to the public-network interface.

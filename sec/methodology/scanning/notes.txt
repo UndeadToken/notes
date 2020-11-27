@@ -1,0 +1,19 @@
+TCP (protocol number 6)
+UDP (protocol number 17)
+
+IPv4 addresses are of size 32 bits
+ports are 16 bits wide(65,535)
+
+The protocol is an 8-bit field which specifies which kind of packet is stored within the IP data(payload).
+
+0 is a wildcard port (OS determines port to use)
+-p0-65535
+1023 ports are reserved ports(requires root)
+.proc/sys/net/ipv4/ip_local_port_range
+
+IANA port classification
+http://www.iana.org/assignments/port-numbers
+well-known ports: reserved ports(1-1023)
+registered ports: (1024-49,151)
+dynamic/private ports: (49152-65535)
+

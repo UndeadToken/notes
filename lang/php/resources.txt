@@ -1,0 +1,7 @@
+http://www.php-fig.org/
+http://www.wiki.php.net
+http://www.wiki.php.net/manual/en/spl.iterators.php
+
+Software Engineering body of Knowledge (SWEBoK)
+
+Object-oriented Software Construction

@@ -1,0 +1,8 @@
+WORKDIR
+A combination of cd and mkdir. The WORKDIR instruction will change the current directory in the image to
+the value provided. If any part of the path in the WORKDIR does not exist it will be created. Each
+WORKDIR instruction will be relevant to the previous one.
+
+WORKDIR /path/to/workdir
+
+docker container run --rm workdir-demo:1.0 ls -lR /path/to/workdir

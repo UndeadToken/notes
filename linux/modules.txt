@@ -1,0 +1,19 @@
+Kernel modules are installed in /lib/modules subdirectories. The name of each subdirectory is based on the release number of the kernel.
+
+List loaded modules: lsmod
+
+more info: modinfo -d module (/sbin/modinfo -d ...)
+
+-a    author
+-n    see object file representing module
+
+Load any module installed in /lib/modules temporarily until next boot.
+modprobe <module>
+
+Remove a module from running in the kernel.
+rmmod <module>
+modprobe -r <module>
+
+
+
+

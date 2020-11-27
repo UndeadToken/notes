@@ -1,0 +1,13 @@
+& bitwise and
+| bitwise or
+^ bitwise xor
+~ bitwise ones complement
+<< bitwise shift left
+>> bitwise shift right
+
+sizeof() get the size of
+[] array subscript
+& the address of
+* the value of
+-> structure dereference
+. structure reference

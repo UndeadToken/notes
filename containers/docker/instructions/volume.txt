@@ -1,0 +1,33 @@
+VOLUME
+
+When you run a docker container from a docker image, it creates a new read-write layer that you can
+think of as being on top of the read-only layers. All the changes to the container are applied to the
+read-write layer. If you make a change to a file found in one of the read-only layers, it will make a copy
+and add it to the read-write layer then make the changes to the copy. From the perspective of the container
+only one file has changed, the read-write copy. This is roughly how unified file systems work.
+
+The volume instruction will create a storage location that is outside of the unified file system and by
+doing so, allow storage to persist beyond the life of your container. Running the container will create
+a mount point on the host system that initially contains volume contents. When the container exits
+the container will remain. --rm will cleanup mount points. Be careful!
+
+For security purposes, do not include host based  volume mount points in docker files.
+
+The volume instruction will add a zero-byte-sized layer to the resulting docker image.
+
+VOLUME ["/data"]
+
+VOLUME /var/log /var/db /moreData
+
+RUN mkdir /volume
+VOLUME ["/volume"]
+
+docker volume ls
+
+docker container run --rm -d --name vol-demo \
+  --mount source=myvolsrc,taregt=/myvol \
+  volume-demo:1.0 tail -f /dev/null
+
+docker volume inspect myvolsrc -f "{{json .Mountpoint}}"
+
+docker container exec vol-demo ls -l /my-vol

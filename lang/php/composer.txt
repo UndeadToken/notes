@@ -1,0 +1,60 @@
+Composer is a dependency manager compliant with the PSR-0 and PSR-4 standards.
+
+Install:
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+Update:
+composer update # update all dependencies
+composer self-update # update composer
+
+Example:
+composer.json
+{
+  "autoload": {
+    "psr-4": {
+      'Foo\\Bar': "src/"
+    }
+  }
+}
+
+Install dependencies:
+composer install
+composer dump-autoload # regenerate classes
+
+Usage:
+require_once('vendor/autoload.php');
+
+Dependencies:
+{
+  ...,
+  "require": {
+    "guzzlehttp/guzzle": "^6.1"
+  }
+}
+
+{
+  ...,
+  "require": {
+    "Foo/some-repo": "dev-master",
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "git@bitbucket.org:Foo/some-repo.git"
+      }
+    ]
+  }
+}
+
+{
+  ...,
+  "require": {
+    "pear-pear2.php.net/PEAR2_HTTP_Request": "*",
+    "repositories": [
+      {
+        "type": "pear",
+        "url": "https://pear2.php.net"
+      }
+    ]
+  }
+}

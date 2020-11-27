@@ -1,0 +1,51 @@
+
+Compile time memory safety:
+The Rust compiler can track variables owning a resource in your program at compile time and does all of this without a garbage collector.
+
+Zero cost abstractions:
+
+Fearless concurrency
+
+Type Inference:
+Rusts type inference is based on the Hindly Milner type system. It's a set of rules and algorithms that enable type inference in a programming language. It's an efficient type inferenbce method that performs in linear time, making it practical to type check large programs.
+
+
+---------
+
+Variable assignment:
+let x = 5;
+let y = {
+  let x = 3;
+  x + 1
+};
+
+let number = if condition {
+  5
+} else {
+  6
+};
+
+Loops:
+
+loop {
+  println!("again!");
+}
+
+while number != 0 {
+  println!("{}!", number);
+  number = number - 1;
+}
+
+for element in a.iter() { 
+  println!("the value is: {}", element);
+}
+
+Return values:
+fn plus_one(x: i32) -> i32 { 
+  x + 1
+}
+
+Reverse values:
+for number in (1..4).rev() {
+  println!("{}!", number);
+}

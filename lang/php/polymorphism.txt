@@ -1,0 +1,5 @@
+Polymorphism means the same interface is used with a different underlying code.
+
+Subtype Polymorphism / Inclusion Polymorphism
+
+Traits (multiple inheritance) provides a mechanism for Horizontal Reuse.

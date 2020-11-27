@@ -1,0 +1,5 @@
+"you need to have container-selinux installed"
+sudo yum -y --enablerepo=rhui-REGION-rhel-server-extras \
+	install container-selinux
+
+sudo -y yum install docker-ce

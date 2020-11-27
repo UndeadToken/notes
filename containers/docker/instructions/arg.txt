@@ -1,0 +1,19 @@
+ARG
+
+Sometimes when building Docker images you may need to use variable data to customize the build. When
+executing the build command pass in the argument with a --build-arg parameter. The ARG instructions do not
+persist into containers run from the image, however ARG instructions create new zero-byte-sized layers
+in the resulting images. ENV is stronger than ARG.
+ARG <varname>[=<default value>]
+docker image build --build-arg <varname>[=<value>] ..
+
+ARG key="ENV is stronger than an ARG"
+RUN echo ${key}
+
+docker image build --rm \
+--build-arg key="foo" \
+--tag arg-demo:2.0 .
+
+ARG username="35"
+RUN chown -R ${username}:${username} /thingy
+USER ${username}

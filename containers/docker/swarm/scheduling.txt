@@ -1,0 +1,5 @@
+Swarm Scheduling strategies:
+
+# Spread
+Counts the number of containers on each host and attempts to place newly created
+containers on the less loaded hosts.

@@ -1,0 +1,8 @@
+# Edit sudoers file /etc/sudoers
+visudo # /usr/sbin/visudo
+
+# List files used by processes.
+lsof
+
+# Check filesystem
+fsck

@@ -1,0 +1,13 @@
+# DNS
+The cluster managers assign to every service in the swarm a unique DNS name and
+load balances running containers, using an internal DNS to Docker. For each
+service created with a --name, every container in the swarm will be able to resolve
+the service IP address just as they were resolving (dig myservice) internal
+network names, using the Docker embedded DNS server. So, if you have a nginx-service
+(made of nginx servers for example), you can just ping nginx-service to reach
+the frontend head.
+
+Operators have the possibility to publish ports to an external load balancer.
+Ports are then exposed outside to a port in range from 30000 to 32767. Internally
+swarm uses iptables and IPVS(IP Virtual Server) to execute packet filtering and forwarding, and
+load balancing respectively.

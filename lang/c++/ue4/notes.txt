@@ -1,0 +1,31 @@
+Docs: https://docs.unrealengine.com/en-us/Engine/Blueprints/UserGuide/Variables
+
+1 unreal unit = 1 centimeter
+
+Switch between translation roation and scaling: W, E, R
+
+Menus:
+Input controls: Edit > Preferences > Engine > Input > Input Mappings
+Console Log: Window > Developer Tools > Output Log
+
+Duplicate node: CTRL + W
+
+Enable World Composition - for open world style games
+KillZ - height at which characters get destroyed
+GameMode Override - alternate to GameMode class, instead of world settings
+Override World Gravity - override world settings
+
+Preferences > Maps & Modes > Change default game mode
+
+Every Blueprint class has an event graph.
+Events:
+	BeginPlay: Invoked after the given object using a given blueprint is initialized.
+	ActorBeginOverlap: Detect when a player has run into an item etc..
+	Tick: Called every frame, includes delta seconds which can compensate for difference in frame rate.
+
+Components:
+Components are packages of code that provide common functionality.
+
+Collision Detection:
+	OverlapAllDynamic - Allow player to walk through and provide access to the event in order to detect that.
+	Make sure to select "Used with skeletal mesh" on the material asset

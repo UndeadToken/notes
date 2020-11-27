@@ -1,0 +1,30 @@
+reconnaissance, scanning, exploitation, post exploitation & maintaining access
+
+reconnaissance
+HTTrack: website copier
+Google directives: google fu
+The harvester: discovering and leveraging email addresses
+whois
+netcraft
+host
+Fierce:    extract info from dns
+metagoofil
+ThreadtAgent: Attack of the drones
+social engineering
+
+scanning
+Fping: pings and ping sweeps
+Nmap: port scanning & service detection
+NSE: extended Nmap
+Nessus: Vulnerability scanning
+
+exploitation
+madusa
+  medusa -h {ip} -u {username} -P {password_list_path} -M {service_to_attack}
+  username list: -U {list_path}
+  single password: -p {password}
+hydra
+
+
+windows sam file(security account manager) C://Windows/System32/Config/
+file is locked on boot and is encrypted.

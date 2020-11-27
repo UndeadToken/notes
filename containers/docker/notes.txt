@@ -1,0 +1,8 @@
+# Memory
+--memory=200m
+--memory-reservation=1g
+
+# CPU
+--cpus=".5"
+
+sudo journalctl -u docker.service | tail -n 50

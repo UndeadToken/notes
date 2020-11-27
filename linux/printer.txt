@@ -1,0 +1,2 @@
+# sort & direct output to default printer after sorting & paginating
+cat filea fileb | sort | pr | lpr

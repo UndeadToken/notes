@@ -1,0 +1,31 @@
+package myGame;
+
+import org.lwjgl.input.Keyboard;
+import org.newdawn.slick.*;
+import org.newdawn.slick.state.*;
+
+public class Menu extends BasicGameState{
+
+	public Menu(int state){
+	}
+	
+	public void init(GameContainer gc, StateBasedGame stb) throws SlickException{
+	}
+	
+	public void render(GameContainer gc, StateBasedGame stb, Graphics g) throws SlickException{
+		g.drawString(" State: Menu. Press Enter to change state.", 100, 100);
+		
+		Image image = new Image("res/test.png");
+		g.drawImage(image, 200, 100);
+	}
+	
+	public void update(GameContainer gc, StateBasedGame stb, int delta) throws SlickException{
+		if(Keyboard.isKeyDown(Keyboard.KEY_RETURN)){
+			stb.enterState(1);
+		}
+	}
+	
+	public int getID(){
+		return 0;
+	}
+}

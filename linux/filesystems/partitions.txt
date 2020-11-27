@@ -1,0 +1,54 @@
+Traditionally MBR (Master Boot Record) partition tables are used to store information about the sizes and layouts of the hard disk paritions. Limited to 2 TB in size.
+
+GUID (Global Unique Identifiers) partition tables used as part of the UEFI computer architecture to replace the BIOS method of booting the system. Limited to 9.4ZB (Zettabytes).
+
+x86 devices can have up to 4 partitions while SCSI and USB devices can have up to 16 e.g. sdc15.
+
+Tools: 
+MBR - fdisk
+GUID - gdisk
+
+-l    view
+-c    turn off DOS compaitibility mode
+-u    show size in sectros instead of cylinders     
+
+Sync the disk partition table with the kernel.
+partprobe /dev/sdc
+
+Create a filesystem
+mkfs -t ext4 /dev/sdc1
+mkswap /dev/x
+mkfs -t vfat /dev/x
+pvcreate /dev/x        LVM physical volume
+
+Create a mount point and mount the partition.
+mkdir /mnt/test
+mount /dev/sdc1 /mnt/test
+df -h /mnt/test
+
+Unmount the drive
+umount
+
+-- fdisk options
+t         specify partition type (in hex): Linux (83), swap space (82), FAT32 (x), Linux LVM (8e), Extended (c)
+
+Check kernel for mounted partitions:
+grep sdc /proc/partitions
+
+Setting up mount options in /etc/fstab
+/dev/sdc1    /mnt/test    ext4    defaults    0 1
+defaults = mount on boot...
+0 = not backup files...
+1 = check for errors after certain number of mounts
+
+An entry in the /etc/fstab file tells linux each partitions device name and where to mount it. Mounting is done when the system boots.
+
+/boot - make sure information in /boot is accessible by creating a partion of about 500MB, some older pc's can only access the first 1,024 cyclinders of your hard disk.
+
+/usr - This directory structure contains most of the applicatins and utilities available to Linux users. The original theory was that that if /usr was mounted as a read-only filesystem it would prevent attackes from removing important system files.
+
+/var - /var/ftp and /var/www can be separated to prevent the whole system filling up or being targeted.
+
+/home - Convenience, easily backup a users data, prevent issues etc...
+
+/tmp - Ensuring applications can complete their processing even if the rest of the disk fills up.

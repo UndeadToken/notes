@@ -1,0 +1,38 @@
+a2enmod MODULE - enable module
+a2dismod MODULE - disable module
+a2ensite SITE
+a2dissite SITE
+(Creates / removes symlinks in .etc/apache2/mods-enabled/ which points to /etc/apache2/mods-enabled)
+(Siter configuration /etc/apache2/sites-available -> /etc/apache2/sites-enabled)
+(https://httpd.apache.org/docs/2.4/mod/mod_ssl.html)
+
+e.g. php apache module libapache-mod-php. a2enmod ssl.
+
+Configuration file: /etc/apache2/ports.conf
+
+Name Based Virtual Hosts:
+
+<VritualHost *:80>
+	ServerName www.example.com
+	ServerAlias example.com
+
+	DocumentRoot /srv/www.example.com/www
+
+	<Directory /var/www>
+		Options Includes FollowSymLinks
+		AllowOverride All
+		DirectoryIndex index.php index.html index.htm
+	</Directory>
+</VirtualHost>
+
+.htaccess
+Require valid-user
+AuthName "Private directory"
+AuthType Basic
+AuthUserFile /etc/apache2/authfiles/htpasswd-private
+
+(User TLS Transport Layer Security)
+
+Change password: htpasswd /etc/apache2/authfiles/htpasswd-private USER
+
+Restrict access with: Require ip 192.168.0.0/16

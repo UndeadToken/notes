@@ -1,0 +1,10 @@
+A contract constraint is a requirement placed on the contract’s immutable parameters. A contract constraint provides a way of establishing a contract invariant as soon as the contract is deployed, thus preventing the contract being deployed with nonsensical parameters. The constraint must be an expression of type Bool. The constraint is checked when the contract is deployed. Contract deployment only succeeds if the constraint evaluates to True. If it evaluates to False, then the deployment fails.
+
+with
+  ...
+=>
+
+contract Mortal(end_of_life : BNum)
+with
+  builtin blt _creation_block end_of_life
+=>

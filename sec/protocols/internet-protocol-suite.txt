@@ -1,0 +1,48 @@
+IPS (Internet Protocol Suite) is a conceptual model of how network
+protocols send network traffic over the internet that breaks down
+network communication into four layers. The four layers form a protocol
+stack.
+
+Data Encapsulation:
+
+Each layer in the IPS is built on the one below, and each layer is able
+to encapsulate the data from the layer above so it can move between
+the layers. Data transmitted by each layer is called a protocol data
+unit (PDU).
+
+Headers, Footers, and Addresses:
+
+The PDU in each layer contains the payload data that is being transmitted.
+It's common to prefix 'header' - which contains information required
+for the payload data to be transmitted, such as the address of the source
+and destination nodes on the network - to the payload data. Sometimes a
+PDU also has a footer that is suffixed to the payload data and contains
+values needed to ensure correct transmission, such as error-checking
+information.
+
+Layers:
+
+- Link layer (layer 1)
+  This layer is the lowest level and describes the physical mechanisms
+  used to transfer information between nodes on a local network.
+  Well-known examples include Ethernet (both wired and wireless) and
+  Point-to-Point Protocol (PPP).
+
+- Internet layer (layer 2)
+  This layer provides the mechanisms for addressing network nodes.
+  Unlike in layer 1, the nodes don't have to be located on the local
+  network. This level contains the IP; on modern networks, the actual
+  protocol used could be either version 4 (IPv4) or version 6 (IPv6).
+
+- Transport layer (layer 3)
+  This layer is responsible for connections between clients and servers,
+  sometimes ensuring the correct order of packets and providing service
+  multiplexing. Service multiplexing allows a single node to support
+  multiple different services by assigning a different number for each
+  service; this number is called a port. TCP and UDP operate on this
+  layer.
+
+- Application layer (layer 4)
+  This layer contains network protocols, such as HTTP, which transfers
+  web page contents; SMPT, which transfers email; and the DNS protocol,
+  which converts a name to an address of a node on the network.

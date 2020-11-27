@@ -1,0 +1,36 @@
+
+ATTRIBUTES
+Output values need to be references e.g. float& foo.
+
+ // Header
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float TestFloat;
+FUNCTIONS
+
+// Header
+public:
+    UFUNCTION(BlueprintCallable)
+        float DoubleValue(float InValue);
+
+// Class
+float AMyCharacter::DoubleValue(float InValue)
+{
+	return InValue * 2.f;
+}
+
+PURE FUNCTION
+
+// Header
+public:
+    UFUNCTION(BlueprintPure, Category = "Math" // Pipe to separate categories
+        float DoubleValue(float InValue);
+
+// EVENT
+
+// Header
+public:
+	UFUNCTION(BlueprintImplementableEvent)
+		void MyCustomEvent(float CustomEvent);
+
+// Class

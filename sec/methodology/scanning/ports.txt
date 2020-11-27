@@ -1,0 +1,82 @@
+TCP --------
+
+80 HTTP
+
+23 Telnet
+
+443 HTTPS
+
+21 FTP
+
+22 SSH
+
+25 SMTP
+
+110 POP3
+
+3389 ms-term-server
+
+445 Microsoft-DS
+
+139 NetBIOS-SSN
+
+143 IMAP
+
+53 Domain, DNS
+
+135 MSRPC (windows services)
+
+3306 MySQL
+
+8080 HTTP-proxy
+
+1723 PPTP
+
+111 rpcbind
+
+995 POP3S (pop3 with ssl)
+
+993 IMAPS (IMAPv2 with ssl)
+
+5900 VNC
+
+UDP --------
+
+631 IPP(Internet Printing Protocol)
+
+161 SNMP (Simple Network Management Protocol)
+
+137 NETBIOS-NS (windows services e.g. printer sharing)
+
+123 NTP (Network Time Protocol)
+
+138 NETBIOS-GDM - another windows service
+
+1434 MS-SQL-DS - another windows service port
+
+445 Microsoft-DS - windows service port
+
+135 MSRPC - yet another windows service port
+
+67 DHCP - Dynamic Host Control Protocol
+
+53 DNS
+
+139 NETBIOS-SSN - windows sevrice port
+
+500 ISAKMP - The internet security association and key management protocol, manages discovery of plug and play devices
+
+68 DHCPC - DHCP client port
+
+520 RIP - routing information protocol
+
+1900 UPNP -  microsoft simple service discovery protocol
+
+4500 nat-t-ike - for negotiating network address transl;ation traversal while initiation IPsec connections (during internet key exchange)
+
+514 syslog - the standard unix log daemon
+
+49152 varies - IANA dynamic ports
+
+162 SNMPTrap - Simple network management protocol trap port (an SNMP agent typically uses 161 while SNMP manager typically uses 162)
+

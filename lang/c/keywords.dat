@@ -1,0 +1,33 @@
+auto      give a local variable a local lifetime
+break     exit out of a compounds statement
+case      a branch in a switch case statement
+char      character data type
+const     make a variable unmodifiable
+continue  continue to the top of the loop
+default   default branch in a switch statement
+do        start a do while loop
+double    a double floating point data type
+else      an else branch of an if statement
+enum      define a set of int constants
+extern    define an identifier is defined externally
+float     a floating point data type
+for       start a for loop
+goto      jump to a label
+if        start an if statement
+int       an integer data type
+long      a long integer data type
+register  declare a variable be stored in a CPU register
+return    return from a function
+short     a short integer data type
+signed    a signed modifier for integer data types
+sizeof    determine the size of data
+static    preserve variable value after its scope ends
+struct    combine variables into a single record
+switch    start a switch statement
+typedef   create a new type
+union     start a union statement
+unsigned  an unsigned modifier for integer data types
+void      decvlare a data type empty
+volatile  declare a variable might be modified elsewhere
+while     start a while loop
+

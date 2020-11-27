@@ -1,0 +1,32 @@
+# Default system properties including the default user home directory structure
+/etc/default/useradd
+/etc/skel
+/etc/login.defs
+
+# Default settings
+useradd -D                     // Show default settings
+
+-e default_expire_date
+-f default_inactive
+-g default_group
+-s default_shell
+
+# Creating users
+useradd
+
+options:
+-c "comment"                    // new user description, typically full name
+-d /foo/bar                     // home directory
+-D                              // Create default settings instead of a new user
+-e expire_date                  // The date the account expires
+-f -1                           // Days after expiry that the account is deleted
+-g group                        // Set the primary group (must exit /etc/group)
+-G grouplist                    // Add user to groups e.g. -G foo,bar
+-k skel_dir                     // Set skeleton dir containing initial configs
+-m                              // Automatically create the users home dir
+-M                              // Do NOT create users home dir
+-n                              // Turn off group default behaviour
+-o uid                          // Set the uid, allow users to share files, dirs
+-p passwd                       // User password
+-s shell                        // Specify the command shell to use
+-u user_id                      // Set the users id

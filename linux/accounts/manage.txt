@@ -1,0 +1,40 @@
+The database of Unix users & groups consists of textual files.
+
+/etc/passwd - list of users
+/etc/shadow - encrypted passwords for users
+/etc/group - list of groups
+/etc/gshadow - encrypted passwords for groups
+
+These can be edited manually with tools like vipw and vigr.
+
+# Create user accounts
+configuration file: /etc/adduser.conf
+Usage: adduser USERNAME GROUP(optional)
+When invoked the users directory is created with it's contents defined by /etc/skel template.
+
+getent command checks the system databases,including users and groups, using the appropriate 
+library functions which in turn call the name service switch(NSS) modules configured in the 
+/etc/nsswitch.conf.
+
+Usage: getent DATABASE TERM
+e.g. getent passwd kaliuser1
+
+passwd - updates a regular users password which in turn updates /etc/shadow.
+chfn - change full name, root only, modifies GECOS or general information field.
+chsh - changes the users login shell, choices limited in /etc/shells, admin is not restricted.
+chage - change age. allows admin to change passwd expiration settings, also list with -l option. 
+
+Alternatively force the expiration of a password using passwd -e user.
+
+Or to lock and unlock accounts: passwd -l USER and passwd -u USER.
+
+# Groups:
+addgroup - add group
+delgroup - delete group
+groupmod - modify group info(gid or identifier)
+gpasswdgroup - change password for group
+gpasswd -r GROUP - remove password for group
+newgrp - change group
+sg - execute command as group
+setgid ..
+id - list current user details

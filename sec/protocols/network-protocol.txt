@@ -1,0 +1,30 @@
+A network protocol serves many functions, including one or more of the
+following:
+
+- Maintaining session state
+  Protocols typically implement mechanisms to create new connections
+  and termination existing connections.
+
+- Identifying nodes through addressing
+  Data must be transmitted to the correct node on a network. Some
+  protocols implement an addressing mechanism to identify specific
+  nodes or groups of nodes.
+
+- Controlling flow
+  The amount of data transferred across a network is limited. protocols
+  can implement ways of managing data flow to increase throughput and
+  reduce latency.
+
+- Guaranteeing the order of transmitted data
+  Many networks do not guarantee that the order in which data is sent
+  will match the order in which it's received. A protocol can reorder
+  the data to ensure it's delivered in the correct order.
+
+- Detecting and correcting errors
+  Many networks are not 100% reliable; data can become corrupted. It's
+  important to detect corruption and, ideally, correct it.
+
+- Formatting and encoding data
+  Data isn't always in a format suitable for transmitting data on a
+  network. A protocol can specify ways of encoding data, such as
+  encoding English text into binary values.

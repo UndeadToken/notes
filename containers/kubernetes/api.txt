@@ -1,0 +1,14 @@
+# Kubernetes API
+The main API of kubernetes. List; get, create and update objects.
+
+# Autoscaling
+The autoscaling API is very focused and lets you control the horizontal pod
+autoscalar, which manages a group of pods based on CPU utilization and even
+application specific metrics. You can list; query, create, update and destroy
+autoscalar objects using the /apis/autoscaling/v1 endpoint.
+
+# Batch API
+The batch api lets you manage jobs. Jobs are pods that let you perform some
+activity and terminate. The batch api uses the pod template to specify jobs
+and then allows you to list; query, create and delete jobs through the
+apis/batch/v1 endpoint.

@@ -1,0 +1,1 @@
+cmd_/media/you/ext4/notes/lang/c/modules/lkm_example.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /media/you/ext4/notes/lang/c/modules/lkm_example.ko /media/you/ext4/notes/lang/c/modules/lkm_example.o /media/you/ext4/notes/lang/c/modules/lkm_example.mod.o ;  true

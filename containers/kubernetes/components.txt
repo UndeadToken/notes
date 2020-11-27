@@ -1,0 +1,60 @@
+A kubernetes cluster has several master components used to control the cluster,
+as well as node components that run on each cluster node.
+
+# Master components
+The master components typically run on one node, but in highly available or
+very large cluster, they may be spread across multiple nodes.
+
+# API Server
+The Kube API server exposes the Kubernetes REST API. It can easily scale
+horizontally as it is stateless and stores all the data in the etcd cluster.
+The API server is the embodiment of the Kubernetes control plane.
+
+# Etcd
+Etcd is a higly reliable distributed data store. Kubernetes uses it to store
+the entire cluster state. In small, transient cluster a single instance of etcd
+can run on the same node with all the other master components. But, for more
+substantial clusters, its typical to have a 3-node or even 5-node etcd cluster
+for redundancy and high availability.
+
+# Controller manager
+The controller manager is a collection of various managers rolled up into one
+binary. It contains the replication controller, the pod controller, the services
+controller, the endpoints controller and others. All these managers watch over
+the state of the cluster via the API and their job is to steer the cluster into
+the desired state.
+
+# Scheduler
+The kube-scheduler is responsible for scheduling pods into nodes. Interacting
+factors include:
+- Resource requirements
+- Service requirements
+- Hardware/software policy constraints
+- Affinity and anti-affinity specifications
+- Data locality
+- Deadlines
+
+# DNS
+Starting with Kubernetes 1.3, a DNS service is part of the standard Kubernetes
+cluster. It is scheduled as a regular pod. Every service (except headless
+services) receives a DNS name. Pods can receive a DNS name too. This is very
+useful for automatic discovery.
+
+# Node components
+Nodes in a cluster need a couple of components to interact with the cluster master
+components, receive workloads to execute, and update the cluster on their status.
+
+# Proxy
+The kube proxy does low-level network housekeeping on each node. It reflects
+the kubernetes services locally and can do TCP and UDP forwarding. It finds
+cluster IPs via environment variables or DNS.
+
+# Kubelet
+The kubelet is the kubernetes representative on the node. It oversees
+communicating with the master components and manage the running of pods. That
+includes the following:
+- Download pod secrets from the API server
+- Mount volumes
+- Run the pod's containr (Docker or Rkt)
+- Report the status of the node and each pod
+- Run container liveness probes 

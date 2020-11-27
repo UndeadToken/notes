@@ -1,0 +1,12 @@
+A positive-integer power is a quantity multiplied by itself a certain number of times.
+
+If a non-zero quantity is divided by itself once, it is said to be "raised" to
+"zeroth" power and the result is always 1.
+
+A negative-integer power is a non-zero quantity divided by itself more than once.
+
+Decimal notation is based on integer powers of 10. The number 10 is called the
+exponential base. It can also be called simply the base or the radix.
+
+Orders of magnitude:
+Each multiple of 10 is called an order of magnitude.

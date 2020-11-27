@@ -1,0 +1,109 @@
+# version
+docker --version
+
+# Start a container based on the given image
+docker container run <foo> # new syntax
+docker run <bar> # old syntax
+
+# List images
+docker images
+
+# pre-seed docker image cache
+docker image pull <foo> # new syntax
+docker pull <bar> # old syntax
+
+# List containers
+docker container ls
+docker container ls -a # short-form - all containers including exited
+docker conatiner ls --all
+docker container ls --all --quiet # List container ids
+docker ps -a # old syntax
+
+# Remove read/write layer when the container exists
+docker container run --rm hello-world
+
+# Remove container
+docker container rm cd987d98789
+docker container rm --force foo
+docker container rm --force $(docker container ls --all --quiet) # remove all containers, running and exited
+docker container rm -f $(docker container ls -aq)
+docker rm c09879087 # old syntax
+docker rm -f $(docker ps -aq) # old syntax
+
+# Name a container
+docker container run --name hi-earl hello-world
+
+# Detach container as background process
+docker container run --detach --name web-server --rm nginx
+docker container run -d --name web-server --rm nginx
+
+# Stop a container
+docker container stop web-server
+
+# View logs
+docker container logs --follow --timestamps web-server
+docker container logs -f -t web-server
+docker container logs --tail 5 web-server
+docker logs web-server # old syntax
+
+# View running processes
+docker container top web-server
+docker top web-server # old syntax
+
+# Metadata
+docker container inspect web-server
+docker inspect web-server # old syntax
+
+### Metadata State
+The --format command uses go templates: docs.docker.com/config/formatting
+docker container inspect --format '{{json .State}}' web-server1 | jq
+docker container inspect --format '{{json .State}}' web-server1 | jq '.StartedAt'
+
+### Metadata Network Settings
+docker container inspect '{{json .NetworkSettings}}' web-server1 | jq
+docker container inspect '{{json .NetworkSettings}}' web-server1 | jq '.Ports'
+docker container inspect '{{json .NetworkSettings}}' web-server1 | jq '.IpAddress
+docker container inspect -f '{{json .NetworkSettings.IpAddress}}' web-server1 web-server2 web-server3
+
+# Stats
+docker container stats
+docker container stats web-server1 web-server2
+docker stats # old syntax
+
+# Interactive
+e.g. nginx container runs with `nginx -g 'daemon off;'` so override with bash.
+docker container run --interactive --tty --name web-server2 nginx bash
+docker container run -it --name web-server2 nginx bash
+docker container run --rm web-server1:1.0 -l -R websrv
+
+# Attach to forground
+Use `CTRL + PQ` not `CTRL + C` as that will receive a sig-term signal and terminate the container.
+On mac you can use `--sig-proxy=false` which will stop `CTRL + C` from terminating the container.
+docker container run --detach -it --name web-server1 -p 80:80 nginx
+docker container ps
+docker container attach web-server1
+
+# exec
+docker container exec -it web-server1 bash
+docker container exec web-server1 cat /etc/debian_version
+
+# commit
+Save the read/write layer after performing operations such as curl to install new packages.
+docker container commit ubuntu new-ubuntu
+
+# Ports
+The first port is the port number associated with the host e.g. 8080 is exposed on the host.
+The second port number is the port that is open on the running container.
+"The traffic sent to port 8080 on teh host is redirected to port 80 on the running container"
+docker container run --detach --name web-server1 --publish 8080:80 nginx
+
+# Build
+The Docker image build command sends the docker build context, including the
+Dockerfile to the docker daemon which parses the Dockerfile and builds the image
+layer by layer. This builds a new image for each command in the docker file. --rm
+will instruct the docker daemon to remove all the intermediate images when the
+build completes.
+
+docker image build [OPTIONS] PATH | URL | -
+--file The name of the Dockerfile
+--tag Human readable name

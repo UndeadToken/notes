@@ -1,0 +1,34 @@
+Reads definitions from /etc/network/interfaces.
+
+/etc/init.d/networking/ init script configures the network at boot time.
+
+auto network-device - automatically configure once available at boot time.
+
+e.g.
+
+auto lo
+iface lo inet loopback
+
+auto etho0
+iface eth0 inet dhcp
+
+static ip:
+
+auto eth0
+iface eth0 inet static
+  address 192.168.0.3
+  netmask 255.255.255.0
+  broadcast 192.168.0.255
+  network 192.168.0.0
+  gateway 192.168.0.1
+
+Wireless:
+(install wpasupplicant package: docs -> /usr/share/doc/wpasupplicant/README.Debian.gz)
+
+iface wlan0 inet dhcp
+
+
+commands:
+Deconfigure: ifdown network-device
+configure: ifup network-device
+

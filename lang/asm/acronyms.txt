@@ -1,0 +1,7 @@
+SIMD (Single-instruction multiple-data)
+FMA (Fused-multiply-add)
+FPU (Floating-point unit)
+SSE (Streaming SIMD Extensions)
+AVX (Advanced Vector Extensions)
+IMUL (Signed Integer Multiplication)
+IDIV (Signed Integer Division)

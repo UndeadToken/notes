@@ -1,0 +1,63 @@
+Forward traffic via router:
+
+- Windows
+  reg add HKLM\System\CurrentControlSet\Services\Tcpip\Parameters ^
+   /v IpEnableRouter /t REG_DWORD /d 1
+
+- Linux
+  sysctl net.ipv4.conf.all.forwarding=1
+  sysctl net.ipv6.conf.all.forwarding=1
+
+- Mac
+  sysctl -w net.inet.ip.forwarding=1
+
+The upstream router doesn't know the route to the original source network.
+In order to capture returning traffic in addition to outbound traffic use
+NAT (Network Address Translation) to modify the source and destination address
+information of IP and higher-layer protocols such as TCP.
+
+SNAT (Source NAT) also called masquerading changes the IP source while DNAT
+(Destination NAT) changes the destination address.
+
+Configure SNAT:
+
+- Enable IP routing
+  sysctl net.ipv4.conf.all.forwarding=1
+  sysctl net.ipv6.conf.all.forwarding=1
+
+- Find the name of the outbound network interface on which you want to configure
+  SNAT. The outbound interface may be named something like eth0
+
+- Note the IP address associated with the outbound interface
+
+- Configure NAT rules via iptables
+  1.) Flush existing NAT rules iptables -t nat -F
+  2.a) If the outbound network interface has a fixed address:
+    iptables -t nat -A POSTROUTING -o <interface> -j SNAT --to <interface_ip>
+  2.b) If the interface address is configure dynamically (DHCP or dial-up):
+    iptables -t nat -A POSTROUTING -o <interface> -j MASQUERADE
+
+Configure DNAT:
+
+iptables -t nat -F
+iptables -t nat -A PREROUTING -d <original_ip> -j DNAT --to-destination <ip>
+
+or
+
+iptables -t nat -A PREROUTING -p <protocol> -d <original_ip> --dport <original_port> -j DNAT --to-destination <ip>:<port>
+
+
+Forwarding traffic to a gateway:
+
+You need some way to reconfigure or trick the sending device into forwarding
+traffic through your gateway. You can accomplish this by exploiting the local
+network by spoofing packets for either DHCP or ARP.
+
+- DHCP Spoofing
+  DHCP uses UDP to send requests to and from a DHCP service on the local network.
+  Four types of DHCP packets are sent when negotiating the network configuration.
+
+  Discover - Sent to all nodes on the IP network to discover a DHCP server
+  Offer - Sent by the DHCP server to the node that sent the discovery packet to offer a network configuration
+  Request - Sent by the originating node to confirm its acceptance of the offer
+  Acknowledgment - Set by the server to confirm completion of the configuration

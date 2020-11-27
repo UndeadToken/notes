@@ -1,0 +1,13 @@
+IPS describes how network communication works; however, for analysis purposes,
+most of the IPS model is not relevant. It's simpler to use another conceputal
+model.
+
+- Content layer
+  Provides the meaning of what's being communicated. e.g. file request.
+
+- Encoding layer
+  Provides rules to govern how you represent your content. e.g. HTTP GET
+
+- Transport layer
+  Provides rules to govern how data is transferred between the nodes. e.g.
+  TCP/IP connection to port 80.   

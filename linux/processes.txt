@@ -1,0 +1,68 @@
+
+A + on the STAT column indicates that the process is associted with the foreground operations.
+
+VSZ(Virtual set size): shows the size of the image process in kb. It is the amount of memory allocated for the program.
+
+RSS(Resident set size): Shows the size of the program in memory, the amount of memory that is actually used.Represents physical memory that cannot be swapped. 
+
+List processes with user:
+ps u
+
+all users:
+ps aux | less
+
+-o select keywords
+-e list every running process
+
+ps -eo pid,user,uid,group,gid,vsz,rss,comm --sort=-rss | less
+
+direct process output to file:
+find /usr > /tmp/things &
+
+Check commands running in background:
+jobs
+
+bring process to foreground:
+fg %1
+
+% - refers to the most recent command put into the background
+%string - refers to a jobs where the command begins with the given string
+%?string
+%-- referes to the previous job stopped before the one most recently stopped
+
+send to background:
+bg %5
+
+signals:
+processes cannot block SIGKILL and SIGSTOP signals.
+
+SIGHUP #1 hang-up detected on controlling terminal or death of controlling process(reload config)
+SIGINT #2 Interrupt from keyboard
+SIGQUIT #3 Quit from keyboard
+SIGABRT #6 Abort signal from abort(3)
+SIGKILL #9 kill signal
+SIGTERM #15 kill process
+SIGcONT #19,18,25 continue if stopped
+SIGSTOP #17,19,23 stop process
+
+updatedb - generate locate database
+
+killing processes:
+kill 123
+kill -15 123
+kill -SIGKILL 123
+
+kill all processes by name:
+killall -9 something
+
+nice values (-20 to 19):
+default value; 0
+
+the lower the value, the more access to the cpu the process has.
+
+regular users can only assign nice value from 0-19 and can only set it higher not lower and only on processes they own.
+
+nice +5 updatedb &
+renice -n -5 20284
+
+ask about cgroups.

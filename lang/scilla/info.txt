@@ -1,0 +1,34 @@
+Scilla (Smart Contract Intermediate Level Language)
+
+Zilliqa is a sharded blockchain with high throughput and lower gas fees.
+
+Scilla is Zilliqa's Smart Contract intermediate level language. Scilla is a formally verifiable 'Safe' Contract Language. Uses functional programming design principles (as in OCaml).
+
+Zilliqa has a large ecosystem of dApps including unstoppable domains.
+
+Smart Contracts
+- Unlike traditional software, thet can't be updated
+- They have a gas mechanism to pay for computational costs
+
+
+Docs:
+learnscilla.com
+scilla.readthedocs.io
+docs.zilliqa.com/techfaq.pdf
+
+Packages:
+github.com/Zilliqa/Zilliqa-Javascript-Library
+
+Block explorers:
+https://devex.zilliqa.com/
+https://viewblock.io/zilliqa
+
+Wallets:
+https://zilpay.xyz/
+dev-wallet.zilliqa.com/faucet
+
+Miscellaneous:
+ide.zilliqa.com
+https://zilswap.io/swap
+https://zillet.io
+https://gitcoin.co/zilliqa

@@ -1,0 +1,5 @@
+http://www.php-fig.org/
+
+PSR-1 Basic Coding Style
+PSR-2 Coding Style Guide
+PSR-4 Auto-loading

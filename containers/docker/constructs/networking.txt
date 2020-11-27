@@ -1,0 +1,68 @@
+A network is a linkage system that allows computers and other hardware to communicate.
+A Docker network is the same thing. It is a linkage system that allows docker containers
+to communicate with each other on the same docker host or with containers, computers
+and hardware outside of the containers host, including containers running on other
+docker hosts.
+
+The Docker network is based on a standard, created by Docker called the
+Container Network Model (CNM). There is a competing network standard created by
+CoreOS called Container Network Interface (CNI). CNI has been adopted by several
+projects including kubernetes.
+
+The CNM has been implemented by the libnetwork project which is written in GO. This
+is made up of three constructs: the sandbox, the endpoint and network. The sandbox
+is a network namespace. Each container has its own sandbox. It holds the configuration
+of the containers network stack. This includes its routing tables, interfaces,
+and DNS settings for IP and MAC addresses. The sandbox also contains the network
+endpoints for the container. The endpoints are what join a sandbox to networks.
+Endpoints are essentially network interfaces. A network is a collection of connected
+endpoints. Every network has a name, an address space, an ID, and a network type.
+
+libnetwork is a pluggable architecture that allows network drivers to implement
+the specific components mentioned above. Each network type has its own network driver.
+Default drivers include bridge and overlay as well as none, host and MACVLAN.
+Remote drivers include Calico, Contiv and Weave.
+
+# docker network
+docker network connect
+docker network create
+docker network disconnect
+docker network inspect
+docker network ls
+docker network rm
+docker network prune
+
+- host: leverages the networking stack of the Docker host, essentially bypassing
+  the networking of Docker. Each port can only be used by a single container.
+  Each docker host can only have 1 network using the host driver.
+
+  --network host
+
+- null/none: creates a network that when a container is connected to it provides
+  a full network stack but does not configure any interfaces within the container.
+  This renders the container completely isolated.
+
+  --network none
+
+- bridge: Any container attached to the same bridge network are able to communicate
+  with one another. A docker host can have more than one bridge network. Containers
+  cannot communicate with other containers on another bridge network.
+
+  --network bridge
+
+- overlay: Allows you to create networks that span docker hosts. These are layer
+  2 networks.
+
+- MACVLAN: Creates networks that allows each container to have their own IP
+  and MAC addresses and to be attached to a non-docker network.
+
+docker network create [OPTIONS] <network>
+docker network create -d overlay defaults-over
+
+docker network create -d overlay \
+--subnet=172.30.0.0/24 \
+--ip-range=172.30.0.0/28 \
+--gateway=172.30.0.254 \
+specifics-over
+
+docker network inspect specifics-over --format '{{json .IPAM.Config}}' | jq  

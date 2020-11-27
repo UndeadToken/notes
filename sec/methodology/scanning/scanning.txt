@@ -1,0 +1,89 @@
+Methodlogy:
+- Check for live systems
+- Check for open ports
+- Scan beyond the IDS
+- Perform Banner Grabbing
+- Scan for vulnerabilities
+- Draw network diagrams
+- Prepare proxies
+
+Three-way handshake:
+SYN, SYN/ACK, ACK
+
+TCP Header flags:
+
+Synchronize(SYN): set during the initial communication establishment and indicates the negotiation of parameters and sequence numbers.
+Achknowledgment(ACK): Set as an acknowledgement of SYN flag.
+Reset (RST): This flag forces the termination of communication in both directions.
+Finish( FIN): This signifies an ordered close to communications.
+Push (PSH): Forces the delivery of data, without concern for any buffering.
+Urgent (URG): Indicates the data is being sent out of band.
+
+Increments sequence number on ACK with SYN req.
+
+Fragmentation:
+- Breaking
+- Colasoft Packet Builder
+
+ICMP - Internet Control Message Protocol:
+
+ICMP Message Type:          Description / Important codes:
+0: Echo Reply               Answer to the Type 8 Echo Request
+3: Destination Unreachable  0, 1, 6, 7, 9, 10, 13
+4: Source Quench            A congestion control message
+5: Redirect                 0 (Redirect network), 1 (Redirect host)
+8: Echo Request             Ping message that requests theEcho reply
+11: Time Exceeded         
+
+ICMP Message Type 3:
+0 = Destination network unreachable
+1 = Destination host unreachable
+6 = Network unknown
+7 = Host unknown
+9 = Network administratively prohibited
+10 = Host administratively prohibited
+13 = Communication adnministratively prohibited
+
+Types of port scans:
+Full-open: also known as TCP connect and full connect. It runs the three-way handshake on all ports. Easy to detect.
+Half-open(Stealth or SYN): No completion of the three-way handshake.
+Inverse TCP: Uses FIN, URG, PSH flags. No response means port is open.
+XMAS: Does not work on Windows (RFC 793)
+ACK: Ack packet sent and header reviewed for RST packet TTL 64<
+IDLE: spoofed IP address 
+
+./dnsrecon.py -d domain
+telnet
+source routing
+
+Enumeration: Discovering hosts, services, devices.
+snmp..
+
+Vulnerability tools
+OpenVAS
+Nessus
+
+Vulnerability Scoring System e.g. CVSS
+score: 0 - 10
+
+Vulnerability Management Lifecycle
+(Gartner)
+discover, prioritixze, prioritize assets, access, report, remediate, verify
+
+nmap -sS : TCP SYN port scan
+nmap -sA: ACK
+nmap -sT: TCP connect port scan
+nmap -sX: XMAS!!!
+-O - enable OS detection
+
+hping3 -8 0-5000 -S 192.168.0.1
+hping3 -c 1 -V -p 80 -s 5555 -A 192.168.0.1
+-c = packet count
+-V = verbose output
+-p = port
+-s = base port
+-A = ACK flag
+
+p0f -p -i INTERFACE
+-p = promiscuous mode
+-l = listen on interface

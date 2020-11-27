@@ -1,0 +1,14 @@
+An Antipattern is a technique that is intended to solve a problem but that often leads to other problems typically implemented by a misunderstanding of database theory.
+
+Logical Database Design Antipatterns
+Pre-emptive planning of what information needs to be stored in the database and the best way to organize and interconnect your data including scemas and relationships.
+
+Physical Database Design Antipatterns
+Efficiently implementing data management including writing schemas and indexes in addition to selecting data types.
+
+Query Antipatterns
+Adding, retrieving and mutating data.
+
+Application Development Antipatterns
+Blunders in implementations within a given language e.g. PHP.
+	

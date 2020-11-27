@@ -1,0 +1,32 @@
+ADT definitions may only occur in the library parts of a program, either in the library part of the contract, or in an imported library.
+
+type Piece =
+| King
+| GoldGeneral
+| SilverGeneral
+| Knight
+| Lance
+| Pawn
+| Rook
+| Bishop
+
+type Square =
+| Square of Uint32 Uint32
+
+type Action =
+| Move of Square Direction Uint32 Bool
+| Place of Piece Square
+| Resign
+
+transition PlayerAction (action : Action)
+  ...
+  match action with
+  | Resign =>
+    ...
+  | Place piece square =>
+    ...
+  | Move square direction distance promote =>
+    ...
+  end;
+  ...
+end

@@ -1,0 +1,87 @@
+# global
+The global section contains sections that apply to the HAProxy process itself. 
+
+### log
+The log directive sets up syslog logging of incoming requests and any errors that occur
+
+### chroot
+chroot runs the HAProxy process in a linux chroot jail for enhanced security
+
+### stats
+The stats directives setup a Unix domain socket that we can use to interact with HAProxy from the command line, such as to enable and disable the proxies we setup
+
+### user & group
+The user and group directives define which system user and group the HAProxy will run as. You can verify this with `ps -eo user,group,args | grep haproxy`
+
+### daemon
+daemon tells HAProxy to run in the background
+
+### SSL
+The following relate to ssl termination.
+ca-base
+crt-base
+ssl-default-bind-ciphers
+ssl-default-bind-options
+
+# defaults
+In the defaults section, we can configure settings that are reused across all of the proxies that we'll define.
+
+### log global 
+This tells each proxy to use the logging configuration that was setup in the global section.
+
+### mode http
+Tells each proxy to operate at layer 7 (http) rather than layer 4 (tcp), which gives it the ability to inspect HTTP messages.
+
+### option httplog
+Turns on verbose logging of HTTP messages.
+
+### option dontlognull
+Skips logging when a request doesnt sent any data.
+
+### timeout connect
+Sets the maximum number of milliseconds to wait for a successful connection to a background server.
+
+### timeout client
+Sets the maximum number of millseconds to wait for a client, such as a web browser, to respond when it is expected to.
+
+### timeout server
+Sets the maximum number of milliseconds to wait for a backend server to respond when it is expected to.
+
+### errorfile
+This directive points to an HTML file on disk that will be served when HAProxy encounters an error during its own processing.
+
+# frontend
+A frontend defines a reverse proxy that will listen for incoming requests on a certain IP and port.
+```
+frontend myproxy
+	bind 127.0.0.1:81
+	default_backend mywebservers
+```
+
+### bind
+The bind directive creates a new proxy that listens on the given IP address and port.
+We can give a specific IP address or asterisk * which means any ip address configured on this machine.
+We can also omit the ip address `:81`.
+We can list as many bind directives as we want.
+
+# backend
+A backend defines a pool of servers that the frontend will forward requests to.
+```
+backend mywebservers
+	balance roundrobin
+	server nginx1 127.0.0.1:80
+```
+
+### server
+Each server directive sets a label, ip and port for the target server.
+
+### balance
+Determines the balancing algorithm.
+
+# listen
+A listen section is a shorthand notation that combines the features of a frontend and backend into one.
+```
+listen myproxy
+	bind *:81
+	server nginx1 127.0.0.1:80
+```

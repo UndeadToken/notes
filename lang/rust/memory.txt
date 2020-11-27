@@ -1,0 +1,64 @@
+Programs and Memory
+When a program is run the OS loads the program as a process in memory and starts
+executing it, along with other processes, giving it a share of CPU and memory. It
+assigns the process with its own virtual address space, which is distinct from
+the virtual address space of other processes and has its own view of memory.
+
+Due to the various tiers of memory requirements, and also for security purposes,
+a processes view of memory is divided into regions known as the memory layout.
+
+Text Segment: This section contains the actual code to be executed in trhe compiled
+binary. The text segment is a read-only segment and any user code is forbidden to
+modify it. Doing so can result in the crash of a program.
+
+Data Segment: This is further divided into subsections, that is, the initialized
+data segment and the uninitialized data segment, which is historically known as
+Block Started by Symbol (BSS) and holds all global and static values declared
+in the program. Uninitialized values are initialized to zero when they are loaded
+into memory.
+
+Stack Segment: This segment is used to hold any local variables and the return
+address of functions. All resources whos sizes are known in advance and any
+temporary/intermediary variables that a program creates are implicitly stored on
+the stack.
+
+Heap Segment: This segment is used to store any dynamically allocated data whose
+size is not known up front and can change at runtime depending on the needs of
+the program. This is the ideal allocation place when we want values to outlive
+their declaration within a function.
+
+How do programs use memory?
+For security purposes and fault isolation, a process is not allowed to access
+the physical memory directly. Instead it uses a virtual data structure called
+pages, which are maintained in page tables.
+
+The process has to request memory from the OS for it to use, and what it gets is
+a virtual address that is internally mapped to a physical address in the RAM.
+For performance reasons this memory is requested and processed in chunks. When
+virtual memory is accessed by the process, the memory management unit does the
+actual conversion from virtual to physical memory.
+
+A stack frame is a logical block of memory in the stack that stores the context
+of a function call. The context may include function arguments; local variables,
+return addresses and any saved registere's values that need to be restored after
+returning from the function. Stack frames are order by LIFO (Last in First Out).
+
+The stack frame pointer (esp) is a CPU register which always points to the top
+of the stack. The stack from pointer keeps on updating as functions get called,
+or when they return. When a function returns, its stack frame is disgarded by
+restoring the stack frame pointer to where it was before entering the function.
+
+Lifetimes:
+A lifetime ensures that a refernces goes out of scope before the value does.
+let _a: &'static str = "I Live Forever" # lives forever, goes to data segment of
+compiled code.
+
+Both function signatures are identical:
+fn func_one(x: u8) -> &u8 { .. };
+fn func_two<'a>(x: &'a u8) -> &'a u8 { .. };
+
+Input Lifetime - Lifetime annotations on function parameters that are references
+are referred to as input lifetimes.
+
+Output Lifetime - Lifetime annotations on function return values that are
+references are referred to as output lifetimes.

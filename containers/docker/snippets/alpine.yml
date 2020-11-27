@@ -1,0 +1,8 @@
+FROM alpine:latest
+LABEL maintainer="foo bar foo@bar.com"
+LABEL version=1.0
+
+COPY workspace foo/bar/
+
+WORKDIR /
+CMD ["sh"]

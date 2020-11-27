@@ -1,0 +1,25 @@
+
+Implicit variables are predefined variables.
+
+This variable contains the account address that triggered this transition.
+In case, the transition was called by a contract account instead of a user account, then _sender contains the contract address.
+
+_sender : ByStr20
+
+The incoming amount (ZILs) sent by the sender.
+This amount must be explicitly accepted using the accept statement within the transition. The money transfer does not happen if the transition does not execute accept.
+
+_amount : Uint128
+
+The current contract balance.
+The _balance field can only be updated by accepting money from incoming messages (using the instruction accept), or by explicitly transferring money to other account (using the instruction send).
+
+_balance : Uint128
+
+The address of the contract when the contract is deployed.
+
+_this_address : ByStr20
+
+The block number at which the contract is / was deployed.
+
+_creation_block : BNum

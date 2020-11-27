@@ -1,0 +1,26 @@
+Pre-engagement Interactions
+Discuss scope & terms of the penetration test with the client to identify the goals of the engagement. Convey what can be expected from a full-scope penetration test without restrictions.
+
+Intelligence Gathering
+Collect information about the organization your attacking by using social media, google and footprinting.
+
+Threat Modelling
+Identify any vulnerabilities.
+
+Vulnerability Analysis
+Consider how to attack the target.
+
+Exploitation
+Launch well researched exploits that are garaunteed to succeed.
+
+Post Exploitation
+Persistence applications and noting scale of damage to organization brand, finances etc...
+
+
+--
+
+Overt Penetration Testing
+The organization provides access to systems in which will be examined.
+
+Covert Penetration Testing
+No assumed knowledge is given about an organization. Reconnaisance, threat moddeling etc will be required to gain an understanding of the systems in place.

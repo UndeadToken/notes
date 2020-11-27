@@ -1,0 +1,6 @@
+Parser directives are a special subset of optional comment lines in the Dockerfile. Any parser directive
+must occur before the first normal comment line. They must also precede any blank lines and build
+instructions.
+
+Escape Directive
+# escape=\ (this is already the default) 

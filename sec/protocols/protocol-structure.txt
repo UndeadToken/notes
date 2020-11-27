@@ -1,0 +1,56 @@
+Binary Protocol Structures:
+
+These work at the binary level; the smallest unit of data is a single binary
+digit. Alternatively octes (8-bytes) are the de-facto standard.
+
+Unicode encodings:
+
+- UCS-2/UTF-16
+  This is the native format on modern Microsoft Windows platforms, as well as
+  within Java and .NET virtual machines when they are running code. It encodes
+  points in sequences of 16-bit integers and has little and big endian variants.
+
+- UCS-4/UTF-32
+  This is a common format used in Unix application because it's the default wide
+  character format in C/C++ compilers. It encodes code points in sequence of
+  32-bit integers and has different endian variants.
+
+- UTF-8
+  This is probably the most common format on Unix. It is also the default input
+  and output format for varying platforms and technologies, such as XML. Rather
+  than having a fixed integer size for code points, it encodes them using a
+  simple variable length.
+
+Multiplexing:
+
+Multiplexing allows multiple connections to share the same underlining network
+connection. Multiplexing defines an internal channel mechanism that allows a
+single connection to host multiple types of traffic by fragmenting large
+transmissions into smaller chunks. Multiplexing then combines these chunks into
+a single connection. When analyzing a protocol you may need to demultiplex these
+channels to get the original data back out.
+
+Network Address Information:
+
+With TCP or UDP protocols, the most common binary representation is the IP
+address as either a 4- or 16-octet value (IPv4 or IPv6) along with a 2-octet
+port. These are typically stored as big endian integer values.
+
+Structured Binary Formats:
+
+Abstract Syntax Notation (ASN.1) is the basis for protocols such as the SNMP and
+it is the encoding mechanism for all manner of cryptographic values, such as
+X.509 certificates. ASN.1 is standardized by the ISO, IEC, and ITU in the X.680
+series. DER is designed to represent ASN.1 structures in a way that can't be
+misinterpreted, the DER representation is a good example of the TLV protocol.
+
+MINE (Multipurpose Internet Mail Extensions):
+
+The specification in RFCs 2045, 2046 and 2047 along with others defines a way of
+encoding multiple discrete attachments in a single MIME-encoded message.
+
+MIME messages separate the body parts by defining a common separator line
+prefixed with two dashes. The message is terminated with a suffix of --.
+
+One of the most common uses of MIME is for Content-Type values, which are usually
+referred to as MIME types.

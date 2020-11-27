@@ -1,0 +1,16 @@
+1 + 3 ciphers, thousand
+1 + 6 ciphers, million
+1 + 9 ciphers, billion(US), thousand-million(England)
+1 + 12 ciphers, trillion(US), billion(England)
+1 + 15 ciphers, Quadrillion
+1 + 18 ciphers, Quintillion
+1 + 21 ciphers, Sextillion
+1 + 24 ciphers, Septillion
+1 + 27 ciphers, Octillion
+1 + 30 ciphers, Nonillion
+1 + 33 ciphers, Decillion
+
+infinity symbol, lemniscate(or the greek symbol omega or capital hebrew letter aleph)
+
+radix / base, the number of single digit symbols
+ 

@@ -1,0 +1,7 @@
+sudo docker network create -d bridge my_network
+
+sudo docker run -d -v ~/web1/nginx.conf:/etc/nginx/nginx.conf \
+  -v ~/web1/html:/usr/share/nginx/html --net my_network --name web1 nginx
+
+sudo docker run -d -v ~/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg -p 80:80 \
+  --net my_network --name lb1 haproxy

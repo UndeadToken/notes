@@ -1,0 +1,9 @@
+USER
+
+The user instruction allows you to set the current user (and group) for all the instructions that follow
+in the Dockerfile and for the containers that are run from the built image. if a named user or group
+is provided as parameters to the USER instruction that user and the group must already exist in the passwd
+file. The user instruction creates a zero-byte-sized layer in the image.
+
+USER <user>[:<group>]
+USE <UID>[:<GID>]

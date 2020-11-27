@@ -1,0 +1,17 @@
+# Run application
+go run hello.go
+
+# Build application
+go build hello.go
+
+# Fetch package
+go get foo/bar
+
+# Auto format code
+gofmt hello.go
+
+# Auto fix imports
+go get golang.org/x/tools/cmd/goimports
+
+# List docs
+go doc http.ListenAndServe

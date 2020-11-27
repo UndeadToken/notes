@@ -1,0 +1,22 @@
+1 byte = 128 bits (16 bytes)
+
+Fundemental data types larger than a single byte are stored in consecutive memory locations starting with the least
+significant byte at the lowest memory address. This type of in-memory byte ordering is called Little endian.
+
+A properly aligned fundemental data type is one whose address is evenly divisible by its size in bytes.
+
+A SIMD data type is contiguous collection of bytes that's used by the processor to perform an operation or calculation using multiple values. A SIMD data type can be regarded as a container object that holds several instances of the same fundemental data type (e.g. bytes, words, double words, or quadwords).
+
+Architecture:
+An x86-64 processor can be logically partitioned into several distinct units.
+- general purpose registers
+- status and control flags (RFLAGS)
+- instruction pointer (RIP)
+- XMM registers (optional)
+- floating-point control and status (MXCSR) (optional)
+
+All x86-64 processors support SSE2 and include 16 128-bit XMM registers that programmers can use to perform scaler floating-point computations.
+
+DX:AX The final product is contained in 2 registers.
+
+NOP sled = 0x90

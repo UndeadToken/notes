@@ -1,0 +1,56 @@
+Sending data between 2 nodes on a switch:
+
+The switch device forwards Ethernet frames between all nodes on the network. The
+switch doesn't need an IP address because it operates only at the link layer.
+
+1.) The operating system network stack node encapsulates the application and
+transport layer data and builds an IP packet with a source and destination
+address.
+
+2.) The operating system encapsulates the IP data as an Ethernet frame, but it
+might not know the MAC address of the target node. It can request the MAC
+address using an ARP (Address Resolution Protocol) scan, which sends a request
+to all nodes on the network to find the MAC address for the destination IP
+address.
+
+3.) Once the node receives the ARP response, it can build the frame, setting the
+source address to the local MAC address and the destination MAC address to the
+received MAC address. The new frame is transmitted on the network and received
+by the switch.
+
+4.) The switch forwards the frame to the destination node, which unpacks the IP
+packet and verifies that the destination IP address matches. Then the IP payload
+data is extracted and passes up the stack to be received by the waiting
+application.
+
+Network routing:
+
+Ethernet requires that all nodes be directly connected to the same local
+network. Rather than require that all nodes be directly connected, the source
+and destination address allow data to be routed over different networks
+until the data reaches the desired destination node.
+
+The operating system provides a default routing table entry, called the default
+gateway, which contains the IP address of a router that can forward IP packets
+to their destinations.
+
+1.) The operating system network stack node encapsulates the application and
+transport layer data and builds an IP packet with a source and destination
+address.
+
+2.) The network stack needs to send an Ethernet frame, but because the
+destination IP address does not exist on any Ethernet network that the node
+is connected to, the network stack consults its operating system routing table.
+Entries in this table defines how to get to the destination address.
+
+3.) The OS uses ARP to lookup the routers MAC address and the original IP
+packet is encapsulated within the Ethernet frame with that MAC address.
+
+4.) The router receives the Ethernet frame and unpacks the IP packet. When the
+checks the destination IP address, it determines that the IP packet is not
+destined for the router but for a different node on another connected network.
+The router looks up the MAC address and encapsulates the original IP packet into
+the new Ethernet frame and sends it on to network 2.
+
+5.) The destination node receives the Ethernet frame, unpacks the IP packet,
+and processes its contents.

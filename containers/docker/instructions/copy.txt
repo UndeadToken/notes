@@ -1,0 +1,8 @@
+COPY
+
+The copy instruction is used to copy files and folders into the docker image being built.
+COPY [--chown=<user>:<group>] <src>... <dest>
+COPY [--chown=<user:<group>] ["<src>",... "<dest>"]
+COPY file* foo/files/
+COPY folder1 /folder1/
+COPY --chown=35:35 special1 special-files/

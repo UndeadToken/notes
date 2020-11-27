@@ -1,0 +1,21 @@
+DOMEX (Document and Media Exploitation) # Analsying devices found on the battlefield
+SEC (Securities and Exchange Commision)
+OIG (Office of the Inspector General)
+SWG (Scientific Working Group)
+TWG (Technical Working Group)
+SWGDAM (Scientific Working Group for DNA Analysis)
+SWGGUN (Scientific Working Group for Firearms and Toolmarks)
+SWGDE (Scientific Working Group on Digital Evidence)
+AAFS (American Academy of Forensic Sciences) 
+NIST (Naitional Institute of Standards and Technology)
+NAS (National Academy of Sciences)
+FEPAC (The Forensic Science Education Programs Accreditastion Commision)
+ASCLD/LAB (The American Society of Crime Laboratory Directors/Laboratory Accreditation Board) pronounced as-clad
+NICE (National Initiative Cyber Security Education)
+ASTM (The American Society for Testing and Materials)
+
+SWGDE - mission statement "Brings together organisations actively engaged in the field of digital and multimedia evidence to foster communication and cooperation as well as ensuring quality and consistency within the forensic community"
+
+National Software Reference Library
+A collection of known software file signatures that can be used by examiners to quickly exclude files that have no investigative values such as system files.
+

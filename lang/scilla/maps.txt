@@ -1,0 +1,14 @@
+field users: Map ByStr20 String
+    = Emp ByStr20 String
+
+Set value in map:
+users[x] := y
+
+Check value exists:
+b <- exists users[k]    
+
+Compare:
+already_exists = orb a b
+
+Size:
+s = builtin size users

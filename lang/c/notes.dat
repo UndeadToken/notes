@@ -1,0 +1,11 @@
+# track down memory leaks with valgrind
+# Dump - objump -D a.out | grep -A20 main.:
+
+32 bit processors have a 32-bit address space (2^32)
+64 bit processors have a 48-bit address space (2^48)
+
+AT&T syntax can be noted by the % and $, specify -M intel for intel syntax:
+objdump -M intel -D a.out
+
+Show state of processor registers:
+gdb -a ./a.out

@@ -1,0 +1,15 @@
+The Zilliqa protocol supports three basic tokens units - ZIL, LI (10^-6 ZIL) and QA (10^-12 ZIL).
+
+The base unit used in Scilla smart contracts is QA. Hence, when using money variables, it is important to attach the trailing zeroes that are needed to represent it in QAs.
+
+Messages, events and the special Unit type are not serialisable or storable. Only primitive types are.
+
+(* fee is 1 QA *)
+let fee = Uint128 1
+
+(* fee is 1 LI *)
+let fee = Uint128 1000000
+
+(* fee is 1 ZIL *)
+let fee = Uint128 1000000000000 
+                 

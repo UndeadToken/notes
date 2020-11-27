@@ -1,0 +1,6 @@
+
+# List services
+docker exec -ti 873d87h38dhd swamrctl service ls
+
+# Create service
+docker exec -ti 3d23d swarmctl service create --name web --image nginx --replicas 5

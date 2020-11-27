@@ -1,0 +1,13 @@
+FROM
+
+This instruction sets the base for the image. Must be the first instruction (with the exception of ARG.)
+If no tag is specified, the latest tag will be assumed. e.g. FROM nginx:1.15.2 The FROM instruction
+will create the first layer in our new image. The size of this layer will be the size of the image,
+nginx would be smaller than an OS, an OS like Alpine would be smaller than ones like Ubuntu. Size matters
+folks. Alternatively there is a special keyword that can  be used as a parameter to the FROM instruction,
+scratch. Scratch is not an image it is just a signal to the Docker daemon that you want to build an image
+with an empty base-layer.
+
+FROM alpine:latest
+
+FROM scratch

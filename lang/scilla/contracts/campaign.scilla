@@ -1,0 +1,92 @@
+(*Political campaign contract*)
+
+(*Scilla version*)
+scilla_version 0
+
+(*scilla library*)
+library PoliticalCampaignContract
+
+(* Error events *)
+type Error =
+| CodeIsSender
+| CodeInsufficientFunds
+| CodeInsufficientAllowance
+| CodeNotOwner
+| CodeNotMember
+| CodeMemberExists
+
+let make_error =
+  fun (result : Error) =>
+    let result_code = 
+      match result with
+      | CodeIsSender              => Int32 -1
+      | CodeInsufficientFunds     => Int32 -2
+      | CodeInsufficientAllowance => Int32 -3
+      | CodeNotOwner              => Int32 -4
+      end
+    in
+    { _exception : "Error"; code : result_code }
+
+(*Contract definition*)
+contract PoliticalCampaign
+(
+	owner: ByStr20,
+	name: String,
+	policies: map String String
+)
+
+field members : map String ByStr20 = EMP String ByStr20
+
+(*Procedures*)
+procedure ThrowError(err : Error)
+  e = make_error err;
+  throw e
+end
+
+procedure IsOwner()
+  is_owner = builtin eq contract_owner _sender;
+  match is_owner with
+  | True =>
+  | False =>
+    err = CodeNotOwner;
+    ThrowError err
+  end
+end
+
+procedure IsMember(name: String, address: ByStr20)
+	member_exists <- exists members[name]
+	match member_exists with
+		| True =>
+		| False =>
+			err = CodeMemberNotExists;
+			ThrowError err
+	end
+end
+
+(*Transitions*)
+transition CampaignCreate(name: string)
+	CampaignNotExists name
+	campaigns[name] = _sender
+	sponsors[name] = Uint128 0
+	e = {_eventname: "campaign_created", campaign: name};
+	event e
+end
+
+transition CampaignDelete(name: String)
+	IsCampaignOwner
+	CampaignExists name
+	builtin remove name campaigns
+	builtin remove name sponsors
+	e = {_eventname: "campaign_deleted", campaign: name};
+	event e
+end
+
+transition CampaignSponsor(name: String)
+	CampaignExists name
+	accept
+	current_amount <- sponsors[name]
+	sponsors[name] = builtin add current_amount _amount
+	e = {_eventname: "campaign_sponsored", campaign: name};
+	event e
+end
+

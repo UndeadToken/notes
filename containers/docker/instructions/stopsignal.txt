@@ -1,0 +1,7 @@
+STOPSIGNAL
+
+The stop signal instruction is used to set the system call signal that will be
+sent to the container to tell it to exit.
+
+STOPSIGNAL 9
+STOPSIGNAL SIGQUIT

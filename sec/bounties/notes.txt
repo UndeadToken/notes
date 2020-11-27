@@ -1,0 +1,5 @@
+# Disable MIME sniffing
+X-Content-Type-Options: nosniff
+
+# Http methods:
+POST, PUT, PATCH, DELETE, TRACE, CONNECT, OPTIONS

@@ -1,0 +1,19 @@
+
+commands:
+lspci - list drivers
+ps auxf
+
+Legacy Tools:
+BugTraq
+AstaLaVista
+Packet Storm
+W00W00
+SecurityFocus
+X-Force
+
+apt-cache search linux-headers
+
+alternate graphical / non-graphical
+systemctl get-default
+systemctl set-default multi-user.target
+systemctl set-default graphical.target

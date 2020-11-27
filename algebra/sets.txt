@@ -1,0 +1,44 @@
+A set is a collection or group of things called elements or members.
+
+is element of
+x ∈ A
+
+is not element of
+y ∉ A
+
+defining a set
+{1, 2, 3, ...} #  ellipses means, go on forever.
+
+empty set
+{} or Ø
+
+whole numbers
+W = {1,2,3, ...}
+
+sets within sets
+{1,2, {3, 4, 5}}
+
+is subset of
+a ⊆ b
+
+proper subset (the smaller set)
+C ⊂ D
+
+Congruent(equal sets, coincident)
+E = {1,2,3,4,5,...}
+F = {7/7,14/7,21/7,28/7,55/7,...}
+E ≡ F
+
+Disjoint sets(no elements in common)
+G = {1,2,3,4}
+H = {5,6,7,8}
+
+Overlapping(atleast 1 in common)
+A = {1,2,3}
+B = {3,4,5}
+
+Intersection(overlapping values from each set)
+A ⋂ B = {3}
+
+Union(distinct values from each set)
+A ⋃ B = {1,2,3,4,5}

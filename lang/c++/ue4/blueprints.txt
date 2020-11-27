@@ -1,0 +1,22 @@
+// Classes
+
+# Allow a class to act as a blueprint.
+UCLASS(Blueprintable)
+
+# Use blueprint as variable in another blueprint.
+BlueprintType
+
+# Disallow blueprint as type in other blueprints.
+NotBlueprintType
+
+// Properties
+public:
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
+float health;
+
+EditAnywhere: screens from which the UPROPERTY can be changed.
+BlueprintReadWrite: Blueprints can read write the variable in addition to c++.
+BlueprintReadOnly: The property must be set from c++ and cannot be changed from blueprints.
+BlueprintDefaultsOnly: indicates the data member cannot be edited from blueprints at runtime.
+EditDefaultsOnly: The blueprints value is editable, but it's not editable on a per instance basis.
+EditInstanceOnly: Allow editing on an instance level.

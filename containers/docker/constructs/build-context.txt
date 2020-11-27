@@ -1,0 +1,2 @@
+The build context is everything that gets sent to the docker daemon when using the build image command.
+This includes the Dockerfile and the contents of the working directory.

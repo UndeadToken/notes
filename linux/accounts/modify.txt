@@ -1,0 +1,29 @@
+
+// Modify users
+usermod
+
+-c username                 // Change username
+options:
+-c "comment"                    // new username
+-d /foo/bar                     // home directory
+-e expire_date                  // The date the account expires
+-f -1                           // Days after expiry that the account is deleted
+-g group                        // Set the primary group (must exit /etc/group)
+-G grouplist                    // Add user to groups e.g. -G foo,bar
+-Ga                             // include users existing groups
+-l login_name                   // Change the login name of the account
+-L                              // Lock the account
+-k skel_dir                     // Set skeleton dir containing initial configs
+-m                              // must be used with -d, copies home to new dir
+-o uid                          // use with -u to remove uuid unique restriction
+-s shell                        // Specify the command shell to use
+-u user_id                      // Set the users id
+-U                              // Unlocks the account
+
+// Delete users
+userdel -r                   // The -r removes the home dir
+
+// Find users
+find / -user foo -ls
+find / -uid 504 -ls
+find / -nouser -ls            // files with no user are a security risk

@@ -1,0 +1,50 @@
+http://catb.org/~esr/faqs/smart/-questions.html
+http://docs.kali.org
+http://docs.kali.org/kali-linux-community-forums
+http://forums.kali.org
+http://bugs.kali.org
+http://freenode.net (6667 for tls encryption 6666 for clear text)
+http://webchat.freenode.net
+http://docs.kali.org/community/kali-linux-irc-channel
+http://pastebin.com
+
+# manual pages
+- Commands that can be executed from the command line
+- system calls (functions provided by the kernel)
+- library functions (provided by system libraries)
+- devices (on unix like systems, these are special files, usually placed ion the /dev/ directory)
+- configuration files (formats and conventions)
+- games
+- sets of macros and standards
+- system administration commands
+- man kernel routines
+
+Search: apropos "copy file" or konqueor(KDE) and yelp(GNOME)
+(apt install pinfo)
+
+Bug report:
+reproduce:
+ - what you are using
+ - where you got it
+ - how you installed it
+
+Context:
+ - what you were trying to do
+ - expected result
+
+Specificity:
+ - version numbers
+ - complete url
+ - screen output
+
+Fixes / workarounds
+ - what you tried
+ - what results you have
+ - internet search queries
+
+Report solution.
+
+reportbug tool
+
+dpkg -s package | grep ^Homepage:
+dpkg -s package | grep ^Version:

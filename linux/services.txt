@@ -1,0 +1,11 @@
+systemctl list-units - List units
+systemctl status SERVICE(optional)
+
+Service files typically reside within /run/systemd/system/ or /etc/systemd/system/.
+Each can be modified with service-name.servoce.d/* directories.
+
+e.g. ssh service - /lib/systemd/system/ssh.service
+
+Target units precedence: default.target, graphical.target, multi-user.target
+
+Attach target dependencies: /etc/systemd/system/target-name.target.wants/

@@ -1,0 +1,55 @@
+
+Anti-Patterns:
+God Objects - A class that knows too much, can do too much.
+Fear of adding classes - not decoupling tightly coupled classes.
+Soft code - storing business logic in configuration files
+Software in place of architecture - using software approaches to solve problems instead of solving them within the web server layer e.g. proxying.
+Interface Bloat - keep em clean bro
+Swiss Army Knife(Kitchen sink) - interfaces that try to solve every use case, causes debugging, documentation and maintenance issues
+Cart before the horse - making architectural decisions before they're relevant, wasting time
+magic numbers / unnamed numerical constants - not using descriptive variables / constants
+Bloated opimization:
+  Analysis paralysis - a strategy is over analyzed to the point where progress is slowed
+  Bikeshedding - Where Analysis Paralysis can occur on the basis of a trivial change
+  Premature optimization - optimization without data-led conclusions
+Telescoping constructor - constructor argument count exceeds a practical use length
+
+Notes:
+
+Separation of development and operations(devops)
+Excessive separation of development responsibilities
+
+Sequential coupling:
+This us where you have a class that has methods that must be run in a specific order.
+
+Environment variables:
+Store important keys in separate files, for example .env files.
+composer require vlucas/phpdotenv
+
+Auto increment ids are bad, use UUID.
+
+Use daemons instead of never ending cronjobs.
+sudo apt-get install monit
+sudo vim /etc/monit/monitrc
+monit status
+
+
+Service Splitting:
+Loosely coupled services e.g. microservices in place of monolith based repositories.
+In legacy systems use Branch by Abstraction as a process of moving to this architecture.
+
+Infrastructure as code:
+The process of managing and provisioning of computing infrastructure through code
+instead of interactive configuration tools.
+
+Perfectly staged migrations:
+Stage and test migrations before the fact and re-run the exact process when we
+perform the migration.
+
+QA teams and testers exist to verify that software meets the requirements. they
+do not exist to specify the requirements themselves.
+
+Uneducated manager syndrome:
+report to someone who has experience. Decisions need to be made by the people
+who have the right experience. Hires / fires, technical debt and which elements
+require the most focus should be decided by developers.

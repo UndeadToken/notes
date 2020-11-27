@@ -1,0 +1,17 @@
+Define unit tests within a module as a submodule annotated within #[cfg(test)]
+
+Attributes:
+An attribute is an annotation on an item in rust code.
+
+#[<name>]
+#![<name>]
+
+assert!(true);
+assert!(a == b, "{} was not equal to {}", a, b);
+assert_eq!(a, b, "{} was not equal to {}", a, b);
+assert_ne! ..
+debug_assert_ne ..
+
+Running tests:
+cargo test
+rustc --test my_unit_test.rs

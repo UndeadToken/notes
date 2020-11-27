@@ -1,0 +1,80 @@
+Capture and scan traffic flowing across the network
+
+service:           port:
+telnet            23
+smtp              25
+rdp	
+ssh               22
+ldap              289
+pop3              110
+kerberos          88
+NetBIOS Datagram: 138 (127 nameservice, 139 session service)
+
+hash calculation - check file integrity
+
+Stinger - free mcafee allows for malware detectiona and removal
+Currports: Monitor ports running on machine.
+tcpview: view ports running on endpoint system (tcp/udp)
+hashcalc: hashing shit
+
+
+passive: listening only
+active: monitor and alter
+
+protocols for easy sniffing:
+
+telnet: keystrokes can easily be sniffed (usernames, passwords)
+http: designed to send cleartext
+smpt: no protectin against sniffing
+nntp(network news transfer protocol): data sent cleartext
+pop(post office protocol): passwords and usernames can be intercepted
+ftp: transmissions sent in cleartext
+imap(internet message access protocol): similar to smpt.
+
+tools:
+wireshark
+tcpdump
+windump
+omnipeek
+dsniff
+netwitness nextgen
+
+wireshark fitlers:
+==  Equal ip.addr == x
+Eq  Equal tcp.port eq x
+!=  not equal ip.addr != x
+ne  not equal ip.src ne x
+contains in http contains x
+
+command line interface tools:
+tshark - command-line version of wireshark
+dumpcap - small with sole intent of capturing traffic
+capinfos - reads a capture and returns statistics on the file
+editcap - edits or translates the format of capture files
+mergecap - combines multiple capture files into one
+ext2cap - creats a capture file from an ASCII hex dump of packets
+
+check sectools.org
+
+MAC Flooding
+goal is convert the switch to act like a hub
+attacker floods the switch with MAC addresses
+switch is unable to write to its own CAM(content addressable memory) table which causes it to act like a hub(fail open)
+not seen much with newer switches
+
+ARP poisoning:
+address resolution protocol(ARP)
+contaminate the network with improper gateway mapping
+ARP maps ip addresses to mac addresses
+attacker feeds network hosts and the gateway with incorrect mappings
+tools: ettercap, cain & abel, arpspoof
+
+Switch port analyzer (SPAN) port:
+generally requires physical access to the machine
+sends a copy of every network packet on one switchport to another port for monitoring
+
+Sniffing defence:
+encrypt sensitive data(ssh, ipsec)
+use hardware switch network for the most sensitive parts of the network to isolate traffic to a single segment
+implemet ip dhcp snooping on cisco switches to prevent arp poisining 
+implement policies preventing promiscuous mode on network adapters

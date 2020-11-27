@@ -1,0 +1,65 @@
+The main goal of a discovery service is to help services find and talk to one another.
+In order to do that they need to save (register) information related to where each
+service is located, by announcing themselves, and they usually do that by acting
+as a key-value store.
+
+- Locate single services in the infrastructure
+- Notify a service configuration change
+- Services register their availability
+
+The Etcd library has been integrated into the swarm mode as its built-in
+discovery service.
+
+# Raft
+Consensus is an algorithm in distributed systems that forces agents in the system
+to agree on consistent values and elect a leader. Some well known consensus algorithms
+include Paxos and Raft.
+
+As consensus algorithms Consul and Etcd implement Raft while ZooKeeper implements
+Paxos. The CoreOS Etcd Go library, implementing Raft, is included into SwarmKit
+and Swarm Mode as a dependency.
+
+# Raft Theory
+In Raft messages and logs are sent only by the cluster leader to its peers. A
+Raft cluster is made of nodes that must maintain a replicated state machine in a
+consistent manner, no matter what: new nodes can join, old nodes can crash or
+become unavailable, but this state machine must be kept in sync.
+
+To achieve this failure-aware goal, typically Raft clusters consist of an odd number
+of nodes, such as three or five to avoid split-brains. A split brain occurs
+when the remaining node(s) split themselves in groups that can't agree on a leader
+with a majority. With an even number, the election can close with a 50%-50% result,
+which should not happen.
+
+Every node keeps a tick, denoting the term or period of time or epoch, of an
+arbitrary length, which is the current running instant. At every term, a node
+can be one of the following StateType.
+- Leader
+- Candidate
+- Follower
+
+Usually there is only one leader, which sends heartbeat signals to its followers
+at regular intervals. When heartbeats are no longer received, the leader is
+unavailable and the followers become candidates and attempt to become a leader by
+running campaign(). They start by voting for themselves to reach a quorum. When
+a node acheives this, a new leader is elected.
+
+Propose() is a method of proposal to append data to the log. A log is the data structure
+used in Raft to synchronize the cluster status and it's another crucial concept
+in Etcd. It's saved in stable storage (memory).
+
+Step() advances the state machine to the next step.
+ProposeConfChange() is a method that allows us to change the cluster configuration at runtime.
+ApplyConfChange() applies this change to the current node.
+Ready() returns a read only channel that returns encapsulated specification of messages that are ready to be read, saved to storage and committed.
+Advance() called after Ready() to notify the progress in Ready has been made.
+
+# Etcd
+Etcd is a highly available, distributed, and consistent key-value store that is used for
+shared configuration and service discovery. Some notable services that use this are
+SwarmKit, Kubernetes and Fleet. Etcd can gracefully manage master elections
+in case of network splits and can tolerate node failure, including the master.
+
+
+Resources:
+https://ramcloud.standford.edu/raft.pdf

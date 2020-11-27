@@ -1,0 +1,22 @@
+PostgreSQL listens on TCP port 5432 of the local-host interface and on file-based socket /var/run/postgresql/.s.PGSQL.5432
+
+Configuration file: postgresql.conf
+
+Cluster config: /etc/postgresql/version/cluster-name/
+
+Clusters are assigned nexta available port i.e 5433 ...
+
+systemctl start postgresql
+
+pg_hba.conf defines who is allowed to connect on each socket.
+
+# Create user & db
+su - postrgres
+createuser -P username
+createdb -T template0 -E UTF-8 -0 username username
+exit
+
+
+# Clusters
+Debians postgresql-common package provides multipel tools to manage clusters:
+pg_createcluster, pg_dropcluster, pg_ctlcluster, pg_upgradecluster, pg_renamecluster and pg_lsclusters.

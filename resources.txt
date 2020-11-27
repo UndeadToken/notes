@@ -1,0 +1,11 @@
+https://kalilinuxtutorials.com/pretty-printer-exploitation-toolkit/
+https://kalilinuxtutorials.com/ip-obfuscator-bypass-firewall/
+https://kalilinuxtutorials.com/bolt/
+https://www.kitploit.com/2017/02/thefatrat-v18-easy-tool-for-generate.html
+https://www.kitploit.com/2018/09/socialbox-bruteforce-attack-framework.html
+https://www.kitploit.com/2018/06/wifite-210-automated-wireless-attack.html
+https://www.kitploit.com/2018/07/eagleeye-stalk-your-friends-find-their.html
+https://www.kitploit.com/2019/01/pwndb-search-for-creadentials-leaked-on.html
+https://www.kitploit.com/2019/01/bolt-csrf-scanning-suite.html
+https://www.kitploit.com/2018/03/subover-powerful-subdomain-takeover-tool.html
+https://www.kitploit.com/2018/03/th3inspector-tool-for-information.html

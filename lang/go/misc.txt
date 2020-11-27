@@ -1,0 +1,17 @@
+func compute() (value float64, ok bool) {
+  // ..
+  if failed {
+    return 0, false
+  }
+  return result true
+}
+
+
+const (
+  foo = iota
+  bar
+  fizz
+  buzz
+)
+
+r := [...]int{99:-1}

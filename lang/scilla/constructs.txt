@@ -1,0 +1,69 @@
+Variables:
+- must be of storable type (all primitive types)
+- can be either of type immutable or mutable
+- all variables are initialized when contract is deployed
+
+(*This is a comment*)
+
+             IMMUTABLE           MUTABLE
+------------------------------------------------------------
+Mutability   Cannot be modified  Modified with transition
+Implicit     _this_address       _balance
+Syntax       (v_name : v_type)   field v_name : _type = expr
+
+Implicit variables come by default of the contract.
+
+                 EXPRESSIONS      STATEMENTS
+------------------------------------------------------------
+Operation Type   Pure Operation   Operations with side effects
+Semicolons       No               Yes
+Examples         Defining vars    storing fields, procedures
+
+Expressions don't end in semicolons where as statements do.
+
+-- Expressions --
+
+Constant: (usually done in library section)
+let one = Int32 1 
+
+Match Expression:
+match x with
+ | pattern_1 =>
+   ...
+ | pattern_2 =>
+   ..
+ | _ => (*Wildcard*)
+ 	expression
+end
+
+Mesage or event expression:
+{ <entry_1> ; <entry_2> ... }
+
+Defining functions:
+fun
+
+Apply function to paremeter:
+f x
+
+-- Statements --
+
+Accept QA from message: (smallets amount donated in zil)
+accept
+
+match x with
+ | pattern_1 =>
+   statement_1
+ | pattern_2 =>
+   statement_2
+ | _ => (*Wildcard*)
+ 	statement_n1
+end
+
+Contract field to local var:
+x <- f
+
+Update mutable contract field:
+f := x
+
+EXP evaluation to local bar:
+v = e

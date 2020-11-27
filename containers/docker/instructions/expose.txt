@@ -1,0 +1,10 @@
+EXPOSE
+
+The expose instruction is a way to document what network ports the image expects
+to be opened when container is run. This does not actually open the network ports.
+it is still necessary to include a -p or -P parameters to actually open the
+network ports to the container.
+
+The expose instruction creates a zero-byte-sized layer in the resulting image.
+
+EXPOSE <port>

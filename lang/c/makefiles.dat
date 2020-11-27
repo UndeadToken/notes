@@ -1,0 +1,23 @@
+make {filename}
+
+or
+
+CFLAGS="-Wall" make {filename}
+
+or
+
+cc {filename}.c -o {filename}
+
+-Wall = report all warnings, though not actually all...
+-g = include debugging
+
+# makefile
+CFLAGS="-Wall -g"
+
+clean:
+	rm -f {filename}
+
+
+
+
+

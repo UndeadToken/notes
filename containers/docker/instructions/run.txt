@@ -1,0 +1,22 @@
+RUN
+
+Execute any command. Every run instruction creates a new layer in the image with
+each built on top of the previous. The shell form of the instruction will use
+the default shell unless the SHELL instruction is specified.
+
+RUN <command>
+
+RUN ["executable", "param1", "param2"]
+
+RUN ["/bin/bash", "-c", "echo hello world > /myvol/greeting"]
+
+
+FROM ubuntu
+RUN useradd --create-home -m -s /bin/bash dev
+RUN mkdir /myvol
+RUN echo "Hello Guide" > /myvol/greeting
+RUN ["chmod", "664", "/myvol/greeting"]
+RUN ["chown", "dev:dev", "/myvol/greeting"]
+VOLUME /myvol
+USER dev
+CMD ["/bin/bash"]

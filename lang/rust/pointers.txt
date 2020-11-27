@@ -1,0 +1,25 @@
+References - safe pointers:
+These are like pointers in c, but they are checked for correctness. They can
+never be null and always point to some data owned by any variable. The data they
+point to can be on the stack, heap or the data segment of the binary.
+
+&T - Immutable reference to a type T.
+&mut T - Immutable pointer to a type T.
+
+Raw pointers:
+Prefixed with *, which also happens to be the dereference operator. They are
+mostly used in unsage code. One needs an unsafe block to dereference them.
+
+*const T - An immutable raw pointer to a type T. Nullable.
+*mut T - A mutable raw pointer to a value T, which is not copy.
+
+A referenced can be Cast as a raw pointer.
+
+let a = &56;
+let a_raw_ptr = a as *const u32;
+
+let b = &mut 5634.4;
+let b_mut_ptr = b as *mut T;
+
+Smart pointers:
+These have extra metadata that gets executed when they are created or destroyed.

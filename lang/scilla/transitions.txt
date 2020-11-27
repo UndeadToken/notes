@@ -1,0 +1,23 @@
+Transitions, procedures
+
+- Defines business logic, including state changes
+- Implicit args _send, _amount, +user-defined args
+- No return values, but can emit events, messages, errors
+
+Transitions:
+Can be called outside by other user accounts and contracts.
+
+transition foo (vname_1 : vtype_1)
+
+end
+
+send msgs; {* another contract *}
+
+Procedures:
+Internal to the contract, can be called within transitions but not outside.
+
+procedure foo (vname_1 : vtype_1)
+
+end
+
+foo v1 v2;

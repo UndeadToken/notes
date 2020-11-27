@@ -1,0 +1,22 @@
+resources:
+https://ubuntu.com/blog/how-to-sign-things-for-secure-boot
+
+Generate keys:
+./make
+
+Enroll key into shim:
+sudo mokutil --import MOK.der
+
+Check key exists:
+sudo cat /proc/keys
+
+Sign module:
+kmodsign sha512 MOK.priv MOK.der module.ko
+
+Check module was signed:
+hexdump -Cv module.ko | tail -n 5
+
+Insert module:
+insmod module.ko
+
+

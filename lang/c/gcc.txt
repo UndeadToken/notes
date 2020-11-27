@@ -1,0 +1,4 @@
+Compile:
+  gcc foo.c
+  gcc -g foo.c # include debugging info
+  gcc -o foo foo.c

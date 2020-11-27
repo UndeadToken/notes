@@ -1,0 +1,223 @@
+(*Scillica Version*)
+scilla_version 0
+
+(*Scillica Library*)
+library CraftedHandles
+
+let one_msg =
+  fun (msg: Message) =>
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+type Error =
+	| CodeNotOwner
+	| CodeNotHandleOwner
+	| CodeHandleDoesNotExist
+	| CodeInsufficientFunds
+	| CodeNotForSale
+	
+let make_error =
+  fun (result : Error) =>
+    let result_code = 
+      match result with
+      | CodeNotOwner           => Int32 -1
+      | CodeNotHandleOwner     => Int32 -2
+      | CodeHandleDoesNotExist => Int32 -3
+      | CodeInsufficientFunds  => Int32 -4
+      | CodeNotForSale         => Int32 -5
+      end
+    in
+    { _exception : "Error"; code : result_code }
+
+(*Contract Definition*)
+contract CraftedHandle
+(
+	owner : ByStr20,
+	init_fee : Uint128
+)
+
+(*The fee is used to increase the value of all handles*)
+field fee : Uint128 = init_fee
+
+field handles: Map String ByStr20 = Emp String ByStr20
+field handle_values: Map String Uint128 = Emp String Uint128
+field handles_for_sale : Map String Uint128 = Emp String Uint128
+
+(*procedures*)
+procedure ThrowError(err : Error)
+  e = make_error err;
+  throw e
+end
+
+procedure TransferFunds(amount : Uint128, to : ByStr20)
+  msg = { _tag : ""; _recipient : to; _amount : amount};
+  transfer = one_msg msg;
+  send transfer
+end
+
+procedure HandleExists(handle : String)
+	already_exists <- exists handles[handle];
+	match already_exists with
+	  | True =>
+		| False =>
+		  err = CodeHandleDoesNotExist;
+      ThrowError err
+	end
+end
+
+procedure HandleDoesNotExist(handle : String)
+	already_exists <- exists handles[handle];
+	match already_exists with
+		| False =>
+		| True =>
+		  err = CodeHandleDoesNotExist;
+			ThrowError err
+	end
+end
+
+procedure IsHandleOwner(handle : String)
+	handle_owner <- handles[handle];
+  is_owner_bool = 
+    match handle_owner with
+    | Some addr => builtin eq addr _sender
+    | None => False
+    end;
+  match is_owner_bool with
+    | True =>
+    | False => 
+      err = CodeNotHandleOwner;
+			ThrowError err
+	end
+end
+
+procedure IsForSale(handle : String)
+  is_sale <- exists handles_for_sale[handle];
+  match is_sale with
+    | True =>
+    | False =>
+      err = CodeNotForSale;
+      ThrowError err
+  end
+end
+
+procedure IsOwner()
+  is_owner = builtin eq owner _sender;
+  match is_owner with
+    | True =>
+    | False =>
+      err = CodeNotOwner;
+      ThrowError err
+  end
+end
+
+procedure IsSufficuentFunds(handle : String, amount : Uint128)
+  value <- handles_for_sale[handle];
+  is_sufficient 
+    = match value with
+      | Some amt => builtin lt amt amount
+      | None => False
+    end;
+  match is_sufficient with
+    | True =>
+    | False =>
+      err = CodeInsufficientFunds;
+      ThrowError err
+  end
+end
+
+(*transitions*)
+transition RegisterHandle(handle : String)
+	HandleDoesNotExist handle;
+	amount <- fee;
+	is_amount = builtin eq _amount amount;
+	match is_amount with
+		| True => 
+			accept;
+			handles[handle] := _sender;
+			handle_values[handle] := _amount;
+			e = {_eventname: "RegisterHandle"; handle: handle};
+	    event e
+		| False =>
+		  err = CodeInsufficientFunds;
+			ThrowError err
+	end
+end
+
+transition RefundHandle(handle : String)
+	HandleExists handle;
+	IsHandleOwner handle;
+	
+	amount <- handle_values[handle];
+	v = match amount with
+	  | Some val => val
+	  | None => Uint128 0
+	  end;
+	  
+	delete handles[handle];
+	delete handle_values[handle];
+	delete handles_for_sale[handle];
+	  
+	TransferFunds v _sender;
+  
+	e = {_eventname: "RefundHandle"; handle: handle};
+	event e
+end
+
+transition TransferHandle(handle : String, address : ByStr20)
+	HandleExists handle;
+	IsHandleOwner handle;
+	handles[handle] := address;
+
+	e = {_eventname: "TransferHandle"; handle : handle};
+	event e
+end
+
+transition ForSale(handle : String, amount : Uint128)
+	HandleExists handle;
+	IsHandleOwner handle;
+	handles_for_sale[handle] := amount;
+
+	e = {_eventname: "ForSale"; handle: handle; amount: amount};
+	event e
+end
+
+transition NotForSale(handle : String)
+	HandleExists handle;
+	IsHandleOwner handle;
+	IsForSale handle;
+	delete handles_for_sale[handle];
+
+	e = {_eventname: "NotForSale"; handle: handle};
+	event e
+end
+
+transition PurchaseHandle(handle : String)
+	HandleExists handle;
+	IsForSale handle;
+	IsSufficuentFunds handle _amount;
+	
+	handle_owner <- handles[handle];
+			
+	addr = 
+		match handle_owner with
+		  | Some o => o
+			| None => owner
+			end;    
+			    
+	TransferFunds _amount addr;
+			
+	(*Mark handle no longer for sale*)
+	delete handles_for_sale[handle];
+			
+	(*Set the new owner of the handle*)
+	handles[handle] := _sender;
+			
+	e = {_eventname: "PurchaseHandle"; handle: handle};
+	event e
+end
+
+transition SetFee(new_fee : Uint128)
+  IsOwner;
+  fee := new_fee
+end
+

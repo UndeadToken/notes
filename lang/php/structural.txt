@@ -1,0 +1,40 @@
+Structural design patterns provide different ways to create class structure.
+
+--- Decorator
+A decorator is simply what adds additional functionality to an individual class
+without affecting the behavior of other objects from the same class.
+
+--- Class Adapter
+The adapter pattern allows an existing class to be used with an interface it
+doesn't match. It allows two incompatible interfaces to work together.
+
+--- Object Adapter
+As opposed to adapting behavior through inheritance Object Adapters extend
+behavior through composition. By consuming an already existing instance to
+adjust legacy classes or by instantiating a new instance of the adaptee within
+the constructor.
+
+--- Flyweight
+This pattern helps minimize memory usage by sharing as much data as possible
+with similar objects.
+
+Extrinsic: State belongs to the external context of the object and is input into
+the object when it's used.
+
+Intrinsic: State that naturally belongs to the object and therefore should be
+permanent, immutable (internal), or context-free.
+
+--- Composite
+This pattern allows us to ignore the differences between compositions of objects
+and individual objects.
+
+--- Bridge
+Decouple an abstraction from an implementation. Bridge an interface and concrete
+class.
+
+--- Proxy
+A proxy class is merely an interface to something else.
+
+--- Facade
+A facade provides an interface to an array of sub-systems. They act as a simple
+interface to a complex system.

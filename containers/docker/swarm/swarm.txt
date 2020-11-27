@@ -1,0 +1,149 @@
+Docker swarm is native clustering for Docker. It turns a pool of docker hosts into a single, virtual docker host.
+
+Docker container usually run in single-engine mode which means the docker installation is managed
+directly and as a standalone Docker environment.
+
+Docker swarm is a way to link docker nodes together, and managed those nodes and the
+dockerized applications that run on them. A docker swarm is a group of Docker nodes connected and
+managed as a cluster or swarm.
+
+docker system info
+
+The features that provide swarm mode are part of the Docker SwarmKit which is a tool for
+orchestrating distributed systems at scale. Once a Docer node joins a swarm, it becomes a swarm node
+either as a manager node or a worker node. The very first Docker node to join a new swarm becomes the
+first Manager also known as the leader.
+
+This is what happens:
+- A Swarm-ETCD-based configuration database or cluster store is created and encrypted
+- Mutual TLS (mTLS) authentication and encryption is set up for all inter-node communication
+- Container Orchestration is enabled, which takes responsibility for managing which containers
+  run on which nodes.
+- The cluster store is configured to automatically replicate to all manager nodes
+- The node gets assigned a cryptographic ID
+- A Raft-base distributed consensus-management system is enabled
+- The node becomes a manager and is elected to the status of swarm leader
+- The swarm managers are configured for HA
+- A public-key infrastructure system is created
+- The node becomes the certificate authority, allowing it to issues client certificates to any node that
+  joins the swarm
+- A default 90-day certificate-rotation policy is configured on the certificate authority
+- The node gets issued its client certificate, which includes its name, ID, the swarm ID, and the nodes role in the swarm
+- Creating a new cryptographic join token for adding new swarm managers occurs
+- Creating a new cryptographic join token for adding new swarm workers occurs
+
+# Planes
+- Management Plane: Allows users, operators, or tools to manage the network infrastructure.
+- Control Plane: implemented in the scope-gossip protocol, service-discovery, encryption key distribution is added directly.
+- Data Plane: responsible for moving network packets between two Endpoints.
+- Network control plane: a subsystem of libnetwork to manage routing.
+
+# Swarm managers
+Swarm managers manage and maintain the state of a swarm cluster. They schedule swarm services and serve up
+the API endpoints of the cluster. managers also direct traffic to the running services so any container
+can be reached through any manager node which knowing which node is actually running the containers.
+
+The Raft consensus algorithm suggests the number of manager in a swarm are three, five or seven. More than seven
+will degrade performance.
+
+No new container workloads will  be started on a node in drain mode.
+docker node update --availability drain ubuntu-node03
+
+resources:
+https://github.com/docker/swarmkit
+https://raft.github.io/
+
+# Setup swarm cluster
+docker swarm init
+
+# Ports
+Some ports must be available. if you plan on creating an overlay network with encryption (--opt encrypted),
+you also need to ensure that `ip protocol 50 (ESP) traffic is allowed`.
+- TCP port 2377 for cluster management communications
+- TCP and UDP port 7946 for communication among nodes
+- UDP port 4789 for overlay network traffic
+
+Some additional ports need to be open for the REST API.
+- TCP 2375 for Docker REST API (plain text)
+- TCP 2376 for Docker REST API (ssl)
+
+# commands
+docker swarm --help
+
+### docker swarm init
+--autolock Enable manager autolocking
+--cert-expiry <duration> change validity period (default: 90 days) for node certificates
+--external-ca <external-ca> specify external certificate-signing endpoints, external CA's
+
+### docker swarm join-token
+docker swarm join-token manager # get the join token for adding managers
+docker swarm join-token worker # get the join token for adding workers
+docker swarm join-token --rotate worker # rotate the worker join token
+
+### docker swarm join
+Add a docker node to a swarm
+docker swarm join--token <token>
+
+### docker swarm leave
+Remove a docker node from a swarm.
+
+### docker swarm ca
+View the current certificate for the swarm. This can only be executed successfully on a swarm manager
+node. Rotating the certificate will immediately invalidate both of the current join tokens.
+docker swarm ca
+docker swarm ca --rotate
+docker swarm ca --rotate --detach # initiate certificate rotation and return control to the session
+docker node ls --format '{{.ID}} {{.Hostname}} {{.Status}} {{.TLSStatus}}' # query the state of the certificate rotation in a swarm cluster
+
+### locking
+Any time the docker daemon of a manager node goes offline and the comes back online, it is necessary to
+enter an unlock key, provided during swarm init, the swarm auto-lock feature acn be enabled / disabled
+with swarm update and the key can be shown with swarm unlock-key.
+docker swarm unlock-key
+docker swarm unlock-key --rotate
+
+### update
+docker swarm update --autolock=true
+docker swarm update --cert-expiry 720h
+docker swarm update --help
+
+### Promoting
+docker node promote ubuntu-node04 ubuntu-node05
+docker node demote ubuntu-node1 ubuntu-node2
+docker node update --availability drain node-name # do not schedule tasks on node
+
+# Services
+Swarm services allow you to define the desired state for your container application in terms of how
+many concurrent running copies of the container there should be.
+docker service --help
+docker service create [OPTIONS] IMAGE [COMMAND] [ARG...]
+docker service create --replicas 1 --name submarine alpine ping google.com
+docker service create --name web-service --replicas 3 --publish published=8080,target=80 nginx
+--restart-window    # How long to wait after starting to check if its healthy (default: 5)
+--restart-max-attempts  # How many times to try to restart a docker container (default: never)
+--mode (default: replicated) global will create 1 node as opposed to listening to replicas parameter
+
+docker service list
+docker service ps
+docker service ps web-service
+docker service remove foo
+docker service remove $(docker service list -q)
+docker service scale web-service=4 # adjust the configured number of replicas
+docker service update --port-add 80 nginx-service
+
+docker node update --label-add type=ssd --label-add type=mysql worker1
+docker service create --replicas 3 --constraint 'node.type == mysql' --name mysql-service mysql:5.5.
+
+# Courruption
+After bringing down a manager with a corrupted state delete the directories:
+/var/lib/docker/raft/wal
+/var/lib/docker/swarm/raft/snap
+
+# Networks
+docker network create --driver overlay wordpress
+
+docker service create \
+  --name mysql --replicas 1 -p 3306:3306 --network wordpress \
+  --env MYSQL_ROOT_PASSWORD=dockerswarm mysql:5.6
+
+docker service inspect mysql -f '{{ .Endpoint.VirtualIPs }}'
