@@ -21,6 +21,15 @@ GOMAXPROCS=3 go run foo.go
 go test -v -run="Foo|Bar"
 go test -bench=.
 
+
+## Get packages
+
+GOPATH=/foo
+go get -u -b github.com/gorilla/mux
+
+mkdir src/github.com/user/project
+go install github.com/user/project
+
 # In using scratch image, go has a dependency on GLibC(net, os/user packages).
 # This needs to be statically linked with scratch.
 CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -a -installsuffix cgo -ldflags '-s' -o server
@@ -37,3 +46,18 @@ COPY ./server ./
 
 ENTRYPOINT ./server
 ```
+
+### Directory Structure
+bin /
+  hello  # Command executable
+pkg/
+   linux_amd64/
+      github.com/user/
+          stringutil.a   package object
+src/
+    github.com/user/
+        hello/
+            hello.go     # command resource
+        stringuril/
+            reverse.go   # package resource
+   

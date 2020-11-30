@@ -4,10 +4,20 @@ N : Total Population
 
 n : Sample of population
 
+M : Success in Population
 
-maximum : largest value in L
-minimum : smalles value in L
-midpoint : average of max and min
-mean : average of values in L
-mode : most common value in L
-median : "middlest" value in L
+x : Success in Sample
+
+μ : Mean of [opulation
+
+x̅ : Mean of Sample (x bar, standard deviation)
+
+ȳ
+
+σ : Standard Deviation of Population
+
+σ² : Variance of Population
+
+S² : Variance of Sample
+
+S : Standard Deviation of Sample
