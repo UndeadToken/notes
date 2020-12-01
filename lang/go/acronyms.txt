@@ -15,3 +15,5 @@ RPC (Remote Procedure Call)
 gRPC (Google RPC)
 CLF (Apache Common Log Format)
 BSON (Binary JSON)
+AMQP (Advanced Message Queueing Protocol)
+

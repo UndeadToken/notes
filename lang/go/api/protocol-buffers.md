@@ -188,3 +188,9 @@ Services are only used in gRPC.
 protoc -I protofiles/ protofiles/transaction.proto --
    go_out=plugins=grpc:protofiles
 ```
+
+### Bidirectional streaming with gRPC
+
+Can use a single TCP connection for sending and receiving messages between a client and a server.
+
+
