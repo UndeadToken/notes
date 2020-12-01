@@ -16,4 +16,5 @@ gRPC (Google RPC)
 CLF (Apache Common Log Format)
 BSON (Binary JSON)
 AMQP (Advanced Message Queueing Protocol)
+SNS (Simple Notification Service)
 
