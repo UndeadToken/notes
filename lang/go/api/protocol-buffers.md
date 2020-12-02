@@ -193,4 +193,7 @@ protoc -I protofiles/ protofiles/transaction.proto --
 
 Can use a single TCP connection for sending and receiving messages between a client and a server.
 
+### Go Micro
 
+dep init
+dep ensure -add "github.com/micro/go-micro"
