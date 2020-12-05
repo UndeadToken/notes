@@ -19,4 +19,6 @@ BSON (Binary JSON)
 AMQP (Advanced Message Queueing Protocol)
 SNS (Simple Notification Service)
 AES (Advanced Encryption Standard)
+CGI (Common Gateway Interface)
+IaC (Infrastructure as Code)
 
