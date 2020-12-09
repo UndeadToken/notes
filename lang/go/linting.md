@@ -7,4 +7,4 @@ lint:
          --enable=varcheck --enable=structcheck --enable=errcheck \
          --enable=dupl --enable=ineffassign \
          --enable=unconvert --enable=goconst --enable=gosec
-         
+
