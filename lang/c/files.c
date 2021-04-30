@@ -11,8 +11,8 @@ int main(int argc, int *argv[])
 {
 	int fd; // file descriptor
 	char *buffer, *datafile;
-		
-    buffer = (char *) malloc(100);
+
+  buffer = (char *) malloc(100);
 	datafile = (char *) malloc(20);
 
 	strcpy(datafile, (char *) argv[1]);
@@ -30,4 +30,4 @@ int main(int argc, int *argv[])
 	printf("Done writing file.\n");
 
 	return 0;
-} 
+}

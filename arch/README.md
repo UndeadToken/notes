@@ -1,0 +1,108 @@
+# Computer Architecture
+
+Arithmetic Logic Unit (ALU)
+Reduced Instruction Set Computing (RISC)
+Electronic Discrete Variable Automatic Computer (EDVAC)
+general-purpose registers (GRPs)
+
+### The calcuator model of computing
+
+A computer takes a stream of instructions (code) and a stream of data as input
+and it produces a stream of results as output.
+
+### The File-Clerk model of computing
+
+A computer is  a device that shuffles numbers around from place to place,
+reading, writing, erasing, and rewriting different numbers in different locations
+according to a set of inputs [read], a fixed set of rules for processing those
+inputs [modify], and a prior history of all the inputs that the computer has
+seen since it was last reset [write], until a predefined set of criteria are
+met that cause the computer to halt.
+
+### The Stored-Program Computer
+
+All computers consist of at least three fundamental typesof structures needed
+to carry out the read-modify-write sequence:
+
+#### Storage
+
+To say that a copmuter "reads" and "writes" numbers implies that there is at least
+one number-holding structure that is read from and writes to. All computers have
+a place to put numbers - a storage area that can be read from and written to.
+
+#### Arithmetic logic unit (ALU)
+
+Similarly, to say that a computer "modifies" numbers implies that the computer
+contains a device for performing operations on numbers. This device is the ALU,
+and it's the part that performs arithmetic operations (addition, subtraction etc...)
+on numbers from the storage area.
+
+Read from storage area, caluclate in ALU, write to storage via ALU output port.
+storage -> ALU -> storage
+
+#### Bus
+
+In order to move numbers between the ALU and storage, some means of transmitting
+numbers is required. Thus, the ALU reads from and writes to the data storage area
+by means of the data bus. Which is a network of transmission lines for shuttling
+numbers around inside a computer. Instructions travel into the ALU via the
+instruction bus. The memory bus transfers data between main memory and registers.
+
+#### The Register File
+
+CPU limited surface area constrain the size of teh storage area that we can stick
+next to the ALU. This means most computers have a relatively small number of
+very fast data storage locations attached to the ALU. These storage locations
+are called registers. Arrayed in a storage structure called a register file.
+
+An operation example:
+- Obtain two numbers (input operands) from two source registers
+- Add the numbers
+- Place the results back in the destination register
+
+#### General Instruction Types
+
+In modern RISC microprocessors, the act of moving data between memory and the
+registers in under the expplicit control of the code stream, or program.
+
+- a load instruction to move the two numbers from memory into the registers
+- an add instruction to tell the ALU to add the two numbers
+- a store instruction to tell the computer to place the result of the addition
+  back into memory, overwriting whatever was previously there
+
+Arithmetic instructions - add, sub, mul, div
+
+Memory-access instructions - load, store
+
+Move into A the contents of memory located at D and 13 into B
+load #D, A (where D = 12)
+load #13, B
+
+Add the numbers together and store in register C
+add A, B, C
+
+Write the result of the addition from register C into memory.
+store C, #14
+
+#### Register-Relative Addressing
+
+In real world programs, loads and stores most often use register-relative addressing,
+which is a way of specifying memory addresses relative to a register that contains
+a fixed base address.
+
+A data segment is a block of contiguous memory cells that a program stores all of
+its data in. So if a programmer knows a data segments starting address (base address)
+in memory, he or she can access all of the other memory locations in that segment
+using this formula.
+
+base address + offset
+
+Where offset is the distance in bytes of the desired memory location from the
+data segment's base address.
+
+address calculation in place of absolute addressing
+load #(D + 108), A
+store B, #(D + 108)
+
+Becuse both memory addresses and regular integer numbers are stored in the same
+registers, these registers are called general-purpose registers (GRPs).
