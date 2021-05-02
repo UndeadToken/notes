@@ -1,7 +1,8 @@
+
 # Shell Environment Variables
 
 |Name|About|
------------
+|-------|----|
 |BASH|Contains the full pathname of the bash command|
 |BASH_VERSION|A number representing the current version of the bash command|
 |EUID|The effective user ID number of the current user|
