@@ -1,3 +1,0 @@
-distrowatch.com
-slackware.com
-redhat.com/certification
