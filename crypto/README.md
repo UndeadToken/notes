@@ -4,7 +4,7 @@
 
 https://taproot.watch/miners
 
-||
+|Pool|Url|
 |-|-|
 |AntPool|https://v3.antpool.com/home|
 |F2Pool|https://www.f2pool.com/|
@@ -26,3 +26,8 @@ https://taproot.watch/miners
 |OKExPool|https://www.okex.com/|
 |SpiderPool|https://www.spiderpool.com/|
 
+### Smart Contracts
+
+[Solidity](https://github.com/sudo-l3wis/notes/tree/main/lang/solidity)
+
+[Scilla](https://github.com/sudo-l3wis/notes/tree/main/lang/scilla)
