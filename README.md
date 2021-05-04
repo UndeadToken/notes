@@ -6,6 +6,7 @@ These are my notes there are many like it but these ones are mine.
 |-|
 |[Maths](https://github.com/sudo-l3wis/notes/tree/main/math)|
 |[Computer Architecture](https://github.com/sudo-l3wis/notes/tree/main/arch)|
+|[Crypto](https://github.com/sudo-l3wis/notes/tree/main/crypto)|
 |[Forensics](https://github.com/sudo-l3wis/notes/tree/main/forensics)|
 |[Languages](https://github.com/sudo-l3wis/notes/tree/main/lang)|
 |[Linux](https://github.com/sudo-l3wis/notes/tree/main/linux)|
