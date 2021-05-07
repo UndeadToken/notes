@@ -82,7 +82,7 @@ Linux based operating systems.
 |\u|The current username|
 |\w|Full path of the current directory|
 
-### Man page sections
+### Man pages
 
 |Section Number|Section Name|Description|
 |-|-|-|
@@ -94,6 +94,17 @@ Linux based operating systems.
 |6|Games|Games available on the system|
 |7|Miscellaneous|Overviews of topics such as protocols, filesystems, character set standards|
 |8|System administration tools and daemons|Commands that require root or other administrative privileges|
+
+Use the page up and down to move one page at a time or arrows keys and enter key to move one line at a time.
+Press /term to search the document. n to repeat the search forward and N to search backward. Then 1 to quit.
+
+```bash
+sudo mandb # Initialize man page database.
+man -k passwd
+
+man passwd
+man 5 passwd
+```
 
 ### Permissions
 
