@@ -62,6 +62,26 @@ Linux based operating systems.
 |SHLVL|The number of shell levels associated with the current shell|
 |TMOUT|The amount of time the shell can remain idle|
 
+### Special Characters (e.g. add to bash prompt)
+
+|Character|Description|
+|-|-|
+|\!|The current command history number|
+|\#|This shows the command number of the curent command|
+|\$|Shows the user prompt($) or the root prompt(#)|
+|\W|The current directory base name|
+|\[|Precedes a sequence of non-printable characters|
+|\]|Follows a sequence of non-printable characters|
+|\\|A backslash|
+|\d|The day name, month and day number of the current date|
+|\h|The hostname|
+|\n|A newline|
+|\nnn|The character that relates to the octal number replacing nnn|
+|\s|The current shell name|
+|\t|The current time in hours, minutes and seconds|
+|\u|The current username|
+|\w|Full path of the current directory|
+
 ### Permissions
 
 ```bash
