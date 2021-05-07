@@ -82,6 +82,19 @@ Linux based operating systems.
 |\u|The current username|
 |\w|Full path of the current directory|
 
+### Man page sections
+
+|Section Number|Section Name|Description|
+|-|-|-|
+|1|User Commands|Commands that can be run from the shell by a regular user|
+|2|System Calls|Programming functions use in an application to make calls to the kernel|
+|3|C Library Functions|Programming functions that provide interfaces to specific programming libraries|
+|4|Device and special files|Filesystem nodes that represent hardware devices|
+|5|File formats and conventions|Types of files|
+|6|Games|Games available on the system|
+|7|Miscellaneous|Overviews of topics such as protocols, filesystems, character set standards|
+|8|System administration tools and daemons|Commands that require root or other administrative privileges|
+
 ### Permissions
 
 ```bash
