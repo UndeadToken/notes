@@ -131,7 +131,6 @@ e.g. When a user service handles AAA (Authentication, Autorization, and Account)
 #### Database
 
 - https://github.com/jmoiron/sqlx
-
 #### Syncronous communication
 
 - MessagPack (http://msgpack.org)
