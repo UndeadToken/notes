@@ -89,6 +89,49 @@ When microservices perform more tasks than they should.
 
 e.g. When a user service handles AAA (Authentication, Autorization, and Account)
 
-### Caching
+### Considerations
+
+- Profieciency
+- Performance
+- Development practicality
+- Ecosystem
+- Scalability cost
+
+### Tools
+
+#### Caching
 
 - Varnish
+
+#### Logging
+
+- logrus (Go) https://github.com/Sirupsen/logrus
+
+#### Handlers
+
+- fasthttp (Go) https://github.com/valyala/fasthttp
+- fasthttprouter (Go) https://github.com/buaazp/fasthttprouter
+- gorilla/mux (Go) https://github.com/gorilla/mux
+
+#### Middleware
+
+- negorni (Go) https://urfave/negroni
+
+#### Testing
+
+- testify (Go) https://sretchr/testify
+
+#### Package managers
+
+- godep https://github.com/tools/godep
+
+#### Database
+
+- https://github.com/jmoiron/sqlx
+
+#### Syncronous communication
+
+- MessagPack (http://msgpack.org)
+- gRPC (https://grpc.io)
+- Apache avro https://avro.apache.org
+- Apache Thrift https://thrift.apache.org
