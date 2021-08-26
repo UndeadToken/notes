@@ -102,6 +102,9 @@ e.g. When a user service handles AAA (Authentication, Autorization, and Account)
 #### Caching
 
 - Varnish
+- Memcahced
+- Redis
+
 
 #### Logging
 
@@ -135,3 +138,29 @@ e.g. When a user service handles AAA (Authentication, Autorization, and Account)
 - gRPC (https://grpc.io)
 - Apache avro https://avro.apache.org
 - Apache Thrift https://thrift.apache.org
+
+#### Message Brokers
+
+- ActiveMQ
+- RabbitMQ
+- Kafka
+
+#### Monitoring
+
+- graphite with grafana and prometheus
+- Nagios
+- Zabbix
+- Sentry
+
+#### CI (Continuous Integration) builds
+
+- Travis CI
+- Jenkins
+- Bitbucket Pipelines
+- Gitlab / github ...
+
+#### Benchmarking
+
+- Apache benchmark
+- WRK
+- Locust
