@@ -1,0 +1,19 @@
+use std::str::FromStr;
+use std::env;
+
+fn main() {
+    let mut numbers = Vec::new();
+
+    for arg in env::args().skip(1) {
+        numbers.push(u64::from_str(&arg).expect("error parsing argument"))
+    }
+
+    if numbers.len() == 0 {
+        eprintln!("Usage: gcd NUMBER ...");
+        std::process::exit(1);
+    }
+
+    for m in &numbers {
+        println!("Env: {:?}", *m)
+    }
+}

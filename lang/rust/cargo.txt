@@ -35,3 +35,6 @@ ble. If you’re benchmarking the running time of your code, be sure to
 run cargo build --release and benchmark with the executable in
 target/release.
 
+### Cleanup build resources.
+cargo clean
+
