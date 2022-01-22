@@ -28,6 +28,64 @@ Applications where all business rules are on the same codebase are called monoli
 - Establish a cient-server relationship between microservices
 - Deploy in  separate containers
 
+Empathetic about the need to use ubiquitous language for communicating between those responsible
+for the business and the engineering team responsible for the development. This language consists of
+terms that are part of everyday conversations between business experts and development teams. Everyone
+should use the same terms in spoken language, spoken language and the signing of microservices. 
+
+The home page should seek breaking news with the title and description.
+
+- Microserice News
+- Endpoint recent news
+- Payload with attribute title and description
+
+This type of communication will mitigate errors in understanding requirements and maintain the general knowledge application unison. With the ubiquitous language, interactions have standardized terms whereas words indicate something new.
+
+#### Context Maps
+These are the communication paths between microservices with appropriate interactions between microservice teams. After the analysis of the areas are already defined, the team can choose to be dependent on another team for the domain language.
+
+### Anti-corruption Layer (ACL)
+This is the function that translates foreign concepts for an internal model to provide loose coupling between the domains.
+
+### Interchange context:
+This provides an environment for both teams and discusses the meaning of each foreign term and translates the languages of microservices.
+
+### Patterns
+
+OOP:
+- Code alignment with the business
+- Favoring of reuse
+- Minimal coupling
+- Putting the domain model to work
+- Model building blocks-driven design
+- Refactoring to deeply understand the model
+- Strategic design
+
+MVC - Model View Controller
+HMVC - Hierarchical Model View Controller
+MTV - Model Template View
+
+### Monolith
+Business domains coupled in a singular codebase.
+
+Disadvantages of monoliths:
+- Merges that are difficult to apply
+- Feature implementation may become increasingly more complicated
+- Application scalability
+- Deploying features without affecting what is already online is challenging
+- Architectural changes are always complex
+
+Advantages of microservices:
+- An exclusive business domain for each microservice, facilitating the implementation of new features
+- Better definition of business without cyclic dependency between them
+- Independent deployment
+- Simplicity to identify errors
+- Technological independence amongst microservices 
+- Indepdendence between teams
+- Implementation of isolation
+- Possible scalability for each microservice
+- 
+
 ### The Scale Cube
 The concept of a scale cube shows that there are basically three forms of
 scalability.
@@ -163,3 +221,4 @@ e.g. When a user service handles AAA (Authentication, Autorization, and Account)
 - Apache benchmark
 - WRK
 - Locust
+
