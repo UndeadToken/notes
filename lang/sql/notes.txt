@@ -3,6 +3,9 @@
 
 bin/mysql_secure_installation
 
+mysql_install_db
+mysql_install_db --datadir=~/mysql
+
 mysqladmin status
 
 mysql \
