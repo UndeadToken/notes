@@ -1,2 +1,31 @@
+
+/usr/local/mysql/bin
+
+bin/mysql_secure_installation
+
+mysqladmin status
+
+mysql \
+  --user=foo \
+  --password=bar
+  
+mysqldump \
+  --user=foo \
+  --password=bar \
+  result-file=dump.sql \
+  --all-databases
+  
+mysqladmin \
+  --user=admin \
+  password new_root_password
+
+mysqladmin --user root --password=x shutdown
+  
+mysqlshow --user root --password=x 
+
+mysql --user=foo --password=bar < dump.sql
+
+mysql_fix_privilege_tables --user=foo --password=bar
+ 
 # Password
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'test';
