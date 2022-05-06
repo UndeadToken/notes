@@ -26,6 +26,9 @@ ls /etc/init.d/mysql*
 /etc/rc<runlevel>.d
 ls /etc/rc*.d/*mysql*
 chkconfig --list mysql
+chkconfig --level 35 mysql on
+update-rc.d mysql defaults
+update-rc.d -f mysql remove
 
 mysqladmin status
 
