@@ -75,3 +75,5 @@ sudo chown -RL root:mysql /usr/local/mysql
 sudo chown -RL mysql:mysql /usr/local/mysql/data
 
 setenv PATH $PATH:/usr/local/mysql/bin
+
+info mysql.info
