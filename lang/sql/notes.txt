@@ -56,3 +56,11 @@ mysql_fix_privilege_tables --user=foo --password=bar
  
 # Password
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'test';
+
+# users
+
+grep mysql /etc/passwd /etc/group
+sudo niutl -create / /users/mysql
+sudo niutil -createprop / /users/mysql home /var/empty
+sudo niutil -createprop / /users/mysql shell /usr/bin/false
+sudo niutil -create / groups/mysql
