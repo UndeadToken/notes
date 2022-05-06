@@ -13,6 +13,8 @@ chown --recursive foo:foo ~/mysql
   --user=root \
   password the_new_root_password
 
+sudo /usr/local/mysql/support-files/mysql.server start
+
 ~/mysql/bin/mysqladmin \
   --port=57777 \
   --socket=~/mysql/data/mysql.sock \
@@ -64,3 +66,10 @@ sudo niutl -create / /users/mysql
 sudo niutil -createprop / /users/mysql home /var/empty
 sudo niutil -createprop / /users/mysql shell /usr/bin/false
 sudo niutil -create / groups/mysql
+
+sudo niutil -createprop / /groups/mysql gid 74
+sudo niutil -createprop / /users/mysql uid 74
+sudo niutil -createprop / /users/mysql gid 74 # associated user with gid
+
+sudo chown -RL root:mysql /usr/local/mysql
+sudo chown -RL mysql:mysql /usr/local/mysql/data
