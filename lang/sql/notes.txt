@@ -5,6 +5,27 @@ bin/mysql_secure_installation
 
 mysql_install_db
 mysql_install_db --datadir=~/mysql
+chown --recursive foo:foo ~/mysql
+
+~/mysql/bin/mysqld_safe \
+  --port=57777 \
+  --socket=~/mysql/data/mysql.sock \
+  --user=root \
+  password the_new_root_password
+
+~/mysql/bin/mysqladmin \
+  --port=57777 \
+  --socket=~/mysql/data/mysql.sock \
+  --user=root \
+  shutdown
+
+ls /etc/init.d/mysql*
+
+# Entries starting with S start the program, starting with K kill the program.
+/sbin/runlevel
+/etc/rc<runlevel>.d
+ls /etc/rc*.d/*mysql*
+chkconfig --list mysql
 
 mysqladmin status
 
