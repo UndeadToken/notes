@@ -60,10 +60,18 @@ OOP:
 - Model building blocks-driven design
 - Refactoring to deeply understand the model
 - Strategic design
+- Command Query Responsibility Segregation (CQRS)
 
 MVC - Model View Controller
 HMVC - Hierarchical Model View Controller
 MTV - Model Template View
+
+### Anti-Patterns
+
+-Death Star:
+- Direct communication between microservices 
+- Allow free communication between microservices if they have no information to process a specific task
+- If a microservice always needs to communicate with another to complete a task, it is a high coupling signal
 
 ### Monolith
 Business domains coupled in a singular codebase.
@@ -155,7 +163,11 @@ e.g. When a user service handles AAA (Authentication, Autorization, and Account)
 - Ecosystem
 - Scalability cost
 
-### Tools
+### Monitoring
+
+- New relic
+- Data dog
+- Grafana
 
 #### Caching
 
@@ -222,3 +234,13 @@ e.g. When a user service handles AAA (Authentication, Autorization, and Account)
 - WRK
 - Locust
 
+
+#### Command Query Responsibility Segregation (CQRS)
+
+Separating responsibility of reading and writing data. CQRS is a code pattern and not an architectural pattern.
+
+- Deadlocks, timeous and slowness
+- Complex Queries
+- Content Obsolesence
+
+# Event Sourcing

@@ -7,8 +7,8 @@
 
 ### Dispatch
 The process by which a an API has to figure out the method implementation to invoke
-on an instance of a type that's passed to teh API. This process of methjod resolution
-in a polymorphic context is caled dispatch, and invoking the method is called dispatching.
+on an instance of a type that's passed to the API. This process of method resolution
+in a polymorphic context is called dispatch, and invoking the method is called dispatching.
 
 ### Monomorphization
 The process of generating specialized functions with concrete types at compile time.

@@ -8,7 +8,7 @@ point to can be on the stack, heap or the data segment of the binary.
 
 Raw pointers:
 Prefixed with *, which also happens to be the dereference operator. They are
-mostly used in unsage code. One needs an unsafe block to dereference them.
+mostly used in unsafe code. One needs an unsafe block to dereference them.
 
 *const T - An immutable raw pointer to a type T. Nullable.
 *mut T - A mutable raw pointer to a value T, which is not copy.
