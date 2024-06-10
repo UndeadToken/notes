@@ -1,4 +1,4 @@
-frameowkrs:
+Frameworks:
 canvas
 pyEmu
 sullley

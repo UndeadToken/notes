@@ -59,7 +59,7 @@ fn main() {
 
 /// Bounds.
 impl Foo {
-	fn load<T: Entity>(&self, entity: T)
+	fn load<T: Entity>(&self, entity: T) {}
 }
 
 struct Foo<T: Bar> {

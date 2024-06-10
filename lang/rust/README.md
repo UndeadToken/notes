@@ -25,3 +25,11 @@ i32 Signed 32-bit integer
 u8 Unsigned 8-bit integer
 isize, usize types hold pointer-sized signed and unsigned integers, 32 bits long on 32-bit platforms and 64-bits long on 64-bit platforms.
 f32, f64 IEEE single- and double-precision floating-point types, like float and double in C and C++.
+
+### Ownership
+
+Ownership is a set of rules that govern how a Rust program manages memory.
+
+Each value in Rust has an owner.
+There can only be one owner at a time.
+When the owner goes out of scope, the value will be dropped.

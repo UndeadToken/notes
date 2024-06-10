@@ -7,7 +7,7 @@ the virtual address space of other processes and has its own view of memory.
 Due to the various tiers of memory requirements, and also for security purposes,
 a processes view of memory is divided into regions known as the memory layout.
 
-Text Segment: This section contains the actual code to be executed in trhe compiled
+Text Segment: This section contains the actual code to be executed in the compiled
 binary. The text segment is a read-only segment and any user code is forbidden to
 modify it. Doing so can result in the crash of a program.
 
@@ -49,7 +49,7 @@ or when they return. When a function returns, its stack frame is disgarded by
 restoring the stack frame pointer to where it was before entering the function.
 
 Lifetimes:
-A lifetime ensures that a refernces goes out of scope before the value does.
+A lifetime ensures that a reference goes out of scope before the value does.
 let _a: &'static str = "I Live Forever" # lives forever, goes to data segment of
 compiled code.
 

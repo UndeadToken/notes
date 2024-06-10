@@ -30,22 +30,21 @@ func main() {
 		false,  // No waiting time
 		nil,    // Extra args
 	)
-
+	golang
 	serverTime := time.Now()
 	message := amqp.Publishing{
 		ContentType: "text/plain",
-		Body: []byte(serverTime.String()),
+		Body:        []byte(serverTime.String()),
 	}
 
 	err = channel.Publish(
 		"",             // exchange
-        testQueue.Name, // routing key (Queue)
-		false,			// mandatory
-		false,			// immediate
+		testQueue.Name, // routing key (Queue)
+		false,          // mandatory
+		false,          // immediate
 		message,
 	)
 
 	handleError(err, "Failed to publish a message")
 	log.Println("Successfully published a message to the queue")
 }
-
