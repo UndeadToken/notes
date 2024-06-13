@@ -322,6 +322,8 @@ A Django view is just a python function that receives a web request and returns 
 https://docs.djangoproject.com/en/5.0/topics/http/urls/#path-converters
 https://docs.djangoproject.com/en/5.0/topics/http/urls/#django.urls.re_path
 https://docs.djangoproject.com/en/5.0/topics/http/urls/#url-namespaces
+https://docs.djangoproject.com/en/5.0/ref/urlresolvers
+
 
 ### Production
 
