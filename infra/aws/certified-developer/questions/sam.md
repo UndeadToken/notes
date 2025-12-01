@@ -215,3 +215,58 @@ D. AWS::Serverless::Table
 
 **Answer:** B
 **Explanation:** AWS::Serverless::SimpleTable creates a DynamoDB table with a simple schema.
+
+---
+
+### 21. What is the purpose of SAM Connectors?
+A. Connect to databases
+B. Automatically generate IAM permissions between resources
+C. Connect Lambda functions
+D. Connect to VPCs
+
+**Answer:** B
+**Explanation:** SAM Connectors automatically create IAM permissions for resource-to-resource communication (e.g., Function to Table).
+
+---
+
+### 22. Which SAM feature allows embedding nested applications?
+A. AWS::Serverless::Application
+B. AWS::Serverless::Nested
+C. AWS::SAM::Stack
+D. AWS::Serverless::Module
+
+**Answer:** A
+**Explanation:** AWS::Serverless::Application embeds nested SAM/CloudFormation applications from SAR or S3.
+
+---
+
+### 23. What does `sam pipeline init` create?
+A. New SAM project
+B. CI/CD pipeline configuration
+C. API Gateway pipeline
+D. Lambda pipeline
+
+**Answer:** B
+**Explanation:** `sam pipeline init` generates CI/CD pipeline configuration for popular CI/CD tools (GitHub Actions, GitLab, Jenkins).
+
+---
+
+### 24. Which SAM resource type creates an HTTP API (not REST API)?
+A. AWS::Serverless::Api
+B. AWS::Serverless::HttpApi
+C. AWS::Serverless::RestApi
+D. AWS::ApiGatewayV2::Api
+
+**Answer:** B
+**Explanation:** AWS::Serverless::HttpApi creates an API Gateway HTTP API (lower latency, lower cost than REST API).
+
+---
+
+### 25. How can you pass environment variables to SAM local functions?
+A. --env-vars flag with JSON file
+B. --environment flag
+C. .env file
+D. samconfig.toml
+
+**Answer:** A
+**Explanation:** Use `sam local invoke --env-vars env.json` to pass environment variables from a JSON file.

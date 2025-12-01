@@ -215,3 +215,58 @@ D. 120
 
 **Answer:** B
 **Explanation:** Maximum 60 inbound and 60 outbound rules per security group.
+
+---
+
+### 21. What is VPC Sharing (Resource Access Manager)?
+A. Share VPCs across accounts
+B. Share subnets with other AWS accounts in same organization
+C. Share security groups
+D. Share internet gateways
+
+**Answer:** B
+**Explanation:** VPC Sharing allows sharing subnets with other AWS accounts within the same AWS Organization.
+
+---
+
+### 22. What is AWS PrivateLink used for?
+A. Connect VPCs
+B. Private connectivity to services without internet, NAT, or VPC peering
+C. Encrypt traffic
+D. Monitor connections
+
+**Answer:** B
+**Explanation:** PrivateLink provides private connectivity to AWS services and SaaS applications without exposing traffic to the internet.
+
+---
+
+### 23. Which service helps manage IP address allocation across multiple VPCs?
+A. IPAM (IP Address Manager)
+B. Route 53
+C. VPC Manager
+D. Network Manager
+
+**Answer:** A
+**Explanation:** IPAM helps plan, track, and monitor IP addresses across multiple VPCs and regions.
+
+---
+
+### 24. What is AWS Network Firewall used for?
+A. Replace security groups
+B. Managed firewall service for VPC-level protection
+C. Monitor traffic
+D. Encrypt connections
+
+**Answer:** B
+**Explanation:** Network Firewall provides managed network firewall protection for VPCs with stateful inspection and intrusion prevention.
+
+---
+
+### 25. Which tool analyzes network reachability between resources?
+A. VPC Flow Logs
+B. Reachability Analyzer
+C. Network Insights
+D. CloudWatch
+
+**Answer:** B
+**Explanation:** VPC Reachability Analyzer analyzes and debugs network reachability between resources without sending packets.

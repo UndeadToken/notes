@@ -215,3 +215,58 @@ D. Stack events
 
 **Answer:** B
 **Explanation:** Outputs export values (e.g., resource IDs, ARNs) for use in other stacks via !ImportValue.
+
+---
+
+### 21. What is CloudFormation Drift Detection used for?
+A. Monitoring stack performance
+B. Detecting manual changes to stack resources
+C. Predicting stack costs
+D. Validating template syntax
+
+**Answer:** B
+**Explanation:** Drift Detection identifies resources that have been modified outside of CloudFormation (manual changes via console/CLI).
+
+---
+
+### 22. Which feature allows reusing CloudFormation templates across multiple stacks?
+A. StackSets
+B. Nested Stacks
+C. Change Sets
+D. Stack Policies
+
+**Answer:** B
+**Explanation:** Nested Stacks allow reusing common template patterns (VPC, load balancer, etc.) across multiple parent stacks.
+
+---
+
+### 23. What is the purpose of CloudFormation Macros?
+A. Encrypt stack resources
+B. Perform custom processing and transformations on templates
+C. Monitor stack events
+D. Automatically roll back failed updates
+
+**Answer:** B
+**Explanation:** Macros enable custom template processing using Lambda functions to transform templates before deployment.
+
+---
+
+### 24. Which attribute controls what happens to a resource during stack updates (not deletion)?
+A. DeletionPolicy
+B. UpdatePolicy
+C. UpdateReplacePolicy
+D. CreationPolicy
+
+**Answer:** C
+**Explanation:** UpdateReplacePolicy determines whether to retain, snapshot, or delete a resource when it's replaced during stack updates.
+
+---
+
+### 25. How can one stack reference an output value from another stack?
+A. !Ref
+B. !GetAtt
+C. !ImportValue
+D. !FindInMap
+
+**Answer:** C
+**Explanation:** !ImportValue references exported output values from other stacks using the export name.

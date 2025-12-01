@@ -215,3 +215,58 @@ D. Not possible
 
 **Answer:** B
 **Explanation:** Elastic Volumes allows modifying volume type, size, and IOPS without detaching.
+
+---
+
+### 21. What is EFS Lifecycle Management used for?
+A. Delete old files
+B. Automatically move files to Infrequent Access storage class
+C. Backup files
+D. Encrypt files
+
+**Answer:** B
+**Explanation:** EFS Lifecycle Management automatically transitions files to IA storage class based on access patterns to reduce costs.
+
+---
+
+### 22. Which RAID configuration provides fault tolerance for EBS volumes?
+A. RAID 0 (striping)
+B. RAID 1 (mirroring)
+C. RAID 5
+D. RAID 10
+
+**Answer:** B
+**Explanation:** RAID 1 mirrors data across volumes for fault tolerance. RAID 0 improves performance but no redundancy.
+
+---
+
+### 23. What is the purpose of EBS Snapshot Recycle Bin?
+A. Delete snapshots
+B. Recover accidentally deleted snapshots
+C. Archive snapshots
+D. Encrypt snapshots
+
+**Answer:** B
+**Explanation:** Recycle Bin retains deleted snapshots for a retention period (1 day to 1 year) for recovery.
+
+---
+
+### 24. Which AWS file system is optimized for Windows workloads?
+A. EFS
+B. FSx for Windows File Server
+C. FSx for Lustre
+D. EBS
+
+**Answer:** B
+**Explanation:** FSx for Windows File Server provides fully managed Windows-native file system with SMB protocol support.
+
+---
+
+### 25. What is the purpose of EBS Direct APIs?
+A. Attach volumes faster
+B. Read and write EBS snapshot data directly for backup/restore
+C. Encrypt volumes
+D. Monitor volumes
+
+**Answer:** B
+**Explanation:** EBS Direct APIs (ListSnapshotBlocks, GetSnapshotBlock, PutSnapshotBlock) enable direct access to snapshot data for custom backup solutions.

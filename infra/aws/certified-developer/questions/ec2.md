@@ -215,3 +215,58 @@ D. Unlimited
 
 **Answer:** B
 **Explanation:** Maximum ENIs depends on instance type (e.g., t2.micro: 2, m5.large: 3).
+
+---
+
+### 21. What is EC2 Hibernation used for?
+A. Stop instance permanently
+B. Save RAM state to EBS and resume later
+C. Create AMI
+D. Terminate instance
+
+**Answer:** B
+**Explanation:** Hibernation saves RAM contents to EBS root volume, allowing fast resume with preserved state.
+
+---
+
+### 22. Which EC2 feature provides enhanced networking with higher bandwidth and lower latency?
+A. Enhanced Networking (SR-IOV)
+B. Elastic Network Adapter (ENA)
+C. Nitro System
+D. All of the above
+
+**Answer:** D
+**Explanation:** Enhanced Networking (SR-IOV), ENA, and Nitro System all provide improved network performance.
+
+---
+
+### 23. What is the purpose of EC2 Instance Metadata categories?
+A. Monitor instances
+B. Provide instance information (AMI ID, instance type, security groups, etc.)
+C. Store user data
+D. Configure networking
+
+**Answer:** B
+**Explanation:** Instance metadata provides information about the instance including AMI ID, instance type, public/private IPs, security groups, and IAM role credentials.
+
+---
+
+### 24. Which service automates AMI creation and maintenance?
+A. EC2 Image Builder
+B. AMI Builder
+C. CloudFormation
+D. Systems Manager
+
+**Answer:** A
+**Explanation:** EC2 Image Builder automates creation, management, and deployment of customized, secure AMIs.
+
+---
+
+### 25. What is a Spot Fleet?
+A. Group of On-Demand instances
+B. Collection of Spot and optionally On-Demand instances
+C. Reserved Instance pool
+D. Dedicated Host group
+
+**Answer:** B
+**Explanation:** Spot Fleet is a collection of Spot Instances and optionally On-Demand instances that meet specified capacity requirements.

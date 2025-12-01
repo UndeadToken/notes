@@ -215,3 +215,58 @@ D. Configuration profiles
 
 **Answer:** B
 **Explanation:** Saved configurations preserve environment settings for reuse across environments.
+
+---
+
+### 21. What is the purpose of Elastic Beanstalk Platform Updates?
+A. Update application code
+B. Update platform version (OS, runtime, web server)
+C. Update environment configuration
+D. Update database schema
+
+**Answer:** B
+**Explanation:** Platform Updates upgrade the underlying platform (OS patches, runtime versions, web server updates).
+
+---
+
+### 22. Which file defines services for Multi-container Docker platform?
+A. Dockerfile
+B. Dockerrun.aws.json
+C. docker-compose.yml
+D. container.config
+
+**Answer:** B
+**Explanation:** Dockerrun.aws.json (v2) defines container definitions for Multi-container Docker environments.
+
+---
+
+### 23. How can you schedule periodic tasks in Worker tier environments?
+A. CloudWatch Events
+B. cron.yaml file
+C. Lambda scheduled events
+D. .ebextensions
+
+**Answer:** B
+**Explanation:** cron.yaml in Worker tier schedules periodic tasks by posting messages to the worker queue.
+
+---
+
+### 24. Which Elastic Beanstalk feature allows setting environment-specific values?
+A. Parameters
+B. Environment properties
+C. Configuration files
+D. Stage variables
+
+**Answer:** B
+**Explanation:** Environment properties define key-value pairs accessible as environment variables in the application.
+
+---
+
+### 25. What is Elastic Beanstalk Managed Platform Updates?
+A. Manual platform updates
+B. Automatic platform updates during maintenance window
+C. Application code updates
+D. Database updates
+
+**Answer:** B
+**Explanation:** Managed Platform Updates automatically apply platform patches during a configured maintenance window.

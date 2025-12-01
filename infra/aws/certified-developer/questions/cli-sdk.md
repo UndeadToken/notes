@@ -215,3 +215,58 @@ D. Use root credentials
 
 **Answer:** B
 **Explanation:** Use IAM roles for AWS services. Never hard-code credentials.
+
+---
+
+### 21. What is the purpose of AWS CLI `--query` parameter?
+A. Search AWS resources
+B. Filter and format CLI output using JMESPath
+C. Query databases
+D. Search documentation
+
+**Answer:** B
+**Explanation:** `--query` uses JMESPath expressions to filter and transform CLI output.
+
+---
+
+### 22. Which AWS SDK feature waits for a resource to reach a desired state?
+A. Polling
+B. Waiters
+C. Observers
+D. Monitors
+
+**Answer:** B
+**Explanation:** Waiters poll resources until they reach a desired state (e.g., instance running, stack complete).
+
+---
+
+### 23. What is the recommended frequency for rotating AWS access keys?
+A. Never
+B. Every 30 days
+C. Every 90 days
+D. Every year
+
+**Answer:** C
+**Explanation:** AWS recommends rotating access keys every 90 days for security best practices.
+
+---
+
+### 24. Which AWS CLI v2 feature provides automatic pagination?
+A. --max-items
+B. --page-size
+C. --no-paginate (to disable)
+D. Enabled by default
+
+**Answer:** D
+**Explanation:** AWS CLI v2 automatically paginates results by default (use --no-paginate to disable).
+
+---
+
+### 25. What is the purpose of AWS SDK request signing?
+A. Encrypt data
+B. Authenticate requests using access keys
+C. Compress data
+D. Cache requests
+
+**Answer:** B
+**Explanation:** Request signing (SigV4) authenticates API requests using AWS access keys to verify identity and prevent tampering.

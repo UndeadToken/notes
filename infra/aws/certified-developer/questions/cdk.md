@@ -215,3 +215,58 @@ D. cdk preview
 
 **Answer:** B
 **Explanation:** `cdk synth` generates and displays the CloudFormation template without deploying.
+
+---
+
+### 21. What is CDK Pipelines used for?
+A. Data pipelines
+B. CI/CD pipelines for CDK applications
+C. Network pipelines
+D. Logging pipelines
+
+**Answer:** B
+**Explanation:** CDK Pipelines provides a high-level construct for creating self-mutating CI/CD pipelines for CDK applications.
+
+---
+
+### 22. Which CDK feature allows creating custom CloudFormation resources?
+A. Custom Constructs
+B. Custom Resources (Provider Framework)
+C. Custom Stacks
+D. Custom Aspects
+
+**Answer:** B
+**Explanation:** CDK Provider Framework simplifies creating custom CloudFormation resources backed by Lambda functions.
+
+---
+
+### 23. How does CDK handle file assets (Lambda code, Docker images)?
+A. Inline in template
+B. Uploads to S3/ECR during deployment
+C. Stores locally
+D. Not supported
+
+**Answer:** B
+**Explanation:** CDK automatically uploads file assets to S3 (code) or ECR (images) during deployment and references them in the template.
+
+---
+
+### 24. What is CDK Migrate used for?
+A. Migrate between AWS accounts
+B. Convert CloudFormation templates to CDK code
+C. Migrate databases
+D. Update CDK version
+
+**Answer:** B
+**Explanation:** CDK Migrate converts existing CloudFormation templates and deployed stacks into CDK code.
+
+---
+
+### 25. How do you specify different configurations for dev/prod environments in CDK?
+A. Multiple apps
+B. Environment-specific context values and stack props
+C. Separate repositories
+D. Not possible
+
+**Answer:** B
+**Explanation:** Use CDK context values, environment variables, and stack props to configure different environments (dev, staging, prod).

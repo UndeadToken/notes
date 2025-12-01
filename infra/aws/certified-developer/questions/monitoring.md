@@ -215,3 +215,58 @@ D. ResponseTime
 
 **Answer:** B
 **Explanation:** IntegrationLatency measures only backend integration time, excluding API Gateway processing.
+
+---
+
+### 21. What is CloudWatch Contributor Insights used for?
+A. Analyzing log data
+B. Identifying top contributors to system behavior (top talkers)
+C. Creating custom metrics
+D. Monitoring API calls
+
+**Answer:** B
+**Explanation:** Contributor Insights analyzes log data to find top contributors (e.g., top IPs, URLs, user agents).
+
+---
+
+### 22. Which CloudWatch feature performs mathematical operations on metrics?
+A. Metric Filters
+B. Metric Math
+C. Metric Aggregation
+D. Metric Transformation
+
+**Answer:** B
+**Explanation:** Metric Math allows performing mathematical operations (SUM, AVG, MAX, etc.) on multiple metrics.
+
+---
+
+### 23. What is a CloudWatch Composite Alarm?
+A. An alarm that monitors multiple metrics
+B. An alarm based on the state of other alarms using AND/OR logic
+C. An alarm with multiple thresholds
+D. An alarm that triggers multiple actions
+
+**Answer:** B
+**Explanation:** Composite Alarms combine multiple alarms using AND/OR logic to reduce alarm noise.
+
+---
+
+### 24. Which EventBridge feature automatically discovers event schemas?
+A. Event Bus
+B. Schema Registry
+C. Event Archive
+D. Event Replay
+
+**Answer:** B
+**Explanation:** Schema Registry automatically discovers and stores event schemas from EventBridge events.
+
+---
+
+### 25. What is CloudWatch RUM (Real User Monitoring) used for?
+A. Monitoring backend services
+B. Collecting client-side performance data from web applications
+C. Analyzing log files
+D. Tracing distributed applications
+
+**Answer:** B
+**Explanation:** CloudWatch RUM collects client-side performance metrics (page load, errors, user sessions) from real users.

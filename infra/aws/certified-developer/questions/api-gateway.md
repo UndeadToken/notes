@@ -215,3 +215,58 @@ D. Private API
 
 **Answer:** C  
 **Explanation:** WebSocket API provides full two-way real-time communication between client and server.  
+
+---
+
+### 21. What is the purpose of Canary deployments in API Gateway?
+A. Test new API versions with a small percentage of traffic
+B. Encrypt API requests
+C. Monitor API performance
+D. Cache API responses
+
+**Answer:** A
+**Explanation:** Canary deployments route a small percentage of traffic to a new deployment version for testing before full rollout.
+
+---
+
+### 22. Which API Gateway feature restricts access to specific AWS accounts or VPCs?
+A. Usage Plans
+B. Resource Policies
+C. Lambda Authorizers
+D. Stage Variables
+
+**Answer:** B
+**Explanation:** Resource Policies control which AWS accounts, VPCs, or IP ranges can access the API.
+
+---
+
+### 23. What is the default cache TTL for API Gateway caching?
+A. 30 seconds
+B. 60 seconds
+C. 300 seconds (5 minutes)
+D. 3600 seconds (1 hour)
+
+**Answer:** C
+**Explanation:** API Gateway caching has a default TTL of 300 seconds (5 minutes), configurable from 0 to 3600 seconds.
+
+---
+
+### 24. A custom domain name is configured for API Gateway. Which AWS service manages the SSL/TLS certificate?
+A. IAM
+B. ACM (AWS Certificate Manager)
+C. KMS
+D. Secrets Manager
+
+**Answer:** B
+**Explanation:** ACM (AWS Certificate Manager) provides and manages SSL/TLS certificates for custom domain names in API Gateway.
+
+---
+
+### 25. What does the $context variable provide in API Gateway mapping templates?
+A. Database connection strings
+B. Request and response metadata (request ID, source IP, stage, etc.)
+C. Lambda function code
+D. API deployment history
+
+**Answer:** B
+**Explanation:** $context provides runtime information like request ID, source IP, stage, resource path, HTTP method, and more for use in mapping templates and logging.

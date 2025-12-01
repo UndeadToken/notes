@@ -215,3 +215,58 @@ D. none
 
 **Answer:** C
 **Explanation:** Fargate tasks use awsvpc network mode (each task gets its own ENI and private IP).
+
+---
+
+### 21. What is ECS Anywhere used for?
+A. Running ECS tasks in any AWS region
+B. Running ECS tasks on on-premises servers
+C. Running ECS tasks on multiple clouds
+D. Running ECS tasks without containers
+
+**Answer:** B
+**Explanation:** ECS Anywhere allows running ECS tasks on customer-managed infrastructure (on-premises or other clouds).
+
+---
+
+### 22. Which ECR feature replicates images across regions?
+A. Cross-Region Replication
+B. Image Sync
+C. Multi-Region Registry
+D. Global Registry
+
+**Answer:** A
+**Explanation:** ECR Cross-Region Replication automatically replicates images to other regions for disaster recovery and low-latency access.
+
+---
+
+### 23. What is Fargate Spot?
+A. Reserved capacity for Fargate
+B. Discounted Fargate capacity using spare AWS capacity
+C. Dedicated Fargate instances
+D. Fargate with guaranteed availability
+
+**Answer:** B
+**Explanation:** Fargate Spot runs tasks on spare AWS capacity at up to 70% discount (can be interrupted with 2-minute notice).
+
+---
+
+### 24. Which feature allows executing commands in running ECS containers?
+A. ECS Connect
+B. ECS Shell
+C. ECS Exec
+D. Container SSH
+
+**Answer:** C
+**Explanation:** ECS Exec enables interactive shell access to running containers using AWS Systems Manager Session Manager.
+
+---
+
+### 25. What is the purpose of ECS Capacity Providers?
+A. Manage container images
+B. Manage cluster capacity with Auto Scaling Groups or Fargate
+C. Provide network capacity
+D. Manage storage capacity
+
+**Answer:** B
+**Explanation:** Capacity Providers manage cluster capacity, automatically scaling EC2 instances (ASG) or using Fargate/Fargate Spot.

@@ -215,3 +215,58 @@ D. Not recommended
 
 **Answer:** B
 **Explanation:** CloudFront can cache dynamic content with low TTL and proper cache policies (query strings, headers).
+
+---
+
+### 21. What is CloudFront Origin Shield?
+A. Security feature
+B. Additional caching layer to reduce origin load
+C. DDoS protection
+D. Origin encryption
+
+**Answer:** B
+**Explanation:** Origin Shield is an additional caching layer between edge locations and origin to reduce origin load and improve cache hit ratio.
+
+---
+
+### 22. Which CloudFront feature adds security headers to responses?
+A. Security Policies
+B. Response Headers Policies
+C. Origin Policies
+D. Cache Policies
+
+**Answer:** B
+**Explanation:** Response Headers Policies automatically add security headers (HSTS, CSP, X-Frame-Options) to CloudFront responses.
+
+---
+
+### 23. What is CloudFront Continuous Deployment used for?
+A. Deploy to production
+B. Test configuration changes with a subset of traffic before full deployment
+C. Monitor deployments
+D. Rollback deployments
+
+**Answer:** B
+**Explanation:** Continuous Deployment allows testing CloudFront configuration changes with a small percentage of traffic before full rollout.
+
+---
+
+### 24. Which CloudFront feature provides low-latency key-value storage at edge locations?
+A. CloudFront Cache
+B. CloudFront KeyValueStore
+C. Lambda@Edge
+D. Edge Storage
+
+**Answer:** B
+**Explanation:** CloudFront KeyValueStore provides low-latency key-value data access at edge locations for CloudFront Functions.
+
+---
+
+### 25. What is the purpose of CloudFront origin connection settings?
+A. Monitor connections
+B. Configure connection timeout, attempts, and protocol
+C. Encrypt connections
+D. Load balance origins
+
+**Answer:** B
+**Explanation:** Origin connection settings control connection timeout, number of attempts, and protocol (HTTP/HTTPS) for origin requests.

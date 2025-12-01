@@ -215,3 +215,58 @@ D. All of the above
 
 **Answer:** D
 **Explanation:** Step Functions can be triggered by EventBridge, API Gateway, Lambda, SDK, and other services.
+
+---
+
+### 21. Which Step Functions state type terminates execution with failure?
+A. Error
+B. Fail
+C. Failure
+D. Abort
+
+**Answer:** B
+**Explanation:** Fail state terminates execution with a failure status and optional error/cause.
+
+---
+
+### 22. What is the purpose of Distributed Map in Step Functions?
+A. Process small arrays
+B. Process large-scale parallel workloads (millions of items)
+C. Map errors to handlers
+D. Create distributed systems
+
+**Answer:** B
+**Explanation:** Distributed Map processes large datasets (millions of items) in parallel with high concurrency from S3, DynamoDB, etc.
+
+---
+
+### 23. Which Step Functions integration pattern waits for a callback?
+A. Request Response
+B. Run a Job (.sync)
+C. Wait for Callback (.waitForTaskToken)
+D. Async
+
+**Answer:** C
+**Explanation:** .waitForTaskToken pauses execution until SendTaskSuccess/SendTaskFailure is called with the task token.
+
+---
+
+### 24. Which Step Functions intrinsic function generates a UUID?
+A. States.UUID()
+B. States.Random()
+C. States.GenerateUUID()
+D. States.NewId()
+
+**Answer:** A
+**Explanation:** States.UUID() generates a random UUID v4.
+
+---
+
+### 25. Which AWS service can Step Functions directly integrate with using optimized integrations?
+A. Lambda, DynamoDB, ECS
+B. S3, SNS, SQS
+C. Batch, Glue, SageMaker
+D. All of the above
+
+**Answer:** D
+**Explanation:** Step Functions provides optimized integrations with 200+ AWS services including Lambda, DynamoDB, ECS, S3, SNS, SQS, Batch, Glue, and SageMaker.

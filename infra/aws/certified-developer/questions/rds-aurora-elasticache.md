@@ -218,3 +218,58 @@ D. Encrypt data
 
 **Answer:** B
 **Explanation:** Aurora Backtrack allows "rewinding" database to a previous point in time (up to 72 hours).
+
+---
+
+### 21. What is Aurora Cloning used for?
+A. Backup database
+B. Create a copy-on-write clone for testing without impacting production
+C. Replicate across regions
+D. Scale reads
+
+**Answer:** B
+**Explanation:** Aurora Cloning creates a fast, cost-effective copy-on-write clone of the database for testing or development.
+
+---
+
+### 22. Which RDS feature allows access to the underlying OS?
+A. RDS Standard
+B. RDS Custom
+C. RDS Advanced
+D. Not possible
+
+**Answer:** B
+**Explanation:** RDS Custom (for Oracle and SQL Server) provides access to the underlying OS and database for custom configurations.
+
+---
+
+### 23. Which ElastiCache for Redis feature provides password authentication?
+A. Redis AUTH
+B. IAM Authentication
+C. Security Groups
+D. VPC Isolation
+
+**Answer:** A
+**Explanation:** Redis AUTH provides password-based authentication for ElastiCache for Redis clusters.
+
+---
+
+### 24. What is RDS Performance Insights used for?
+A. Backup database
+B. Monitor and analyze database performance with visual dashboard
+C. Scale database
+D. Encrypt data
+
+**Answer:** B
+**Explanation:** Performance Insights provides a visual dashboard to monitor database load and identify performance bottlenecks.
+
+---
+
+### 25. What is the purpose of ElastiCache for Redis Cluster Mode?
+A. Single node deployment
+B. Partition data across multiple shards for horizontal scaling
+C. Backup data
+D. Encrypt data
+
+**Answer:** B
+**Explanation:** Cluster Mode partitions data across multiple shards (up to 500 nodes) for horizontal scaling and higher throughput.

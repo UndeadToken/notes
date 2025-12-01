@@ -215,3 +215,58 @@ D. Identity Pools
 
 **Answer:** B
 **Explanation:** User Groups allow assigning IAM roles and organizing users for access control.
+
+---
+
+### 21. What is the Cognito Hosted UI used for?
+A. Managing user pools
+B. Providing ready-to-use sign-in/sign-up pages
+C. Monitoring authentication
+D. Configuring identity providers
+
+**Answer:** B
+**Explanation:** Hosted UI provides customizable, ready-to-use authentication pages without building custom UI.
+
+---
+
+### 22. Which Cognito User Pool feature allows different apps to have different permissions?
+A. User Groups
+B. App Clients
+C. Identity Pools
+D. Resource Servers
+
+**Answer:** B
+**Explanation:** App Clients represent different applications accessing the User Pool with specific read/write attribute permissions.
+
+---
+
+### 23. Which Lambda trigger migrates users from an existing user directory to Cognito?
+A. Pre Authentication
+B. User Migration
+C. Pre Sign-up
+D. Post Confirmation
+
+**Answer:** B
+**Explanation:** User Migration trigger allows lazy migration of users from existing systems during sign-in.
+
+---
+
+### 24. What is Cognito Advanced Security Features used for?
+A. Encrypting user data
+B. Risk-based adaptive authentication and compromised credential detection
+C. Managing user groups
+D. Syncing data across devices
+
+**Answer:** B
+**Explanation:** Advanced Security Features provide risk scoring, adaptive authentication, and compromised credential checks.
+
+---
+
+### 25. How can you revoke Cognito tokens before they expire?
+A. Delete the user
+B. Call GlobalSignOut or AdminUserGlobalSignOut
+C. Change user password
+D. Tokens cannot be revoked
+
+**Answer:** B
+**Explanation:** GlobalSignOut (user) or AdminUserGlobalSignOut (admin) invalidates all tokens for a user.

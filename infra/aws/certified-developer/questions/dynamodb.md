@@ -215,3 +215,58 @@ D. Unlimited
 
 **Answer:** C
 **Explanation:** Query returns up to 1 MB of data per request. Use pagination for more results.
+
+---
+
+### 21. What is DynamoDB Global Tables used for?
+A. Backup and restore
+B. Multi-region, multi-active replication
+C. Caching data
+D. Data encryption
+
+**Answer:** B
+**Explanation:** Global Tables provide multi-region, multi-active (active-active) replication with automatic conflict resolution for globally distributed applications.
+
+---
+
+### 22. Which query language can be used with DynamoDB for SQL-like queries?
+A. SQL
+B. PartiQL
+C. GraphQL
+D. LINQ
+
+**Answer:** B
+**Explanation:** PartiQL is a SQL-compatible query language that works with DynamoDB, allowing SELECT, INSERT, UPDATE, and DELETE operations.
+
+---
+
+### 23. What is the purpose of DynamoDB Point-in-Time Recovery (PITR)?
+A. Monitor table performance
+B. Restore table to any point in the last 35 days
+C. Replicate data across regions
+D. Encrypt data at rest
+
+**Answer:** B
+**Explanation:** PITR enables continuous backups and allows restoring a table to any second within the last 35 days.
+
+---
+
+### 24. How does DynamoDB Adaptive Capacity help with hot partitions?
+A. Automatically increases table size
+B. Redistributes unused capacity to hot partitions
+C. Deletes cold data
+D. Creates new indexes
+
+**Answer:** B
+**Explanation:** Adaptive Capacity automatically redistributes unused read/write capacity from underutilized partitions to hot partitions experiencing throttling.
+
+---
+
+### 25. What is a ProjectionExpression used for in DynamoDB?
+A. Creating secondary indexes
+B. Specifying which attributes to retrieve in a query
+C. Defining partition keys
+D. Setting TTL values
+
+**Answer:** B
+**Explanation:** ProjectionExpression specifies which attributes to retrieve from items, reducing data transfer and costs by fetching only needed attributes.

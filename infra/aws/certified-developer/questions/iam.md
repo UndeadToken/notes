@@ -215,3 +215,58 @@ D. Roles in Users
 
 **Answer:** B
 **Explanation:** IAM Groups cannot contain other groups (no nesting allowed).
+
+---
+
+### 21. What is the difference between identity-based and resource-based policies?
+A. Identity-based attach to users/roles, resource-based attach to resources
+B. They are the same
+C. Identity-based are JSON, resource-based are XML
+D. Resource-based policies cannot use conditions
+
+**Answer:** A
+**Explanation:** Identity-based policies attach to IAM identities (users, groups, roles). Resource-based policies attach to resources (S3 buckets, SQS queues) and specify which principals can access them.
+
+---
+
+### 22. What is the purpose of IAM Permission Boundaries?
+A. Encrypt IAM credentials
+B. Set maximum permissions an identity can have
+C. Define minimum required permissions
+D. Monitor IAM activity
+
+**Answer:** B
+**Explanation:** Permission boundaries set the maximum permissions that an identity-based policy can grant to an IAM entity, even if the identity policy grants broader permissions.
+
+---
+
+### 23. Which IAM role type is created and managed by AWS services automatically?
+A. Customer-managed role
+B. Service-linked role
+C. Cross-account role
+D. Instance profile role
+
+**Answer:** B
+**Explanation:** Service-linked roles are predefined by AWS services and include all permissions the service requires. They're created/deleted automatically by the service.
+
+---
+
+### 24. What is required to enable cross-account access using IAM roles?
+A. Share access keys between accounts
+B. Trust policy in the role allowing the other account's principal
+C. Copy IAM users to both accounts
+D. Enable AWS Organizations
+
+**Answer:** B
+**Explanation:** Cross-account access requires a trust policy (assume role policy) that allows principals from another AWS account to assume the role.
+
+---
+
+### 25. Which IAM policy condition key restricts access based on source IP address?
+A. aws:SourceIp
+B. aws:IpAddress
+C. aws:ClientIp
+D. aws:NetworkOrigin
+
+**Answer:** A
+**Explanation:** The aws:SourceIp condition key restricts access based on the requester's IP address in CIDR notation.

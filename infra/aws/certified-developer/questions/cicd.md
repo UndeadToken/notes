@@ -215,3 +215,58 @@ D. AfterInstall
 
 **Answer:** C
 **Explanation:** ValidateService hook runs tests to verify the deployment was successful.
+
+---
+
+### 21. What is AWS CodeStar used for?
+A. Storing source code
+B. Unified interface for managing CI/CD toolchain
+C. Building Docker images
+D. Deploying Lambda functions
+
+**Answer:** B
+**Explanation:** CodeStar provides a unified interface to manage the entire CI/CD toolchain (CodeCommit, CodeBuild, CodeDeploy, CodePipeline).
+
+---
+
+### 22. Which service provides runtime performance profiling for applications?
+A. CodeGuru Reviewer
+B. CodeGuru Profiler
+C. X-Ray
+D. CloudWatch
+
+**Answer:** B
+**Explanation:** CodeGuru Profiler analyzes application runtime performance and identifies expensive code paths.
+
+---
+
+### 23. A Lambda function deployment should shift traffic gradually using SAM. Which deployment preference?
+A. AllAtOnce
+B. Canary10Percent5Minutes
+C. Immediate
+D. Rolling
+
+**Answer:** B
+**Explanation:** SAM supports deployment preferences like Canary10Percent5Minutes, Linear10PercentEvery1Minute, and AllAtOnce.
+
+---
+
+### 24. Which CodePipeline variable contains the commit ID from CodeCommit?
+A. #{SourceVariables.CommitId}
+B. #{Source.CommitId}
+C. #{CodeCommit.CommitId}
+D. #{Variables.CommitId}
+
+**Answer:** A
+**Explanation:** CodePipeline variables use #{SourceVariables.CommitId} syntax to reference source action outputs.
+
+---
+
+### 25. A CodeBuild project needs to access resources in a VPC. What must be configured?
+A. VPC configuration with subnets and security groups
+B. NAT Gateway
+C. Internet Gateway
+D. VPC Peering
+
+**Answer:** A
+**Explanation:** CodeBuild requires VPC configuration (VPC ID, subnets, security groups) to access VPC resources.

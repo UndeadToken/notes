@@ -215,3 +215,58 @@ D. Lambda
 
 **Answer:** C
 **Explanation:** SNS supports HTTP/HTTPS subscriptions for webhook-style delivery.
+
+---
+
+### 21. What is the purpose of SNS FIFO topics?
+A. Increase throughput
+B. Guarantee message ordering and exactly-once delivery
+C. Enable message filtering
+D. Support multiple protocols
+
+**Answer:** B
+**Explanation:** SNS FIFO topics guarantee strict message ordering and exactly-once delivery to SQS FIFO queues.
+
+---
+
+### 22. Which SQS feature allows adding metadata to messages for filtering?
+A. Message Attributes
+B. Message Tags
+C. Message Headers
+D. Message Properties
+
+**Answer:** A
+**Explanation:** Message Attributes are custom key-value pairs that can be used for filtering and processing logic.
+
+---
+
+### 23. What determines which shard a Kinesis record is written to?
+A. Timestamp
+B. Partition Key
+C. Sequence Number
+D. Record Size
+
+**Answer:** B
+**Explanation:** Partition Key is hashed to determine which shard receives the record.
+
+---
+
+### 24. How can SNS filter messages based on attributes before delivery?
+A. Message Groups
+B. Topic Policies
+C. Subscription Filter Policies
+D. Message Deduplication
+
+**Answer:** C
+**Explanation:** Subscription Filter Policies use JSON to filter messages based on message attributes.
+
+---
+
+### 25. Which service provides a serverless event bus for application integration?
+A. SQS
+B. SNS
+C. Kinesis
+D. EventBridge
+
+**Answer:** D
+**Explanation:** EventBridge is a serverless event bus that connects applications using events from AWS services, SaaS, and custom applications.

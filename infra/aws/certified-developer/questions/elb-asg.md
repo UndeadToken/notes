@@ -215,3 +215,58 @@ D. MemoryUtilization
 
 **Answer:** C
 **Explanation:** CPUUtilization is the most common metric for scaling web applications.
+
+---
+
+### 21. Which ALB feature adds a unique identifier to track requests?
+A. Request ID
+B. X-Amzn-Trace-Id header
+C. Session ID
+D. Correlation ID
+
+**Answer:** B
+**Explanation:** ALB adds X-Amzn-Trace-Id header to track requests through distributed systems.
+
+---
+
+### 22. Can Network Load Balancer terminate TLS connections?
+A. No, NLB is Layer 4 only
+B. Yes, NLB supports TLS termination
+C. Only with ALB
+D. Only in specific regions
+
+**Answer:** B
+**Explanation:** NLB supports TLS termination while maintaining ultra-low latency and static IPs.
+
+---
+
+### 23. What is the purpose of ASG Lifecycle Hooks?
+A. Monitor instance health
+B. Perform custom actions during instance launch/termination
+C. Scale instances
+D. Configure load balancers
+
+**Answer:** B
+**Explanation:** Lifecycle Hooks pause instance launch/termination to perform custom actions (install software, drain connections).
+
+---
+
+### 24. Which ASG scaling policy uses machine learning to forecast traffic?
+A. Target Tracking
+B. Step Scaling
+C. Predictive Scaling
+D. Scheduled Scaling
+
+**Answer:** C
+**Explanation:** Predictive Scaling uses machine learning to forecast traffic patterns and schedule scaling ahead of time.
+
+---
+
+### 25. What is the purpose of ASG Warm Pools?
+A. Cool down instances
+B. Maintain pre-initialized instances for faster scaling
+C. Store instance configurations
+D. Monitor instance health
+
+**Answer:** B
+**Explanation:** Warm Pools keep pre-initialized instances in a stopped or running state for faster scaling response.

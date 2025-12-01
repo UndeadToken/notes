@@ -145,3 +145,103 @@ C. Simple AD → Proxy → AWS Managed AD → Auth
 D. On-prem AD → Simple AD → Auth  
 
 **Answer:** B  
+
+---
+
+**16. What is the purpose of STS session tags?**  
+A. Tag resources
+B. Pass attributes during role assumption for ABAC (Attribute-Based Access Control)
+C. Monitor sessions
+D. Encrypt session data
+
+**Answer:** B
+
+---
+
+**17. Which STS API is used for SAML 2.0 federation?**  
+A. AssumeRoleWithWebIdentity
+B. AssumeRoleWithSAML
+C. GetFederationToken
+D. AssumeRole
+
+**Answer:** B
+
+---
+
+**18. What is Attribute-Based Access Control (ABAC) in IAM?**  
+A. Access based on user attributes
+B. Access control using tags on principals and resources
+C. Access based on IP address
+D. Access based on time of day
+
+**Answer:** B
+
+---
+
+**19. Which AWS Organizations feature restricts permissions across all accounts?**  
+A. IAM Policies
+B. Service Control Policies (SCPs)
+C. Resource Policies
+D. Permission Boundaries
+
+**Answer:** B
+
+---
+
+**20. What is IAM Access Analyzer used for?**  
+A. Analyze costs
+B. Identify resources shared with external entities
+C. Monitor API calls
+D. Encrypt data
+
+**Answer:** B
+
+---
+
+**21. Which IAM policy element is required for cross-account role assumption?**  
+A. Principal in trust policy
+B. Resource in IAM policy
+C. Condition in bucket policy
+D. Effect: Allow
+
+**Answer:** A
+
+---
+
+**22. What is the purpose of session policies in STS?**  
+A. Encrypt sessions
+B. Further restrict permissions during role assumption
+C. Monitor sessions
+D. Extend session duration
+
+**Answer:** B
+
+---
+
+**23. What is the purpose of External ID in cross-account role assumption?**  
+A. Encrypt data
+B. Prevent confused deputy problem
+C. Monitor access
+D. Rotate credentials
+
+**Answer:** B
+
+---
+
+**24. Which IAM policy variable references the source IP address?**  
+A. ${aws:SourceIp}
+B. ${aws:ClientIp}
+C. ${aws:IpAddress}
+D. ${aws:RequestIp}
+
+**Answer:** A
+
+---
+
+**25. What is the key difference between resource-based and identity-based policies?**  
+A. No difference
+B. Resource-based attach to resources and specify principals; identity-based attach to identities
+C. Resource-based are more secure
+D. Identity-based are JSON only
+
+**Answer:** B

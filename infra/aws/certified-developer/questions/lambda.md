@@ -215,3 +215,58 @@ D. AWS_LAMBDA_FUNCTION_HANDLER
 
 **Answer:** B
 **Explanation:** _HANDLER environment variable contains the handler location (e.g., index.handler).
+
+---
+
+### 21. What is Lambda@Edge primarily used for?
+A. Running Lambda in private VPCs
+B. Running Lambda functions at CloudFront edge locations
+C. Connecting Lambda to RDS databases
+D. Deploying Lambda across multiple regions
+
+**Answer:** B
+**Explanation:** Lambda@Edge runs Lambda functions at CloudFront edge locations to customize content delivery with low latency.
+
+---
+
+### 22. Which Lambda feature reduces cold start times for Java functions?
+A. Provisioned Concurrency
+B. Lambda SnapStart
+C. Lambda Layers
+D. Reserved Concurrency
+
+**Answer:** B
+**Explanation:** Lambda SnapStart (for Java 11+) takes a snapshot of initialized execution environment and reuses it to reduce cold starts by up to 10x.
+
+---
+
+### 23. What happens to a Lambda function version once published?
+A. It can be modified
+B. It becomes immutable
+C. It expires after 30 days
+D. It requires redeployment
+
+**Answer:** B
+**Explanation:** Published Lambda versions are immutable. Code and configuration cannot be changed. Use $LATEST for development.
+
+---
+
+### 24. A Lambda function fails asynchronously. Where can failed events be sent for debugging?
+A. CloudWatch Logs only
+B. Dead Letter Queue (SQS or SNS)
+C. S3 bucket
+D. DynamoDB table
+
+**Answer:** B
+**Explanation:** Configure a Dead Letter Queue (DLQ) using SQS or SNS to capture failed asynchronous invocation events after all retries are exhausted.
+
+---
+
+### 25. What are Lambda Extensions used for?
+A. Adding more memory to functions
+B. Integrating with monitoring, security, and governance tools
+C. Extending execution timeout beyond 15 minutes
+D. Running multiple functions simultaneously
+
+**Answer:** B
+**Explanation:** Lambda Extensions allow integration with monitoring, observability, security, and governance tools without modifying function code. They run in the execution environment.

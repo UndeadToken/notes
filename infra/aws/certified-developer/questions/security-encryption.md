@@ -215,3 +215,58 @@ D. Client-side
 
 **Answer:** B
 **Explanation:** EBS volumes use KMS keys with AES-256 encryption for data at rest.
+
+---
+
+### 21. What is AWS CloudHSM used for?
+A. Manage IAM users
+B. Dedicated hardware security module for cryptographic operations
+C. Encrypt S3 objects
+D. Store secrets
+
+**Answer:** B
+**Explanation:** CloudHSM provides dedicated hardware security modules (HSM) for regulatory compliance and custom key management.
+
+---
+
+### 22. Which AWS service provides isolated compute environments for sensitive workloads?
+A. Lambda
+B. Fargate
+C. Nitro Enclaves
+D. EC2 Dedicated Hosts
+
+**Answer:** C
+**Explanation:** AWS Nitro Enclaves provide isolated compute environments within EC2 instances for processing highly sensitive data.
+
+---
+
+### 23. What is the purpose of KMS Multi-Region Keys?
+A. Reduce latency
+B. Replicate keys across regions for disaster recovery and global applications
+C. Increase security
+D. Reduce costs
+
+**Answer:** B
+**Explanation:** Multi-Region Keys are replicated across multiple regions with the same key material for disaster recovery and low-latency access.
+
+---
+
+### 24. Which Parameter Store tier supports parameter policies and higher throughput?
+A. Standard
+B. Advanced
+C. Premium
+D. Enterprise
+
+**Answer:** B
+**Explanation:** Advanced tier supports parameter policies (expiration, notifications), higher throughput, and larger parameter values.
+
+---
+
+### 25. What is AWS Signer used for?
+A. Sign API requests
+B. Code signing for Lambda functions and IoT devices
+C. Sign SSL certificates
+D. Sign CloudFormation templates
+
+**Answer:** B
+**Explanation:** AWS Signer ensures code integrity and authenticity through code signing for Lambda, IoT, and container images.
