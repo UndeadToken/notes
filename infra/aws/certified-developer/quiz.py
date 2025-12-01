@@ -8,7 +8,36 @@ import os
 import re
 import random
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
+
+# Domain mapping based on AWS Certified Developer Associate Exam Guide
+DOMAIN_MAPPING = {
+    "Domain 1: Development with AWS Services": [
+        "api-gateway.md", "dynamodb.md", "lambda.md", "s3.md", 
+        "step-functions.md", "cognito.md", "messaging.md", 
+        "rds-aurora-elasticache.md", "cli-sdk.md", "ec2-storage.md", 
+        "ec2.md", "elb-asg.md", "route53.md", "vpc.md", "cloudfront.md"
+    ],
+    "Domain 2: Security": [
+        "iam.md", "security-encryption.md", "advanced-identity.md"
+    ],
+    "Domain 3: Deployment": [
+        "cloudformation.md", "cicd.md", "elastic-beanstalk.md", 
+        "sam.md", "cdk.md", "ecs-ecr-fargate.md"
+    ],
+    "Domain 4: Troubleshooting & Optimization": [
+        "monitoring.md"
+    ]
+}
+
+# Target weights for the exam (Total 1000 questions)
+DOMAIN_WEIGHTS = {
+    "Domain 1: Development with AWS Services": 320,  # 32%
+    "Domain 2: Security": 260,                       # 26%
+    "Domain 3: Deployment": 240,                     # 24%
+    "Domain 4: Troubleshooting & Optimization": 180  # 18%
+}
+
 
 
 class Question:
@@ -87,6 +116,55 @@ def load_all_questions(questions_dir: Path) -> List[Question]:
     return all_questions
 
 
+def load_questions_by_domain(questions_dir: Path) -> Dict[str, List[Question]]:
+    """Load questions organized by domain."""
+    domain_questions = {domain: [] for domain in DOMAIN_MAPPING}
+    
+    # Create a reverse mapping for easier lookup
+    file_to_domain = {}
+    for domain, files in DOMAIN_MAPPING.items():
+        for f in files:
+            file_to_domain[f] = domain
+            
+    for filepath in questions_dir.glob('*.md'):
+        questions = parse_question_file(filepath)
+        filename = filepath.name
+        
+        # Find which domain this file belongs to
+        domain = file_to_domain.get(filename)
+        
+        if domain:
+            domain_questions[domain].extend(questions)
+        else:
+            # Fallback for unmapped files (shouldn't happen if mapping is complete)
+            print(f"Warning: {filename} not mapped to any domain. Skipping.")
+            
+        print(f"Loaded {len(questions)} questions from {filename}")
+        
+    return domain_questions
+
+
+def generate_test_questions(domain_questions: Dict[str, List[Question]]) -> List[Question]:
+    """Generate a weighted list of questions for the mock exam."""
+    test_questions = []
+    
+    print("\nGenerating Mock Exam...")
+    for domain, target_count in DOMAIN_WEIGHTS.items():
+        available = domain_questions.get(domain, [])
+        count = min(len(available), target_count)
+        
+        if available:
+            selected = random.sample(available, count)
+            test_questions.extend(selected)
+            print(f"  {domain}: Selected {count}/{target_count} (Available: {len(available)})")
+        else:
+            print(f"  {domain}: No questions available!")
+            
+    random.shuffle(test_questions)
+    return test_questions
+
+
+
 def display_question(question: Question, question_num: int, total: int):
     """Display a single question with options."""
     print(f"\n{'='*80}")
@@ -108,7 +186,7 @@ def get_user_answer() -> str:
         print("Invalid input. Please enter A, B, C, or D.")
 
 
-def run_quiz(questions: List[Question], num_questions: int = 10):
+def run_quiz(questions: List[Question], num_questions: int = 10, passing_score: Optional[int] = None):
     """Run the interactive quiz."""
     print("\n" + "="*80)
     print("AWS Certified Developer Associate - Practice Quiz")
@@ -153,6 +231,13 @@ def run_quiz(questions: List[Question], num_questions: int = 10):
     print("="*80)
     print(f"\nScore: {correct_count}/{num_questions} ({(correct_count/num_questions)*100:.1f}%)")
     
+    if passing_score is not None:
+        if correct_count >= passing_score:
+            print(f"RESULT: PASS (Required: {passing_score})")
+        else:
+            print(f"RESULT: FAIL (Required: {passing_score})")
+
+    
     if correct_count == num_questions:
         print("🎉 Perfect score! Excellent work!")
     elif correct_count >= num_questions * 0.8:
@@ -195,23 +280,39 @@ def main():
     
     print(f"\nTotal questions available: {len(all_questions)}")
     
-    # Ask user how many questions
+    print(f"\nTotal questions available: {len(all_questions)}")
+    
+    # Ask user how many questions or if they want a test
     while True:
+        user_input = input("\nHow many questions would you like? (Enter a number or 'test' for mock exam): ").strip().lower()
+        
+        if user_input == 'test':
+            # Reload questions by domain for the test
+            domain_questions = load_questions_by_domain(questions_dir)
+            test_questions = generate_test_questions(domain_questions)
+            
+            if not test_questions:
+                print("Error: Could not generate test questions.")
+                return
+                
+            run_quiz(test_questions, num_questions=len(test_questions), passing_score=720)
+            return
+            
         try:
-            num_str = input("\nHow many questions would you like? (default: 10): ").strip()
-            if not num_str:
+            if not user_input:
                 num_questions = 10
             else:
-                num_questions = int(num_str)
+                num_questions = int(user_input)
             
             if 1 <= num_questions <= len(all_questions):
                 break
             else:
                 print(f"Please enter a number between 1 and {len(all_questions)}")
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            print("Invalid input. Please enter a number or 'test'.")
     
     run_quiz(all_questions, num_questions)
+
 
 
 if __name__ == '__main__':
