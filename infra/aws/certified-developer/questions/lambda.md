@@ -270,3 +270,279 @@ D. Running multiple functions simultaneously
 
 **Answer:** B
 **Explanation:** Lambda Extensions allow integration with monitoring, observability, security, and governance tools without modifying function code. They run in the execution environment.
+
+---
+
+### 26. What is the maximum payload size for synchronous Lambda invocations?
+A. 256 KB
+B. 6 MB
+C. 10 MB
+D. 256 MB
+
+**Answer:** B
+**Explanation:** Synchronous invocations support up to 6 MB payload (request and response combined).
+
+---
+
+### 27. Which Lambda feature automatically retries failed asynchronous invocations?
+A. DLQ
+B. Built-in retry with exponential backoff (2 retries)
+C. Destinations
+D. Event Source Mappings
+
+**Answer:** B
+**Explanation:** Lambda automatically retries failed asynchronous invocations twice with exponential backoff before sending to DLQ or Destination.
+
+---
+
+### 28. What is the maximum number of concurrent executions for Lambda per region by default?
+A. 100
+B. 500
+C. 1,000
+D. 10,000
+
+**Answer:** C
+**Explanation:** Default concurrent execution limit is 1,000 per region (soft limit, can be increased).
+
+---
+
+### 29. Which Lambda runtime environment variable contains the function name?
+A. LAMBDA_FUNCTION_NAME
+B. AWS_LAMBDA_FUNCTION_NAME
+C. FUNCTION_NAME
+D. _FUNCTION_NAME
+
+**Answer:** B
+**Explanation:** AWS_LAMBDA_FUNCTION_NAME environment variable contains the function name.
+
+---
+
+### 30. What is the purpose of Lambda Reserved Concurrency?
+A. Reserve memory
+B. Guarantee available concurrency and limit maximum concurrency
+C. Reserve CPU
+D. Reserve storage
+
+**Answer:** B
+**Explanation:** Reserved Concurrency guarantees a specific number of concurrent executions and sets a maximum limit.
+
+---
+
+### 31. Which Lambda invocation type is used by S3 event notifications?
+A. Synchronous
+B. Asynchronous
+C. Event Source Mapping
+D. Scheduled
+
+**Answer:** B
+**Explanation:** S3 event notifications invoke Lambda asynchronously.
+
+---
+
+### 32. What is the maximum execution time for Lambda functions in VPC?
+A. 5 minutes
+B. 15 minutes
+C. Same as non-VPC (15 minutes)
+D. 30 minutes
+
+**Answer:** C
+**Explanation:** Lambda functions in VPC have the same 15-minute maximum execution time as non-VPC functions.
+
+---
+
+### 33. Which Lambda feature routes failed events to a destination after retries?
+A. DLQ only
+B. Lambda Destinations (SQS, SNS, Lambda, EventBridge)
+C. CloudWatch Logs
+D. S3
+
+**Answer:** B
+**Explanation:** Lambda Destinations can route success/failure events to SQS, SNS, Lambda, or EventBridge (more flexible than DLQ).
+
+---
+
+### 34. What is the purpose of Lambda function versions?
+A. Track code changes
+B. Create immutable snapshots of function code and configuration
+C. Increase performance
+D. Reduce costs
+
+**Answer:** B
+**Explanation:** Versions are immutable snapshots of function code, configuration, and dependencies.
+
+---
+
+### 35. Which Lambda event source supports batch window for aggregating records?
+A. S3
+B. Kinesis Data Streams
+C. API Gateway
+D. CloudWatch Events
+
+**Answer:** B
+**Explanation:** Kinesis and DynamoDB Streams support batch window to aggregate records before invoking Lambda.
+
+---
+
+### 36. What is the maximum size of Lambda deployment package (unzipped)?
+A. 50 MB
+B. 100 MB
+C. 250 MB
+D. 500 MB
+
+**Answer:** C
+**Explanation:** Unzipped deployment package (code + dependencies) can be up to 250 MB.
+
+---
+
+### 37. Which Lambda feature allows running functions from container images?
+A. Lambda Layers
+B. Lambda Container Image Support
+C. Docker Lambda
+D. ECS Lambda
+
+**Answer:** B
+**Explanation:** Lambda supports deploying functions as container images up to 10 GB from ECR.
+
+---
+
+### 38. What is the purpose of Lambda function aliases?
+A. Create function shortcuts
+B. Point to specific versions and enable traffic shifting
+C. Rename functions
+D. Group functions
+
+**Answer:** B
+**Explanation:** Aliases point to specific versions and support weighted traffic shifting for canary deployments.
+
+---
+
+### 39. Which Lambda runtime provides the fastest cold start?
+A. Python
+B. Node.js
+C. Java
+D. .NET
+
+**Answer:** B
+**Explanation:** Node.js and Python generally have faster cold starts than Java and .NET due to smaller runtime overhead.
+
+---
+
+### 40. What is the maximum number of layers per Lambda function?
+A. 3
+B. 5
+C. 10
+D. 15
+
+**Answer:** B
+**Explanation:** Lambda functions can use up to 5 layers, with total unzipped size limit of 250 MB.
+
+---
+
+### 41. Which Lambda event source mapping feature processes records in order?
+A. FIFO SQS queues
+B. Standard SQS queues
+C. S3 events
+D. SNS topics
+
+**Answer:** A
+**Explanation:** FIFO SQS queues with Lambda maintain message ordering within message groups.
+
+---
+
+### 42. What is the purpose of Lambda SnapStart?
+A. Start functions faster
+B. Reduce cold start latency for Java functions using snapshots
+C. Take snapshots of data
+D. Start multiple functions
+
+**Answer:** B
+**Explanation:** SnapStart reduces cold start latency for Java 11+ by taking snapshots of initialized execution environments.
+
+---
+
+### 43. Which Lambda metric indicates throttling?
+A. Errors
+B. Throttles
+C. ConcurrentExecutions
+D. Duration
+
+**Answer:** B
+**Explanation:** The Throttles metric shows the number of invocation attempts that were throttled due to concurrency limits.
+
+---
+
+### 44. What happens when a Lambda function exceeds its timeout?
+A. Function continues running
+B. Function is terminated and returns timeout error
+C. Function is retried automatically
+D. Function enters pending state
+
+**Answer:** B
+**Explanation:** Lambda terminates the function and returns a timeout error when execution exceeds the configured timeout.
+
+---
+
+### 45. Which Lambda feature allows sharing code across functions?
+A. Aliases
+B. Versions
+C. Layers
+D. Extensions
+
+**Answer:** C
+**Explanation:** Lambda Layers allow sharing libraries, custom runtimes, and dependencies across multiple functions.
+
+---
+
+### 46. What is the maximum memory allocation for Lambda functions?
+A. 3 GB
+B. 5 GB
+C. 10 GB
+D. 15 GB
+
+**Answer:** C
+**Explanation:** Lambda supports memory allocation from 128 MB to 10,240 MB (10 GB). CPU scales proportionally.
+
+---
+
+### 47. Which Lambda invocation mode processes DynamoDB Stream records?
+A. Synchronous
+B. Asynchronous
+C. Event Source Mapping (poll-based)
+D. Scheduled
+
+**Answer:** C
+**Explanation:** DynamoDB Streams use event source mapping where Lambda polls the stream for records.
+
+---
+
+### 48. What is the purpose of Lambda function concurrency metrics?
+A. Monitor errors
+B. Track concurrent executions and identify throttling
+C. Monitor duration
+D. Track invocations
+
+**Answer:** B
+**Explanation:** Concurrency metrics (ConcurrentExecutions, UnreservedConcurrentExecutions) help track usage and identify throttling.
+
+---
+
+### 49. Which Lambda feature allows custom runtime implementations?
+A. Lambda Layers with custom runtime
+B. Container images
+C. Both A and B
+D. Not supported
+
+**Answer:** C
+**Explanation:** Custom runtimes can be implemented using Lambda Layers or container images.
+
+---
+
+### 50. What is the maximum timeout for Lambda@Edge functions?
+A. 5 seconds (viewer triggers)
+B. 30 seconds (origin triggers)
+C. Both A and B depending on trigger
+D. 15 minutes
+
+**Answer:** C
+**Explanation:** Lambda@Edge has different timeouts: 5 seconds for viewer request/response, 30 seconds for origin request/response.
+

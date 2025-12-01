@@ -270,3 +270,279 @@ D. Resolver
 
 **Answer:** B
 **Explanation:** Application Recovery Controller provides readiness checks and routing controls for multi-region disaster recovery.
+
+---
+
+### 26. What is the maximum number of hosted zones per account?
+A. 100
+B. 500
+C. 1,000
+D. 2,000
+
+**Answer:** B
+**Explanation:** Default limit is 500 hosted zones per account (can be increased).
+
+---
+
+### 27. Which Route 53 routing policy routes traffic based on user location?
+A. Latency Routing
+B. Geolocation Routing
+C. Geoproximity Routing
+D. Weighted Routing
+
+**Answer:** B
+**Explanation:** Geolocation Routing routes traffic based on the geographic location of the user (continent, country, state).
+
+---
+
+### 28. What is the purpose of Route 53 Resolver?
+A. Resolve DNS queries
+B. Hybrid DNS resolution between on-premises and AWS
+C. Resolve conflicts
+D. Resolve errors
+
+**Answer:** B
+**Explanation:** Route 53 Resolver (Inbound/Outbound endpoints) enables hybrid DNS resolution between on-premises and VPCs.
+
+---
+
+### 29. Which Route 53 record type maps a hostname to an IPv6 address?
+A. A
+B. AAAA
+C. CNAME
+D. MX
+
+**Answer:** B
+**Explanation:** AAAA record maps a hostname to an IPv6 address.
+
+---
+
+### 30. What is the maximum number of health checks per account?
+A. 50
+B. 100
+C. 200
+D. 500
+
+**Answer:** C
+**Explanation:** Default limit is 200 health checks per account (can be increased).
+
+---
+
+### 31. Which Route 53 feature visualizes and manages complex routing?
+A. Traffic Flow
+B. Routing Policy
+C. Hosted Zone
+D. Resolver
+
+**Answer:** A
+**Explanation:** Traffic Flow provides a visual editor to create and manage complex routing configurations (Traffic Policies).
+
+---
+
+### 32. What is the purpose of Route 53 Alias records?
+A. Map domain to IP
+B. Map domain to AWS resources (ELB, CloudFront, S3) at zone apex
+C. Map domain to domain
+D. Redirect traffic
+
+**Answer:** B
+**Explanation:** Alias records map domains to AWS resources (ELB, CloudFront, S3, API Gateway) and support zone apex (root domain).
+
+---
+
+### 33. Which Route 53 routing policy routes traffic based on network latency?
+A. Latency Routing
+B. Geolocation Routing
+C. Geoproximity Routing
+D. Failover Routing
+
+**Answer:** A
+**Explanation:** Latency Routing routes traffic to the region with the lowest network latency for the user.
+
+---
+
+### 34. What is the maximum TTL for a DNS record?
+A. 1 hour
+B. 24 hours
+C. 48 hours
+D. 172800 seconds (2 days) or more
+
+**Answer:** D
+**Explanation:** TTL can be set to any value (typically up to 172800 seconds or more, though long TTLs delay propagation).
+
+---
+
+### 35. Which Route 53 feature logs DNS queries?
+A. CloudTrail
+B. Route 53 Query Logging
+C. VPC Flow Logs
+D. CloudWatch Logs
+
+**Answer:** B
+**Explanation:** Route 53 Query Logging logs DNS queries to CloudWatch Logs for public hosted zones.
+
+---
+
+### 36. What is the purpose of Route 53 Split-View DNS?
+A. Split traffic
+B. Serve different DNS responses based on source (internal vs external)
+C. Split zones
+D. Split records
+
+**Answer:** B
+**Explanation:** Split-View DNS (using private and public hosted zones with same name) serves different responses to internal (VPC) and external users.
+
+---
+
+### 37. Which Route 53 routing policy allows testing new versions?
+A. Weighted Routing
+B. Failover Routing
+C. Multivalue Answer Routing
+D. Simple Routing
+
+**Answer:** A
+**Explanation:** Weighted Routing allows splitting traffic (e.g., 90% to v1, 10% to v2) for testing and blue/green deployments.
+
+---
+
+### 38. What is the maximum number of records per hosted zone?
+A. 1,000
+B. 10,000
+C. 100,000
+D. Unlimited (10,000 default)
+
+**Answer:** D
+**Explanation:** Default limit is 10,000 records per hosted zone (can be increased).
+
+---
+
+### 39. Which Route 53 health check type monitors CloudWatch alarms?
+A. Endpoint check
+B. Calculated check
+C. CloudWatch Alarm check
+D. Metric check
+
+**Answer:** C
+**Explanation:** Health checks can monitor the state of CloudWatch alarms to determine health.
+
+---
+
+### 40. What is the purpose of Route 53 DNSSEC?
+A. Encrypt DNS
+B. Sign DNS responses to prevent spoofing and tampering
+C. Secure transfer
+D. Private DNS
+
+**Answer:** B
+**Explanation:** DNSSEC signs DNS responses with cryptographic signatures to ensure authenticity and integrity.
+
+---
+
+### 41. Which Route 53 routing policy routes traffic based on resource location?
+A. Geolocation Routing
+B. Geoproximity Routing
+C. Latency Routing
+D. Weighted Routing
+
+**Answer:** B
+**Explanation:** Geoproximity Routing routes traffic based on the geographic location of the resource and optionally the user (using Traffic Flow).
+
+---
+
+### 42. What is the maximum number of reusable delegation sets?
+A. 50
+B. 100
+C. 500
+D. 1,000
+
+**Answer:** B
+**Explanation:** You can create up to 100 reusable delegation sets per account.
+
+---
+
+### 43. Which Route 53 feature allows registering domains?
+A. Route 53 Resolver
+B. Route 53 Domain Registration
+C. Route 53 Registrar
+D. Route 53 Domains
+
+**Answer:** B
+**Explanation:** Route 53 functions as a domain registrar, allowing you to register and manage domain names.
+
+---
+
+### 44. What is the purpose of Route 53 VPC Association Authorization?
+A. Authorize VPC peering
+B. Authorize associating a private hosted zone with a VPC in another account
+C. Authorize users
+D. Authorize DNS queries
+
+**Answer:** B
+**Explanation:** VPC Association Authorization allows associating a private hosted zone with a VPC in a different AWS account.
+
+---
+
+### 45. Which Route 53 routing policy returns multiple healthy IPs?
+A. Simple Routing
+B. Multivalue Answer Routing
+C. Weighted Routing
+D. Failover Routing
+
+**Answer:** B
+**Explanation:** Multivalue Answer Routing returns up to 8 healthy records in response to DNS queries (client-side load balancing).
+
+---
+
+### 46. What is the maximum number of traffic policies per account?
+A. 50
+B. 100
+C. 500
+D. 1,000
+
+**Answer:** A
+**Explanation:** Default limit is 50 traffic policies per account.
+
+---
+
+### 47. Which Route 53 feature filters outbound DNS traffic?
+A. Route 53 Resolver DNS Firewall
+B. Network Firewall
+C. WAF
+D. Shield
+
+**Answer:** A
+**Explanation:** Route 53 Resolver DNS Firewall filters outbound DNS queries from your VPC against domain lists.
+
+---
+
+### 48. What is the purpose of Route 53 Calculated Health Checks?
+A. Calculate latency
+B. Combine results of multiple health checks (AND/OR/NOT logic)
+C. Calculate costs
+D. Monitor performance
+
+**Answer:** B
+**Explanation:** Calculated Health Checks monitor the status of other health checks to determine overall health (e.g., 2 out of 3 healthy).
+
+---
+
+### 49. Which Route 53 record type is used for email servers?
+A. A
+B. CNAME
+C. MX
+D. TXT
+
+**Answer:** C
+**Explanation:** MX (Mail Exchange) record specifies the mail servers responsible for accepting email for the domain.
+
+---
+
+### 50. What is the purpose of Route 53 Service Naming?
+A. Name services
+B. Integration with ECS Service Discovery
+C. Name domains
+D. Name zones
+
+**Answer:** B
+**Explanation:** Route 53 Auto Naming (Service Discovery) automatically manages DNS records for microservices (ECS/Fargate).
+

@@ -270,3 +270,279 @@ D. Tracing distributed applications
 
 **Answer:** B
 **Explanation:** CloudWatch RUM collects client-side performance metrics (page load, errors, user sessions) from real users.
+
+---
+
+### 26. What is the maximum retention period for CloudWatch Logs?
+A. 1 year
+B. 5 years
+C. 10 years
+D. Indefinite
+
+**Answer:** D
+**Explanation:** CloudWatch Logs can be retained indefinitely or set to expire from 1 day to 10 years.
+
+---
+
+### 27. Which CloudWatch feature aggregates metrics across accounts and regions?
+A. CloudWatch Dashboards
+B. CloudWatch Cross-Account Observability
+C. CloudWatch Insights
+D. CloudWatch Synthetics
+
+**Answer:** B
+**Explanation:** Cross-Account Observability enables monitoring and troubleshooting across multiple accounts and regions.
+
+---
+
+### 28. What is the maximum number of dimensions per CloudWatch metric?
+A. 5
+B. 10
+C. 20
+D. 30
+
+**Answer:** D
+**Explanation:** CloudWatch metrics support up to 30 dimensions.
+
+---
+
+### 29. Which X-Ray feature shows service dependencies?
+A. Traces
+B. Service Map
+C. Segments
+D. Annotations
+
+**Answer:** B
+**Explanation:** Service Map visualizes service dependencies and performance characteristics.
+
+---
+
+### 30. What is the purpose of CloudWatch Logs Insights?
+A. Analyze logs
+B. Query and analyze log data using SQL-like syntax
+C. Store logs
+D. Export logs
+
+**Answer:** B
+**Explanation:** Logs Insights provides interactive log analytics with a purpose-built query language.
+
+---
+
+### 31. Which CloudWatch alarm state indicates insufficient data?
+A. OK
+B. ALARM
+C. INSUFFICIENT_DATA
+D. PENDING
+
+**Answer:** C
+**Explanation:** INSUFFICIENT_DATA state occurs when the alarm doesn't have enough data to evaluate.
+
+---
+
+### 32. What is the maximum number of metrics per CloudWatch dashboard?
+A. 50
+B. 100
+C. 500
+D. 2,500
+
+**Answer:** C
+**Explanation:** CloudWatch dashboards support up to 500 metrics per dashboard.
+
+---
+
+### 33. Which X-Ray sampling strategy reduces tracing costs?
+A. Sample all requests
+B. Reservoir and rate-based sampling
+C. Random sampling
+D. No sampling
+
+**Answer:** B
+**Explanation:** X-Ray uses reservoir (first N requests per second) and rate-based sampling to reduce costs while maintaining visibility.
+
+---
+
+### 34. What is the purpose of CloudWatch Anomaly Detection?
+A. Detect anomalies
+B. Automatically detect unusual metric patterns using ML
+C. Monitor errors
+D. Alert on failures
+
+**Answer:** B
+**Explanation:** Anomaly Detection uses machine learning to detect unusual metric patterns and create dynamic thresholds.
+
+---
+
+### 35. Which CloudWatch Logs feature encrypts log data?
+A. KMS encryption
+B. SSL/TLS
+C. Log Groups encryption
+D. All of the above
+
+**Answer:** A
+**Explanation:** CloudWatch Logs uses KMS to encrypt log data at rest.
+
+---
+
+### 36. What is the maximum retention for X-Ray trace data?
+A. 7 days
+B. 30 days
+C. 90 days
+D. 1 year
+
+**Answer:** B
+**Explanation:** X-Ray stores trace data for 30 days.
+
+---
+
+### 37. Which CloudWatch feature tests API endpoints from multiple locations?
+A. CloudWatch Synthetics (Canaries)
+B. CloudWatch RUM
+C. CloudWatch Insights
+D. CloudWatch Alarms
+
+**Answer:** A
+**Explanation:** CloudWatch Synthetics Canaries run scripts to test endpoints, APIs, and user flows from multiple locations.
+
+---
+
+### 38. What is the purpose of CloudWatch Embedded Metric Format (EMF)?
+A. Format metrics
+B. Embed custom metrics in structured log events
+C. Export metrics
+D. Compress metrics
+
+**Answer:** B
+**Explanation:** EMF allows embedding custom metrics in structured JSON log events for automatic extraction.
+
+---
+
+### 39. Which X-Ray annotation type is indexed for filtering?
+A. Metadata
+B. Annotations
+C. Segments
+D. Subsegments
+
+**Answer:** B
+**Explanation:** Annotations are key-value pairs indexed for filtering traces. Metadata is not indexed.
+
+---
+
+### 40. What is the maximum size of a CloudWatch Logs event?
+A. 64 KB
+B. 256 KB
+C. 1 MB
+D. 10 MB
+
+**Answer:** B
+**Explanation:** Maximum log event size is 256 KB.
+
+---
+
+### 41. Which CloudWatch metric statistic represents the count of data points?
+A. Sum
+B. Average
+C. SampleCount
+D. Maximum
+
+**Answer:** C
+**Explanation:** SampleCount represents the number of data points used for the statistic calculation.
+
+---
+
+### 42. What is the purpose of EventBridge Archive?
+A. Archive events
+B. Store events for replay and debugging
+C. Compress events
+D. Delete old events
+
+**Answer:** B
+**Explanation:** EventBridge Archive stores events for later replay, useful for debugging and testing.
+
+---
+
+### 43. Which CloudWatch feature provides automated responses to alarms?
+A. CloudWatch Actions
+B. CloudWatch Alarms with SNS/Lambda/Auto Scaling actions
+C. CloudWatch Automation
+D. CloudWatch Workflows
+
+**Answer:** B
+**Explanation:** CloudWatch Alarms can trigger SNS notifications, Lambda functions, Auto Scaling actions, and EC2 actions.
+
+---
+
+### 44. What is the maximum number of CloudWatch Logs subscriptions per log group?
+A. 1
+B. 2
+C. 5
+D. 10
+
+**Answer:** B
+**Explanation:** Each log group supports up to 2 subscription filters.
+
+---
+
+### 45. Which X-Ray feature groups traces by HTTP status code?
+A. Service Map
+B. Trace Groups
+C. Filter Expressions
+D. Segments
+
+**Answer:** C
+**Explanation:** Filter Expressions allow grouping and filtering traces by various attributes including HTTP status codes.
+
+---
+
+### 46. What is the purpose of CloudWatch Contributor Insights?
+A. Analyze contributors
+B. Identify top contributors to metrics (top talkers)
+C. Monitor contributions
+D. Track changes
+
+**Answer:** B
+**Explanation:** Contributor Insights analyzes log data to identify top contributors (e.g., top IP addresses, URLs, users).
+
+---
+
+### 47. Which CloudWatch Logs feature streams logs to other services?
+A. Log Export
+B. Subscription Filters
+C. Log Forwarding
+D. Log Streaming
+
+**Answer:** B
+**Explanation:** Subscription Filters stream log data to Lambda, Kinesis Data Streams, or Kinesis Data Firehose in real-time.
+
+---
+
+### 48. What is the maximum number of EventBridge rules per event bus?
+A. 100
+B. 300
+C. 500
+D. 1,000
+
+**Answer:** B
+**Explanation:** Each event bus supports up to 300 rules (soft limit).
+
+---
+
+### 49. Which X-Ray SDK feature automatically captures AWS SDK calls?
+A. Auto-instrumentation
+B. AWS X-Ray SDK middleware
+C. Service plugins
+D. Subsegments
+
+**Answer:** B
+**Explanation:** X-Ray SDK middleware automatically captures AWS SDK calls, HTTP requests, and SQL queries.
+
+---
+
+### 50. What is the purpose of CloudWatch Metric Streams?
+A. Stream metrics
+B. Continuously stream CloudWatch metrics to destinations like S3 or third-party services
+C. Monitor streams
+D. Create metrics
+
+**Answer:** B
+**Explanation:** Metric Streams continuously stream CloudWatch metrics to S3, Kinesis Data Firehose, or third-party services for analysis.
+

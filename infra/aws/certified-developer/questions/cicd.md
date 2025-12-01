@@ -270,3 +270,279 @@ D. VPC Peering
 
 **Answer:** A
 **Explanation:** CodeBuild requires VPC configuration (VPC ID, subnets, security groups) to access VPC resources.
+
+---
+
+### 26. What is the maximum build timeout for CodeBuild?
+A. 1 hour
+B. 4 hours
+C. 8 hours
+D. 24 hours
+
+**Answer:** C
+**Explanation:** CodeBuild supports build timeouts from 5 minutes to 8 hours.
+
+---
+
+### 27. Which CodeDeploy deployment configuration deploys to one instance at a time?
+A. AllAtOnce
+B. HalfAtATime
+C. OneAtATime
+D. Sequential
+
+**Answer:** C
+**Explanation:** OneAtATime deployment configuration deploys to one instance at a time.
+
+---
+
+### 28. What is the purpose of CodeDeploy AppSpec file?
+A. Specify application code
+B. Define deployment actions and lifecycle event hooks
+C. Configure build settings
+D. Define pipeline stages
+
+**Answer:** B
+**Explanation:** AppSpec file defines deployment actions, file locations, and lifecycle event hooks for CodeDeploy.
+
+---
+
+### 29. Which CodePipeline action type retrieves code from a repository?
+A. Build
+B. Source
+C. Deploy
+D. Test
+
+**Answer:** B
+**Explanation:** Source action retrieves code from repositories like CodeCommit, GitHub, S3, or ECR.
+
+---
+
+### 30. What is the maximum number of stages in a CodePipeline?
+A. 5
+B. 10
+C. 20
+D. 50
+
+**Answer:** D
+**Explanation:** CodePipeline supports up to 50 stages per pipeline.
+
+---
+
+### 31. Which CodeCommit feature prevents force pushes?
+A. Branch protection
+B. Approval rules
+C. Repository policies
+D. Merge strategies
+
+**Answer:** A
+**Explanation:** Branch protection rules can prevent force pushes and deletions on protected branches.
+
+---
+
+### 32. What is the purpose of CodeBuild buildspec.yml?
+A. Build specifications
+B. Define build commands, phases, and artifacts
+C. Configure environment
+D. All of the above
+
+**Answer:** D
+**Explanation:** buildspec.yml defines build commands, phases, environment variables, and artifacts.
+
+---
+
+### 33. Which CodeDeploy lifecycle event runs after application deployment?
+A. ApplicationStop
+B. BeforeInstall
+C. ApplicationStart
+D. ValidateService
+
+**Answer:** D
+**Explanation:** ValidateService runs after ApplicationStart to validate the deployment.
+
+---
+
+### 34. What is the maximum artifact size for CodePipeline?
+A. 1 GB
+B. 5 GB
+C. 10 GB
+D. Unlimited
+
+**Answer:** B
+**Explanation:** CodePipeline artifacts are limited to 5 GB.
+
+---
+
+### 35. Which CodeBuild environment type provides Docker support?
+A. Linux
+B. Windows
+C. Both A and B
+D. Custom
+
+**Answer:** C
+**Explanation:** Both Linux and Windows CodeBuild environments support Docker.
+
+---
+
+### 36. What is the purpose of CodeDeploy deployment groups?
+A. Group deployments
+B. Define target instances/services for deployment
+C. Group applications
+D. Group users
+
+**Answer:** B
+**Explanation:** Deployment groups specify which instances, Lambda functions, or ECS services receive the deployment.
+
+---
+
+### 37. Which CodePipeline feature allows manual approval?
+A. Manual Action
+B. Approval Action
+C. Review Action
+D. Confirm Action
+
+**Answer:** B
+**Explanation:** Approval Action pauses pipeline execution for manual approval before proceeding.
+
+---
+
+### 38. What is the maximum number of actions per stage in CodePipeline?
+A. 10
+B. 20
+C. 50
+D. 100
+
+**Answer:** C
+**Explanation:** Each CodePipeline stage supports up to 50 actions.
+
+---
+
+### 39. Which CodeCommit trigger can invoke Lambda?
+A. Repository triggers
+B. CloudWatch Events
+C. Both A and B
+D. SNS only
+
+**Answer:** C
+**Explanation:** Both repository triggers and CloudWatch Events can invoke Lambda functions on CodeCommit events.
+
+---
+
+### 40. What is the purpose of CodeBuild cache?
+A. Cache builds
+B. Store dependencies to speed up subsequent builds
+C. Cache artifacts
+D. Cache logs
+
+**Answer:** B
+**Explanation:** CodeBuild cache stores dependencies (like npm packages) to speed up subsequent builds.
+
+---
+
+### 41. Which CodeDeploy compute platform supports blue/green deployments?
+A. EC2/On-Premises
+B. Lambda
+C. ECS
+D. All of the above
+
+**Answer:** D
+**Explanation:** All three compute platforms (EC2, Lambda, ECS) support blue/green deployments.
+
+---
+
+### 42. What is the maximum number of parallel actions in CodePipeline?
+A. 5
+B. 10
+C. 20
+D. 50
+
+**Answer:** D
+**Explanation:** CodePipeline supports up to 50 parallel actions within a stage.
+
+---
+
+### 43. Which CodeCommit feature requires pull request approval?
+A. Branch protection
+B. Approval rules
+C. Merge checks
+D. Review policies
+
+**Answer:** B
+**Explanation:** Approval rules require specified number of approvals before merging pull requests.
+
+---
+
+### 44. What is the purpose of CodeBuild environment variables?
+A. Store secrets
+B. Pass configuration to build commands
+C. Define build parameters
+D. All of the above
+
+**Answer:** D
+**Explanation:** Environment variables pass configuration, secrets (from Parameter Store/Secrets Manager), and parameters to builds.
+
+---
+
+### 45. Which CodeDeploy rollback strategy is automatic?
+A. Manual rollback
+B. Automatic rollback on deployment failure or CloudWatch alarm
+C. Scheduled rollback
+D. No automatic rollback
+
+**Answer:** B
+**Explanation:** CodeDeploy can automatically roll back on deployment failure or CloudWatch alarm triggers.
+
+---
+
+### 46. What is the maximum retention period for CodePipeline execution history?
+A. 30 days
+B. 90 days
+C. 12 months
+D. 13 months
+
+**Answer:** D
+**Explanation:** CodePipeline retains execution history for 12 months (13 months for detailed history).
+
+---
+
+### 47. Which CodeBuild phase installs dependencies?
+A. pre_build
+B. install
+C. build
+D. post_build
+
+**Answer:** B
+**Explanation:** The install phase installs packages and dependencies defined in buildspec.yml.
+
+---
+
+### 48. What is the purpose of CodeDeploy traffic shifting?
+A. Shift network traffic
+B. Gradually route traffic to new deployment version
+C. Load balancing
+D. Failover
+
+**Answer:** B
+**Explanation:** Traffic shifting gradually routes traffic from old to new deployment version (canary, linear, all-at-once).
+
+---
+
+### 49. Which CodePipeline source provider supports webhooks?
+A. GitHub
+B. Bitbucket
+C. GitLab
+D. All of the above
+
+**Answer:** D
+**Explanation:** GitHub, Bitbucket, and GitLab all support webhooks to trigger CodePipeline automatically.
+
+---
+
+### 50. What is the maximum number of concurrent builds per project in CodeBuild?
+A. 1
+B. 10
+C. 60
+D. Unlimited
+
+**Answer:** C
+**Explanation:** Default limit is 60 concurrent builds per project (can be increased).
+

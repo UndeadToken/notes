@@ -270,3 +270,279 @@ D. Load balance origins
 
 **Answer:** B
 **Explanation:** Origin connection settings control connection timeout, number of attempts, and protocol (HTTP/HTTPS) for origin requests.
+
+---
+
+### 26. What is the maximum execution time for CloudFront Functions?
+A. 1 millisecond
+B. 5 seconds
+C. 30 seconds
+D. 1 minute
+
+**Answer:** A
+**Explanation:** CloudFront Functions have a strict execution time limit of 1 millisecond or less.
+
+---
+
+### 27. Which CloudFront feature allows executing code at edge locations?
+A. Lambda@Edge
+B. CloudFront Functions
+C. Both A and B
+D. Edge Functions
+
+**Answer:** C
+**Explanation:** Both Lambda@Edge (Node.js/Python, longer duration) and CloudFront Functions (JS, sub-ms) run code at edge.
+
+---
+
+### 28. What is the purpose of CloudFront Origin Shield?
+A. Shield origin
+B. Centralized caching layer to reduce load on origin
+C. Security shield
+D. DDoS protection
+
+**Answer:** B
+**Explanation:** Origin Shield acts as a centralized caching layer to improve cache hit ratio and reduce load on the origin.
+
+---
+
+### 29. Which CloudFront event triggers Lambda@Edge?
+A. Viewer Request
+B. Origin Request
+C. Origin Response
+D. All of the above
+
+**Answer:** D
+**Explanation:** Lambda@Edge can be triggered on Viewer Request, Origin Request, Origin Response, and Viewer Response.
+
+---
+
+### 30. What is the maximum size of a file CloudFront can serve?
+A. 1 GB
+B. 10 GB
+C. 20 GB
+D. 30 GB
+
+**Answer:** D
+**Explanation:** CloudFront supports files up to 30 GB in size.
+
+---
+
+### 31. Which CloudFront feature restricts access to content?
+A. Signed URLs
+B. Signed Cookies
+C. Origin Access Control (OAC)
+D. All of the above
+
+**Answer:** D
+**Explanation:** Signed URLs/Cookies restrict viewer access; OAC restricts access to S3 origins.
+
+---
+
+### 32. What is the purpose of CloudFront KeyValueStore?
+A. Store keys
+B. Low-latency key-value store for CloudFront Functions
+C. Store values
+D. Cache data
+
+**Answer:** B
+**Explanation:** CloudFront KeyValueStore provides low-latency read access to key-value data from within CloudFront Functions.
+
+---
+
+### 33. Which CloudFront distribution type supports RTMP?
+A. Web
+B. RTMP
+C. Streaming
+D. None (Deprecated)
+
+**Answer:** D
+**Explanation:** RTMP distributions are deprecated and discontinued. Use Web distributions for HTTP streaming (HLS/DASH).
+
+---
+
+### 34. What is the maximum number of behaviors per distribution?
+A. 10
+B. 25
+C. 50
+D. 100
+
+**Answer:** B
+**Explanation:** Default limit is 25 cache behaviors per distribution (can be increased).
+
+---
+
+### 35. Which CloudFront feature allows testing configuration changes?
+A. Staging Distribution
+B. Continuous Deployment (Staging Distribution)
+C. Test Distribution
+D. Blue/Green
+
+**Answer:** B
+**Explanation:** CloudFront Continuous Deployment allows creating a staging distribution to test configuration changes with a portion of traffic.
+
+---
+
+### 36. What is the purpose of CloudFront Origin Access Control (OAC)?
+A. Control origin access
+B. Securely access S3 origins (replaces OAI)
+C. Access control list
+D. Firewall
+
+**Answer:** B
+**Explanation:** OAC is the modern way to securely restrict access to S3 origins to only CloudFront (supports SSE-KMS, unlike OAI).
+
+---
+
+### 37. Which CloudFront metric indicates cache performance?
+A. CacheHitRate
+B. Requests
+C. BytesDownloaded
+D. TotalErrorRate
+
+**Answer:** A
+**Explanation:** CacheHitRate indicates the percentage of requests served from the cache.
+
+---
+
+### 38. What is the maximum number of alternate domain names (CNAMEs) per distribution?
+A. 10
+B. 50
+C. 100
+D. Unlimited
+
+**Answer:** C
+**Explanation:** You can add up to 100 alternate domain names (CNAMEs) to a distribution.
+
+---
+
+### 39. Which CloudFront feature compresses objects?
+A. Gzip
+B. Brotli
+C. Both A and B
+D. Zip
+
+**Answer:** C
+**Explanation:** CloudFront can automatically compress objects using Gzip and Brotli.
+
+---
+
+### 40. What is the purpose of CloudFront Response Headers Policies?
+A. Modify headers
+B. Control HTTP headers sent to viewers (CORS, security headers)
+C. Log headers
+D. Cache headers
+
+**Answer:** B
+**Explanation:** Response Headers Policies allow you to add, remove, or modify HTTP headers sent to viewers (e.g., for CORS or security).
+
+---
+
+### 41. Which CloudFront function runtime is supported?
+A. Node.js
+B. Python
+C. JavaScript (ES5.1 compliant)
+D. Go
+
+**Answer:** C
+**Explanation:** CloudFront Functions use a lightweight JavaScript runtime (ES5.1 compliant).
+
+---
+
+### 42. What is the maximum execution time for Lambda@Edge (Origin Request/Response)?
+A. 5 seconds
+B. 30 seconds
+C. 60 seconds
+D. 15 minutes
+
+**Answer:** B
+**Explanation:** Lambda@Edge Origin Request/Response triggers have a 30-second timeout (Viewer triggers have 5 seconds).
+
+---
+
+### 43. Which CloudFront feature allows serving private content?
+A. Signed URLs
+B. Signed Cookies
+C. Both A and B
+D. Private Distribution
+
+**Answer:** C
+**Explanation:** Signed URLs and Signed Cookies are used to serve private content to authenticated users.
+
+---
+
+### 44. What is the purpose of CloudFront Field-Level Encryption?
+A. Encrypt fields
+B. Encrypt specific data fields (like credit cards) at the edge
+C. Encrypt entire request
+D. Encrypt response
+
+**Answer:** B
+**Explanation:** Field-Level Encryption encrypts specific fields in POST requests at the edge before forwarding to origin.
+
+---
+
+### 45. Which CloudFront cache policy setting includes query strings?
+A. Query String Forwarding
+B. Cache Key Settings
+C. Origin Request Policy
+D. Whitelist
+
+**Answer:** B
+**Explanation:** Cache Key Settings in a Cache Policy determine which query strings are included in the cache key.
+
+---
+
+### 46. What is the maximum number of origins per distribution?
+A. 10
+B. 25
+C. 50
+D. 100
+
+**Answer:** B
+**Explanation:** You can configure up to 25 origins per distribution.
+
+---
+
+### 47. Which CloudFront feature allows custom error pages?
+A. Error Pages
+B. Custom Error Responses
+C. Error Handling
+D. Failover
+
+**Answer:** B
+**Explanation:** Custom Error Responses allow you to return a custom file and HTTP status code when the origin returns an error.
+
+---
+
+### 48. What is the purpose of CloudFront Origin Groups?
+A. Group origins
+B. Origin failover (primary and secondary origin)
+C. Load balancing
+D. Replication
+
+**Answer:** B
+**Explanation:** Origin Groups allow configuring a primary and secondary origin for high availability (failover).
+
+---
+
+### 49. Which CloudFront log type provides detailed request information?
+A. Standard Logs (Access Logs)
+B. Real-time Logs
+C. Both A and B
+D. CloudTrail
+
+**Answer:** C
+**Explanation:** Both Standard Logs (delivered to S3) and Real-time Logs (delivered to Kinesis) provide detailed request info.
+
+---
+
+### 50. What is the maximum body size for CloudFront Functions?
+A. 40 KB
+B. 1 MB
+C. No body access
+D. Unlimited
+
+**Answer:** C
+**Explanation:** CloudFront Functions do not have access to the request body (Lambda@Edge does).
+

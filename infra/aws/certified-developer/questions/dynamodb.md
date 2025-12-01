@@ -270,3 +270,279 @@ D. Setting TTL values
 
 **Answer:** B
 **Explanation:** ProjectionExpression specifies which attributes to retrieve from items, reducing data transfer and costs by fetching only needed attributes.
+
+---
+
+### 26. What is the maximum item size in DynamoDB?
+A. 64 KB
+B. 256 KB
+C. 400 KB
+D. 1 MB
+
+**Answer:** C
+**Explanation:** Maximum item size is 400 KB including attribute names and values.
+
+---
+
+### 27. Which DynamoDB API operation retrieves multiple items from multiple tables?
+A. GetItem
+B. BatchGetItem
+C. Query
+D. Scan
+
+**Answer:** B
+**Explanation:** BatchGetItem retrieves up to 100 items from one or more tables in a single request.
+
+---
+
+### 28. What is the maximum number of items in a DynamoDB transaction?
+A. 10
+B. 25
+C. 100
+D. 1,000
+
+**Answer:** B
+**Explanation:** DynamoDB transactions support up to 25 items across TransactWriteItems or TransactGetItems.
+
+---
+
+### 29. Which DynamoDB feature provides ACID transactions?
+A. Batch operations
+B. TransactWriteItems and TransactGetItems
+C. Conditional writes
+D. Atomic counters
+
+**Answer:** B
+**Explanation:** TransactWriteItems and TransactGetItems provide ACID (Atomic, Consistent, Isolated, Durable) transactions.
+
+---
+
+### 30. What is the purpose of DynamoDB Conditional Writes?
+A. Write faster
+B. Only write if condition is met (optimistic locking)
+C. Write to multiple tables
+D. Encrypt writes
+
+**Answer:** B
+**Explanation:** Conditional writes only succeed if the specified condition is met, enabling optimistic locking patterns.
+
+---
+
+### 31. Which DynamoDB capacity mode automatically scales based on traffic?
+A. Provisioned
+B. On-Demand
+C. Reserved
+D. Burst
+
+**Answer:** B
+**Explanation:** On-Demand capacity mode automatically scales read/write capacity based on actual traffic.
+
+---
+
+### 32. What is the maximum partition key size in DynamoDB?
+A. 1 KB
+B. 2 KB
+C. 4 KB
+D. 10 KB
+
+**Answer:** B
+**Explanation:** Partition key maximum size is 2 KB.
+
+---
+
+### 33. Which DynamoDB operation is most cost-effective for reading a single item?
+A. Scan
+B. Query
+C. GetItem
+D. BatchGetItem
+
+**Answer:** C
+**Explanation:** GetItem is most efficient for reading a single item by primary key (lowest RCU cost).
+
+---
+
+### 34. What is the purpose of DynamoDB Streams Kinesis Adapter?
+A. Convert streams to Kinesis
+B. Process DynamoDB Streams using Kinesis Client Library (KCL)
+C. Increase stream throughput
+D. Encrypt streams
+
+**Answer:** B
+**Explanation:** The Kinesis Adapter allows processing DynamoDB Streams using the Kinesis Client Library.
+
+---
+
+### 35. Which DynamoDB feature prevents lost updates in concurrent writes?
+A. Transactions
+B. Conditional writes with version numbers
+C. Batch writes
+D. Atomic counters
+
+**Answer:** B
+**Explanation:** Conditional writes with version numbers implement optimistic locking to prevent lost updates.
+
+---
+
+### 36. What is the maximum number of local secondary indexes per table?
+A. 5
+B. 10
+C. 20
+D. Unlimited
+
+**Answer:** A
+**Explanation:** DynamoDB supports up to 5 local secondary indexes per table.
+
+---
+
+### 37. Which DynamoDB operation updates an item or creates it if it doesn't exist?
+A. UpdateItem
+B. PutItem
+C. UpsertItem
+D. Both A and B
+
+**Answer:** D
+**Explanation:** Both UpdateItem and PutItem can create items if they don't exist (upsert behavior).
+
+---
+
+### 38. What is the purpose of DynamoDB Auto Scaling?
+A. Scale table size
+B. Automatically adjust provisioned capacity based on utilization
+C. Scale partition keys
+D. Scale item size
+
+**Answer:** B
+**Explanation:** Auto Scaling automatically adjusts provisioned read/write capacity based on actual utilization.
+
+---
+
+### 39. Which DynamoDB feature provides cross-region replication?
+A. DynamoDB Streams
+B. Global Tables
+C. Backup and Restore
+D. Export to S3
+
+**Answer:** B
+**Explanation:** Global Tables provide fully managed, multi-region, multi-active replication.
+
+---
+
+### 40. What is the maximum query result size before pagination?
+A. 1 MB
+B. 4 MB
+C. 10 MB
+D. Unlimited
+
+**Answer:** A
+**Explanation:** Query and Scan operations return up to 1 MB of data per request; use pagination for larger results.
+
+---
+
+### 41. Which DynamoDB expression prevents attribute overwrites?
+A. UpdateExpression
+B. ConditionExpression with attribute_not_exists
+C. FilterExpression
+D. ProjectionExpression
+
+**Answer:** B
+**Explanation:** ConditionExpression with attribute_not_exists prevents overwriting existing attributes.
+
+---
+
+### 42. What is the purpose of DynamoDB Accelerator (DAX) write-through?
+A. Write to DAX only
+B. Write to DAX and DynamoDB simultaneously
+C. Write to DynamoDB only
+D. Cache writes
+
+**Answer:** B
+**Explanation:** DAX write-through writes to both DAX cache and DynamoDB table simultaneously for consistency.
+
+---
+
+### 43. Which DynamoDB operation is best for retrieving items with the same partition key?
+A. Scan
+B. Query
+C. GetItem
+D. BatchGetItem
+
+**Answer:** B
+**Explanation:** Query efficiently retrieves items with the same partition key, optionally filtering by sort key.
+
+---
+
+### 44. What is the maximum throughput for On-Demand capacity mode?
+A. 10,000 RCU/WCU
+B. 40,000 RCU/WCU
+C. Double the previous peak (adaptive)
+D. Unlimited
+
+**Answer:** C
+**Explanation:** On-Demand mode scales up to double the previous peak traffic, adapting to workload changes.
+
+---
+
+### 45. Which DynamoDB feature allows querying non-key attributes efficiently?
+A. Scan with FilterExpression
+B. Global Secondary Index (GSI)
+C. Local Secondary Index (LSI)
+D. PartiQL
+
+**Answer:** B
+**Explanation:** GSI allows efficient queries on non-key attributes by creating an alternate key structure.
+
+---
+
+### 46. What is the difference between strongly consistent and eventually consistent reads?
+A. No difference
+B. Strongly consistent reads reflect all writes; eventually consistent may not
+C. Eventually consistent is faster
+D. Strongly consistent costs less
+
+**Answer:** B
+**Explanation:** Strongly consistent reads reflect all successful writes. Eventually consistent reads may not include recent writes (but cost half the RCUs).
+
+---
+
+### 47. Which DynamoDB operation atomically increments a numeric attribute?
+A. UpdateItem with ADD action
+B. PutItem
+C. IncrementItem
+D. AtomicUpdate
+
+**Answer:** A
+**Explanation:** UpdateItem with ADD action atomically increments/decrements numeric attributes.
+
+---
+
+### 48. What is the purpose of DynamoDB Streams' view type?
+A. Control stream format
+B. Specify which item data is written to stream (KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES)
+C. Filter stream records
+D. Encrypt stream data
+
+**Answer:** B
+**Explanation:** Stream view type controls what data is captured: keys only, new values, old values, or both.
+
+---
+
+### 49. Which DynamoDB feature provides point-in-time recovery?
+A. Backups
+B. Point-in-Time Recovery (PITR)
+C. Snapshots
+D. Versioning
+
+**Answer:** B
+**Explanation:** PITR enables continuous backups and restore to any point in time within the last 35 days.
+
+---
+
+### 50. What is the maximum number of parallel Scan operations recommended?
+A. 1
+B. Number of partitions
+C. 10
+D. Unlimited
+
+**Answer:** B
+**Explanation:** Parallel scans should match the number of partitions for optimal performance without over-consuming capacity.
+

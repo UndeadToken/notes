@@ -269,4 +269,282 @@ C. Separate repositories
 D. Not possible
 
 **Answer:** B
+**Explanation:** Use context values (`cdk.json`), environment variables, or stack properties to configure stacks for different environments (dev, prod).
+
+---
+
+### 26. What is the purpose of `cdk bootstrap`?
+A. Install CDK
+B. Provision resources (S3 bucket, roles) required by CDK to deploy stacks
+C. Start app
+D. Initialize project
+
+**Answer:** B
+**Explanation:** Bootstrapping provisions an S3 bucket and IAM roles needed by CDK to store assets and deploy stacks.
+
+---
+
+### 27. Which CDK construct level represents AWS CloudFormation resources directly?
+A. L1 (Level 1)
+B. L2 (Level 2)
+C. L3 (Level 3)
+D. L0
+
+**Answer:** A
+**Explanation:** L1 constructs (CFN Resources) directly represent CloudFormation resources (e.g., CfnBucket).
+
+---
+
+### 28. What is the purpose of `cdk diff`?
+A. Compare versions
+B. Compare local CDK code with deployed stack
+C. Compare files
+D. Check syntax
+
+**Answer:** B
+**Explanation:** `cdk diff` compares the synthesized CloudFormation template from your local code with the deployed stack.
+
+---
+
+### 29. Which CDK feature allows sharing values between stacks?
+A. Outputs
+B. Exports
+C. Cross-stack references
+D. All of the above
+
+**Answer:** D
+**Explanation:** You can share values using CfnOutput (Exports) which creates cross-stack references when consumed by another stack.
+
+---
+
+### 30. What is the purpose of `cdk synth`?
+A. Synthesize CloudFormation template
+B. Deploy stack
+C. Compile code
+D. Run tests
+
+**Answer:** A
+**Explanation:** `cdk synth` executes your app and synthesizes it into a CloudFormation template (YAML/JSON).
+
+---
+
+### 31. Which CDK construct level provides high-level abstractions with defaults?
+A. L1
+B. L2
+C. L3
+D. L4
+
+**Answer:** B
+**Explanation:** L2 constructs (AWS Resources) provide high-level abstractions with sensible defaults and convenience methods (e.g., s3.Bucket).
+
+---
+
+### 32. How do you test CDK constructs?
+A. Unit tests using assertions module
+B. Integration tests
+C. Snapshot tests
+D. All of the above
+
+**Answer:** D
+**Explanation:** CDK supports fine-grained assertions, snapshot testing, and integration testing.
+
+---
+
+### 33. What is a CDK Aspect?
+A. Visual aspect
+B. Visitor pattern implementation to traverse and modify construct tree
+C. Configuration
+D. Property
+
+**Answer:** B
+**Explanation:** Aspects allow applying operations (validation, tagging, modification) to all constructs in a given scope.
+
+---
+
+### 34. Which command destroys a CDK stack?
+A. cdk delete
+B. cdk destroy
+C. cdk remove
+D. cdk terminate
+
+**Answer:** B
+**Explanation:** `cdk destroy` deletes the CloudFormation stack and its resources.
+
+---
+
+### 35. What is the purpose of `cdk.json`?
+A. Configuration
+B. Define app entry point and context values
+C. Dependencies
+D. Credentials
+
+**Answer:** B
+**Explanation:** `cdk.json` configures the CDK app, specifying the command to run the app and context values.
+
+---
+
+### 36. Which CDK construct level represents patterns or solutions?
+A. L1
+B. L2
+C. L3
+D. L4
+
+**Answer:** C
+**Explanation:** L3 constructs (Patterns) represent architectural patterns involving multiple resources (e.g., ECS Patterns).
+
+---
+
+### 37. How do you reference an existing resource in CDK?
+A. Import methods (e.g., Bucket.fromBucketName)
+B. New resource
+C. Copy resource
+D. Reference ID
+
+**Answer:** A
+**Explanation:** Use static `from*` methods (like `Bucket.fromBucketName`) to import and reference existing resources.
+
+---
+
+### 38. What is the purpose of `cdk watch`?
+A. Watch logs
+B. Monitor deployment
+C. Watch for file changes and automatically deploy (hotswap)
+D. Watch metrics
+
+**Answer:** C
+**Explanation:** `cdk watch` monitors file changes and automatically deploys updates, attempting faster hotswap deployments where possible.
+
+---
+
+### 39. Which language is NOT supported by CDK?
+A. TypeScript
+B. Python
+C. Java
+D. Ruby (Supported but less common, C# and Go are also supported. Swift is not.)
+E. C++
+
+**Answer:** E
+**Explanation:** CDK supports TypeScript, JavaScript, Python, Java, C#, and Go. C++ is not supported.
+
+---
+
+### 40. What is the purpose of CDK Context?
+A. Store state
+B. Cache values (like AZs, AMI IDs) and configuration
+C. Store logs
+D. Store credentials
+
+**Answer:** B
+**Explanation:** Context caches values retrieved from AWS (like availability zones) to ensure deterministic synthesis.
+
+---
+
+### 41. How do you add tags to resources in CDK?
+A. Tags.of(scope).add(key, value)
+B. resource.addTag()
+C. resource.tag()
+D. Tag.add()
+
+**Answer:** A
+**Explanation:** Use `Tags.of(scope).add('key', 'value')` to apply tags to a construct and its children.
+
+---
+
+### 42. What is the purpose of `cdk doctor`?
+A. Fix issues
+B. Check CDK environment and configuration
+C. Diagnose errors
+D. Heal stack
+
+**Answer:** B
+**Explanation:** `cdk doctor` gathers information about your environment to help troubleshoot issues.
+
+---
+
+### 43. Which CDK feature prevents accidental deletion of stateful resources?
+A. RemovalPolicy
+B. DeletionProtection
+C. RetainPolicy
+D. Lock
+
+**Answer:** A
+**Explanation:** `RemovalPolicy.RETAIN` (default for databases/S3) keeps the resource when the stack is destroyed.
+
+---
+
+### 44. What is the purpose of CDK Assets?
+A. Store money
+B. Bundle and upload local files (code, images) to S3/ECR
+C. Asset tracking
+D. Static files
+
+**Answer:** B
+**Explanation:** Assets allow bundling local files (Lambda code, Docker images) and uploading them to S3 or ECR during deployment.
+
+---
+
+### 45. How do you define dependencies between stacks in CDK?
+A. stack.addDependency(otherStack)
+B. stack.dependsOn(otherStack)
+C. stack.link(otherStack)
+D. Automatic
+
+**Answer:** A
+**Explanation:** Use `stackA.addDependency(stackB)` to explicitly define deployment order.
+
+---
+
+### 46. What is the purpose of `cdk list` (ls)?
+A. List resources
+B. List stacks in the app
+C. List files
+D. List dependencies
+
+**Answer:** B
+**Explanation:** `cdk list` lists the IDs of all stacks defined in the CDK app.
+
+---
+
+### 47. Which CDK feature allows accessing values from SSM Parameter Store?
+A. ssm.StringParameter.valueForStringParameter
+B. ssm.get()
+C. ssm.read()
+D. ssm.fetch()
+
+**Answer:** A
+**Explanation:** `ssm.StringParameter.valueForStringParameter` retrieves the value of an SSM parameter at synthesis time.
+
+---
+
+### 48. What is the purpose of `cdk init`?
+A. Initialize git
+B. Create a new CDK project from a template
+C. Initialize stack
+D. Initialize credentials
+
+**Answer:** B
+**Explanation:** `cdk init app --language typescript` creates a new CDK project structure.
+
+---
+
+### 49. How do you override CloudFormation properties in an L2 construct?
+A. cfnOptions
+B. escape hatches (node.defaultChild)
+C. override()
+D. modify()
+
+**Answer:** B
+**Explanation:** Use escape hatches (accessing `node.defaultChild` and casting to L1) to override low-level CloudFormation properties.
+
+---
+
+### 50. What is the default removal policy for S3 buckets in CDK?
+A. DESTROY
+B. RETAIN
+C. SNAPSHOT
+D. DELETE
+
+**Answer:** B
+**Explanation:** By default, stateful resources like S3 buckets have a removal policy of RETAIN to prevent data loss.
+
 **Explanation:** Use CDK context values, environment variables, and stack props to configure different environments (dev, staging, prod).

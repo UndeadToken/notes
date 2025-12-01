@@ -270,3 +270,279 @@ D. Manage storage capacity
 
 **Answer:** B
 **Explanation:** Capacity Providers manage cluster capacity, automatically scaling EC2 instances (ASG) or using Fargate/Fargate Spot.
+
+---
+
+### 26. What is the maximum number of tasks per service?
+A. 100
+B. 1,000
+C. 10,000
+D. Unlimited (account limits apply)
+
+**Answer:** D
+**Explanation:** No hard limit on tasks per service, subject to account-level limits.
+
+---
+
+### 27. Which ECS launch type requires managing EC2 instances?
+A. Fargate
+B. EC2
+C. External
+D. Serverless
+
+**Answer:** B
+**Explanation:** EC2 launch type requires managing and scaling EC2 instances in the cluster.
+
+---
+
+### 28. What is the maximum task definition size?
+A. 32 KB
+B. 64 KB
+C. 128 KB
+D. 256 KB
+
+**Answer:** B
+**Explanation:** Task definition maximum size is 64 KB.
+
+---
+
+### 29. Which ECS networking mode provides each task its own ENI?
+A. Bridge
+B. Host
+C. awsvpc
+D. None
+
+**Answer:** C
+**Explanation:** awsvpc mode gives each task its own elastic network interface (ENI) and private IP.
+
+---
+
+### 30. What is the maximum number of containers per task definition?
+A. 5
+B. 10
+C. 20
+D. Unlimited
+
+**Answer:** B
+**Explanation:** Task definitions support up to 10 containers.
+
+---
+
+### 31. Which ECS feature provides service auto scaling?
+A. Application Auto Scaling
+B. EC2 Auto Scaling
+C. ECS Auto Scaling
+D. Cluster Auto Scaling
+
+**Answer:** A
+**Explanation:** ECS uses Application Auto Scaling to scale services based on metrics.
+
+---
+
+### 32. What is the maximum number of task definition revisions?
+A. 100
+B. 1,000
+C. 1 million
+D. Unlimited
+
+**Answer:** C
+**Explanation:** Each task definition family supports up to 1 million revisions.
+
+---
+
+### 33. Which ECR feature scans images for vulnerabilities?
+A. Image Scanning
+B. Security Scan
+C. Vulnerability Scan
+D. Container Scan
+
+**Answer:** A
+**Explanation:** ECR Image Scanning detects software vulnerabilities in container images.
+
+---
+
+### 34. What is the maximum number of ECS clusters per region?
+A. 100
+B. 1,000
+C. 10,000
+D. Unlimited (soft limit of 10,000)
+
+**Answer:** D
+**Explanation:** Default limit is 10,000 clusters per region (soft limit).
+
+---
+
+### 35. Which ECS deployment type updates tasks gradually?
+A. Rolling update
+B. Blue/green deployment
+C. Both A and B
+D. Canary deployment
+
+**Answer:** C
+**Explanation:** ECS supports both rolling updates and blue/green deployments (with CodeDeploy).
+
+---
+
+### 36. What is the purpose of ECS Service Discovery?
+A. Discover services
+B. Automatic DNS-based service discovery using Route 53
+C. Find containers
+D. Network discovery
+
+**Answer:** B
+**Explanation:** Service Discovery automatically registers and discovers services using Route 53 Auto Naming.
+
+---
+
+### 37. Which Fargate platform version should be used for production?
+A. LATEST
+B. Specific version (e.g., 1.4.0)
+C. DEFAULT
+D. STABLE
+
+**Answer:** B
+**Explanation:** Use specific platform versions for production to control updates and ensure stability.
+
+---
+
+### 38. What is the maximum number of load balancers per ECS service?
+A. 1
+B. 5
+C. 10
+D. Unlimited
+
+**Answer:** B
+**Explanation:** ECS services support up to 5 load balancers (ALB/NLB target groups).
+
+---
+
+### 39. Which ECS feature allows running tasks on external infrastructure?
+A. ECS External
+B. ECS Anywhere
+C. ECS Hybrid
+D. ECS On-Premises
+
+**Answer:** B
+**Explanation:** ECS Anywhere allows running ECS tasks on on-premises or external infrastructure.
+
+---
+
+### 40. What is the maximum task CPU for Fargate?
+A. 4 vCPU
+B. 8 vCPU
+C. 16 vCPU
+D. 32 vCPU
+
+**Answer:** C
+**Explanation:** Fargate supports up to 16 vCPU per task.
+
+---
+
+### 41. Which ECS feature provides persistent storage?
+A. EBS volumes
+B. EFS volumes
+C. Instance store
+D. S3
+
+**Answer:** B
+**Explanation:** ECS tasks can mount EFS file systems for persistent, shared storage.
+
+---
+
+### 42. What is the maximum task memory for Fargate?
+A. 30 GB
+B. 60 GB
+C. 120 GB
+D. 240 GB
+
+**Answer:** C
+**Explanation:** Fargate supports up to 120 GB memory per task.
+
+---
+
+### 43. Which ECR feature replicates images across regions?
+A. Cross-Region Replication
+B. Image Replication
+C. Multi-Region Replication
+D. ECR Replication
+
+**Answer:** B
+**Explanation:** ECR Replication automatically replicates images to other regions or accounts.
+
+---
+
+### 44. What is the purpose of ECS task placement strategies?
+A. Place tasks
+B. Control how tasks are distributed across instances (binpack, spread, random)
+C. Schedule tasks
+D. Optimize placement
+
+**Answer:** B
+**Explanation:** Task placement strategies control task distribution: binpack (maximize utilization), spread (distribute), random.
+
+---
+
+### 45. Which ECS networking mode is required for Fargate?
+A. Bridge
+B. Host
+C. awsvpc
+D. None
+
+**Answer:** C
+**Explanation:** Fargate requires awsvpc networking mode.
+
+---
+
+### 46. What is the maximum number of ECR repositories per account?
+A. 100
+B. 1,000
+C. 10,000
+D. Unlimited (soft limit of 10,000)
+
+**Answer:** D
+**Explanation:** Default limit is 10,000 repositories per account (soft limit).
+
+---
+
+### 47. Which ECS feature allows running one-time tasks?
+A. RunTask
+B. StartTask
+C. CreateTask
+D. LaunchTask
+
+**Answer:** A
+**Explanation:** RunTask API runs one-time tasks (not part of a service).
+
+---
+
+### 48. What is the maximum image size for ECR?
+A. 1 GB
+B. 10 GB
+C. 100 GB
+D. Unlimited (10 GB per layer)
+
+**Answer:** D
+**Explanation:** No hard limit on image size, but each layer limited to 10 GB.
+
+---
+
+### 49. Which ECS deployment configuration controls task replacement?
+A. Minimum healthy percent and maximum percent
+B. Deployment strategy
+C. Rolling update configuration
+D. Task replacement policy
+
+**Answer:** A
+**Explanation:** Minimum healthy percent (lower bound) and maximum percent (upper bound) control task replacement during deployments.
+
+---
+
+### 50. What is the purpose of ECS task IAM roles?
+A. Authenticate tasks
+B. Grant AWS permissions to containers
+C. Secure tasks
+D. Manage access
+
+**Answer:** B
+**Explanation:** Task IAM roles grant AWS API permissions to containers running in the task.
+

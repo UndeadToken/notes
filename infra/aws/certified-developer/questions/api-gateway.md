@@ -270,3 +270,279 @@ D. API deployment history
 
 **Answer:** B
 **Explanation:** $context provides runtime information like request ID, source IP, stage, resource path, HTTP method, and more for use in mapping templates and logging.
+
+---
+
+### 26. What is the default throttle limit for API Gateway REST APIs per account per region?
+A. 1,000 requests per second
+B. 5,000 requests per second
+C. 10,000 requests per second
+D. Unlimited
+
+**Answer:** C
+**Explanation:** Default steady-state limit is 10,000 requests per second with a burst of 5,000 requests.
+
+---
+
+### 27. Which API Gateway authorization type uses JWT tokens?
+A. IAM
+B. Cognito User Pools
+C. Lambda Authorizer
+D. API Keys
+
+**Answer:** B
+**Explanation:** Cognito User Pools use JWT tokens for authorization in API Gateway.
+
+---
+
+### 28. What is the maximum timeout for API Gateway Lambda integration?
+A. 3 seconds
+B. 15 seconds
+C. 29 seconds
+D. 5 minutes
+
+**Answer:** C
+**Explanation:** API Gateway has a maximum integration timeout of 29 seconds for all integrations including Lambda.
+
+---
+
+### 29. Which API Gateway feature allows real-time two-way communication?
+A. REST API
+B. HTTP API
+C. WebSocket API
+D. GraphQL API
+
+**Answer:** C
+**Explanation:** WebSocket API enables real-time, two-way communication between clients and backend.
+
+---
+
+### 30. What is the purpose of API Gateway Usage Plans?
+A. Plan API development
+B. Control and monitor API usage with throttling and quotas
+C. Plan deployments
+D. Monitor errors
+
+**Answer:** B
+**Explanation:** Usage Plans define throttling limits, quotas, and associate API keys with stages for access control.
+
+---
+
+### 31. Which API Gateway deployment type is cheaper and has lower latency?
+A. REST API
+B. HTTP API
+C. WebSocket API
+D. All same cost
+
+**Answer:** B
+**Explanation:** HTTP APIs are up to 71% cheaper and have lower latency than REST APIs.
+
+---
+
+### 32. What is the maximum payload size for API Gateway?
+A. 1 MB
+B. 6 MB
+C. 10 MB
+D. 100 MB
+
+**Answer:** C
+**Explanation:** Maximum payload size is 10 MB for both request and response.
+
+---
+
+### 33. Which API Gateway feature validates requests before reaching the backend?
+A. Request Validators
+B. Lambda Authorizers
+C. Mapping Templates
+D. Stage Variables
+
+**Answer:** A
+**Explanation:** Request Validators validate request parameters and body against a model before invoking the backend.
+
+---
+
+### 34. What is the purpose of API Gateway Mock Integration?
+A. Test APIs
+B. Return responses without calling backend
+C. Mock data
+D. All of the above
+
+**Answer:** D
+**Explanation:** Mock Integration returns static responses without invoking a backend, useful for testing and development.
+
+---
+
+### 35. Which API Gateway caching metric indicates cache effectiveness?
+A. CacheHitCount and CacheMissCount
+B. Latency
+C. IntegrationLatency
+D. Count
+
+**Answer:** A
+**Explanation:** CacheHitCount and CacheMissCount metrics show how effectively the cache is being used.
+
+---
+
+### 36. What is the maximum cache TTL for API Gateway?
+A. 300 seconds
+B. 3600 seconds (1 hour)
+C. 86400 seconds (24 hours)
+D. No limit
+
+**Answer:** B
+**Explanation:** Maximum cache TTL is 3600 seconds (1 hour).
+
+---
+
+### 37. Which API Gateway feature allows gradual traffic shifting?
+A. Canary Deployments
+B. Blue/Green Deployments
+C. Rolling Deployments
+D. A/B Testing
+
+**Answer:** A
+**Explanation:** Canary Deployments gradually shift traffic to a new deployment using percentage-based routing.
+
+---
+
+### 38. What is the purpose of API Gateway VPC Link?
+A. Connect to internet
+B. Private integration with resources in VPC
+C. Connect VPCs
+D. Monitor VPC traffic
+
+**Answer:** B
+**Explanation:** VPC Link enables private integration between API Gateway and resources in VPC (NLB, ALB, ECS).
+
+---
+
+### 39. Which API Gateway authorization type executes custom logic?
+A. IAM
+B. Cognito
+C. Lambda Authorizer (Custom Authorizer)
+D. API Keys
+
+**Answer:** C
+**Explanation:** Lambda Authorizers execute custom authorization logic using Lambda functions.
+
+---
+
+### 40. What is the difference between TOKEN and REQUEST Lambda Authorizers?
+A. No difference
+B. TOKEN receives token; REQUEST receives full request context
+C. TOKEN is faster
+D. REQUEST is more secure
+
+**Answer:** B
+**Explanation:** TOKEN authorizers receive only the auth token. REQUEST authorizers receive headers, query strings, stage variables, and request context.
+
+---
+
+### 41. Which API Gateway feature prevents API abuse?
+A. Throttling and Usage Plans
+B. Caching
+C. CORS
+D. Mapping Templates
+
+**Answer:** A
+**Explanation:** Throttling and Usage Plans limit request rates to prevent API abuse and control costs.
+
+---
+
+### 42. What is the purpose of API Gateway Binary Media Types?
+A. Compress responses
+B. Support binary payloads (images, PDFs, etc.)
+C. Encrypt data
+D. Convert formats
+
+**Answer:** B
+**Explanation:** Binary Media Types configuration allows API Gateway to handle binary payloads like images, PDFs, and videos.
+
+---
+
+### 43. Which API Gateway stage variable use case is most common?
+A. Store secrets
+B. Reference different backend endpoints per stage (dev, prod)
+C. Store user data
+D. Cache configuration
+
+**Answer:** B
+**Explanation:** Stage variables commonly reference different Lambda function versions or backend endpoints for different stages.
+
+---
+
+### 44. What is the maximum number of stages per API?
+A. 5
+B. 10
+C. 50
+D. Unlimited
+
+**Answer:** B
+**Explanation:** Maximum of 10 stages per API in API Gateway.
+
+---
+
+### 45. Which API Gateway integration type provides the most control over request/response transformation?
+A. Lambda Proxy
+B. Lambda Custom (non-proxy)
+C. HTTP Proxy
+D. AWS Service
+
+**Answer:** B
+**Explanation:** Lambda Custom integration provides full control over request/response transformation using mapping templates.
+
+---
+
+### 46. What is the purpose of API Gateway Access Logging?
+A. Log API calls to CloudWatch Logs
+B. Monitor performance
+C. Debug issues
+D. All of the above
+
+**Answer:** D
+**Explanation:** Access Logging sends detailed logs to CloudWatch for monitoring, debugging, and compliance.
+
+---
+
+### 47. Which API Gateway feature enables cross-origin requests?
+A. CORS (Cross-Origin Resource Sharing)
+B. IAM
+C. API Keys
+D. Resource Policies
+
+**Answer:** A
+**Explanation:** CORS configuration allows API Gateway to accept requests from different domains.
+
+---
+
+### 48. What is the maximum number of resources per REST API?
+A. 100
+B. 300
+C. 500
+D. 1,000
+
+**Answer:** B
+**Explanation:** Maximum of 300 resources per REST API.
+
+---
+
+### 49. Which API Gateway metric indicates backend performance?
+A. Latency
+B. IntegrationLatency
+C. Count
+D. 4XXError
+
+**Answer:** B
+**Explanation:** IntegrationLatency measures the time between API Gateway sending a request to the backend and receiving a response.
+
+---
+
+### 50. What is the purpose of API Gateway Resource Policies?
+A. Control access to API
+B. Define who can invoke API (cross-account, IP restrictions, VPC endpoints)
+C. Monitor resources
+D. Manage deployments
+
+**Answer:** B
+**Explanation:** Resource Policies control who can invoke the API, supporting cross-account access, IP whitelisting, and VPC endpoint restrictions.
+

@@ -270,3 +270,279 @@ D. Dedicated Host group
 
 **Answer:** B
 **Explanation:** Spot Fleet is a collection of Spot Instances and optionally On-Demand instances that meet specified capacity requirements.
+
+---
+
+### 26. What is the maximum number of EC2 instances per region by default?
+A. 20
+B. 100
+C. 1,000
+D. Varies by instance type (typically 20 On-Demand)
+
+**Answer:** D
+**Explanation:** Default limits vary by instance type (typically 20 On-Demand vCPUs per region, can be increased).
+
+---
+
+### 27. Which EC2 placement group provides lowest latency?
+A. Cluster
+B. Spread
+C. Partition
+D. All same latency
+
+**Answer:** A
+**Explanation:** Cluster placement group provides lowest latency by placing instances close together in single AZ.
+
+---
+
+### 28. What is the maximum number of security groups per instance?
+A. 1
+B. 5
+C. 10
+D. 16
+
+**Answer:** B
+**Explanation:** EC2 instances support up to 5 security groups.
+
+---
+
+### 29. Which EC2 instance type is optimized for memory-intensive workloads?
+A. C-series (Compute Optimized)
+B. R-series (Memory Optimized)
+C. T-series (Burstable)
+D. M-series (General Purpose)
+
+**Answer:** B
+**Explanation:** R-series instances are memory-optimized for memory-intensive applications.
+
+---
+
+### 30. What is the maximum number of ENIs per instance?
+A. 1
+B. 5
+C. Depends on instance type
+D. Unlimited
+
+**Answer:** C
+**Explanation:** Maximum ENIs depends on instance type (ranges from 2 to 15).
+
+---
+
+### 31. Which EC2 pricing model provides highest discount?
+A. On-Demand
+B. Reserved Instances
+C. Spot Instances
+D. Savings Plans
+
+**Answer:** C
+**Explanation:** Spot Instances provide up to 90% discount but can be interrupted.
+
+---
+
+### 32. What is the purpose of EC2 User Data?
+A. Store user information
+B. Run scripts at instance launch
+C. Configure users
+D. Backup data
+
+**Answer:** B
+**Explanation:** User Data runs scripts/commands automatically when instance launches.
+
+---
+
+### 33. Which EC2 feature allows changing instance type?
+A. Instance modification
+B. Instance resizing
+C. Stop instance, change type, restart
+D. Not possible
+
+**Answer:** C
+**Explanation:** Stop instance, change instance type, then restart (for EBS-backed instances).
+
+---
+
+### 34. What is the maximum number of tags per EC2 instance?
+A. 10
+B. 25
+C. 50
+D. 100
+
+**Answer:** C
+**Explanation:** EC2 instances support up to 50 tags.
+
+---
+
+### 35. Which EC2 instance purchasing option provides capacity reservation?
+A. On-Demand
+B. Reserved Instances
+C. On-Demand Capacity Reservations
+D. Both B and C
+
+**Answer:** D
+**Explanation:** Both Reserved Instances and On-Demand Capacity Reservations provide capacity reservation.
+
+---
+
+### 36. What is the purpose of EC2 placement groups?
+A. Group instances
+B. Control instance placement for performance or availability
+C. Organize resources
+D. Manage capacity
+
+**Answer:** B
+**Explanation:** Placement groups control how instances are placed on underlying hardware for performance or availability.
+
+---
+
+### 37. Which EC2 instance state incurs charges?
+A. Running
+B. Stopped
+C. Terminated
+D. Pending
+
+**Answer:** A
+**Explanation:** Only running instances incur compute charges (stopped instances only charge for EBS storage).
+
+---
+
+### 38. What is the maximum number of EBS volumes per instance?
+A. 10
+B. 20
+C. 40
+D. Unlimited
+
+**Answer:** C
+**Explanation:** EC2 instances support up to 40 EBS volumes (including root volume).
+
+---
+
+### 39. Which EC2 feature provides detailed monitoring?
+A. Basic Monitoring (5-minute intervals)
+B. Detailed Monitoring (1-minute intervals)
+C. CloudWatch
+D. CloudTrail
+
+**Answer:** B
+**Explanation:** Detailed Monitoring provides metrics at 1-minute intervals (vs 5-minute for basic).
+
+---
+
+### 40. What is the purpose of EC2 Dedicated Hosts?
+A. Dedicated support
+B. Physical servers dedicated to your use for compliance/licensing
+C. High performance
+D. Isolated networking
+
+**Answer:** B
+**Explanation:** Dedicated Hosts provide physical servers for compliance requirements and bring-your-own-license scenarios.
+
+---
+
+### 41. Which EC2 instance type uses credits for CPU bursting?
+A. M-series
+B. C-series
+C. T-series (Burstable)
+D. R-series
+
+**Answer:** C
+**Explanation:** T-series instances use CPU credits for bursting above baseline performance.
+
+---
+
+### 42. What is the maximum number of Elastic IPs per region?
+A. 5
+B. 10
+C. 20
+D. Unlimited
+
+**Answer:** A
+**Explanation:** Default limit is 5 Elastic IPs per region (soft limit, can be increased).
+
+---
+
+### 43. Which EC2 feature allows running commands on multiple instances?
+A. Systems Manager Run Command
+B. User Data
+C. SSH
+D. EC2 Connect
+
+**Answer:** A
+**Explanation:** Systems Manager Run Command executes commands on multiple instances remotely.
+
+---
+
+### 44. What is the purpose of EC2 Instance Connect?
+A. Connect instances
+B. Browser-based SSH connection
+C. Network connectivity
+D. VPN connection
+
+**Answer:** B
+**Explanation:** EC2 Instance Connect provides browser-based SSH access without managing SSH keys.
+
+---
+
+### 45. Which EC2 placement group distributes instances across hardware?
+A. Cluster
+B. Spread
+C. Partition
+D. Distributed
+
+**Answer:** B
+**Explanation:** Spread placement group distributes instances across distinct hardware to reduce correlated failures.
+
+---
+
+### 46. What is the maximum number of instances in a spread placement group per AZ?
+A. 3
+B. 7
+C. 10
+D. Unlimited
+
+**Answer:** B
+**Explanation:** Spread placement groups support up to 7 instances per AZ.
+
+---
+
+### 47. Which EC2 feature provides instance recovery?
+A. Auto Recovery
+B. CloudWatch Alarms with EC2 recover action
+C. Backup
+D. Snapshots
+
+**Answer:** B
+**Explanation:** CloudWatch Alarms can trigger EC2 instance recovery on system status check failures.
+
+---
+
+### 48. What is the purpose of EC2 Fleet?
+A. Manage fleets
+B. Launch and manage mix of On-Demand, Reserved, and Spot instances
+C. Container fleet
+D. Auto Scaling
+
+**Answer:** B
+**Explanation:** EC2 Fleet launches and manages a mix of instance types and purchasing options to meet capacity.
+
+---
+
+### 49. Which EC2 instance metadata category provides IAM role credentials?
+A. /latest/meta-data/iam
+B. /latest/meta-data/iam/security-credentials/role-name
+C. /latest/meta-data/credentials
+D. /latest/meta-data/role
+
+**Answer:** B
+**Explanation:** IAM role credentials are available at /latest/meta-data/iam/security-credentials/[role-name].
+
+---
+
+### 50. What is the maximum number of rules per security group?
+A. 50 inbound, 50 outbound
+B. 60 inbound, 60 outbound
+C. 100 inbound, 100 outbound
+D. Unlimited
+
+**Answer:** B
+**Explanation:** Security groups support up to 60 inbound and 60 outbound rules.
+

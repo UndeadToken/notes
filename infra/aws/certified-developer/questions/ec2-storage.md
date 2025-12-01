@@ -270,3 +270,279 @@ D. Monitor volumes
 
 **Answer:** B
 **Explanation:** EBS Direct APIs (ListSnapshotBlocks, GetSnapshotBlock, PutSnapshotBlock) enable direct access to snapshot data for custom backup solutions.
+
+---
+
+### 26. Which EBS volume type is best for high-performance databases?
+A. gp3
+B. io2 Block Express
+C. st1
+D. sc1
+
+**Answer:** B
+**Explanation:** io2 Block Express provides the highest performance (up to 256,000 IOPS) and durability for mission-critical databases.
+
+---
+
+### 27. What is the maximum size of an EBS volume?
+A. 16 TB
+B. 32 TB
+C. 64 TB
+D. 128 TB
+
+**Answer:** C
+**Explanation:** EBS volumes (gp2, gp3, io1, io2, st1, sc1) support up to 64 TB size.
+
+---
+
+### 28. Which EFS performance mode is best for big data analytics?
+A. General Purpose
+B. Max I/O
+C. Bursting
+D. Provisioned
+
+**Answer:** B
+**Explanation:** Max I/O performance mode is optimized for higher aggregate throughput and IOPS (e.g., big data, parallel processing).
+
+---
+
+### 29. What happens to Instance Store data when an instance is stopped?
+A. Persisted
+B. Lost
+C. Backed up to S3
+D. Moved to EBS
+
+**Answer:** B
+**Explanation:** Instance Store is ephemeral storage; data is lost when the instance is stopped or terminated.
+
+---
+
+### 30. Which EBS feature allows resizing volumes without downtime?
+A. Elastic Volumes
+B. Dynamic Volumes
+C. Auto Scaling
+D. Volume Gateway
+
+**Answer:** A
+**Explanation:** Elastic Volumes allow you to increase volume size, change volume type, and adjust performance without downtime.
+
+---
+
+### 31. What is the maximum IOPS for gp3 volumes?
+A. 3,000
+B. 16,000
+C. 32,000
+D. 64,000
+
+**Answer:** B
+**Explanation:** gp3 volumes support up to 16,000 IOPS.
+
+---
+
+### 32. Which EFS throughput mode scales automatically?
+A. Bursting
+B. Provisioned
+C. Elastic
+D. Standard
+
+**Answer:** C
+**Explanation:** Elastic throughput mode automatically scales throughput up or down based on workload needs.
+
+---
+
+### 33. What is the purpose of EBS Multi-Attach?
+A. Attach volume to multiple instances in different AZs
+B. Attach volume to multiple instances in the same AZ
+C. Attach multiple volumes to one instance
+D. Attach volume to multiple regions
+
+**Answer:** B
+**Explanation:** EBS Multi-Attach allows attaching a single io1/io2 volume to multiple instances in the same Availability Zone.
+
+---
+
+### 34. Which storage service is best for shared Linux file systems?
+A. EBS
+B. EFS
+C. S3
+D. Instance Store
+
+**Answer:** B
+**Explanation:** EFS provides a scalable, fully managed shared file system for Linux instances (NFS protocol).
+
+---
+
+### 35. What is the maximum retention period for EBS Snapshots in Recycle Bin?
+A. 30 days
+B. 90 days
+C. 1 year
+D. 365 days
+
+**Answer:** D
+**Explanation:** Recycle Bin retention rules can specify a retention period from 1 day to 365 days (1 year).
+
+---
+
+### 36. Which EBS volume type is lowest cost for infrequent access?
+A. gp3
+B. st1
+C. sc1 (Cold HDD)
+D. standard
+
+**Answer:** C
+**Explanation:** sc1 (Cold HDD) provides the lowest cost per GB for infrequently accessed workloads.
+
+---
+
+### 37. What is the purpose of EFS Lifecycle Management?
+A. Delete old files
+B. Automatically move infrequently accessed files to Infrequent Access (IA) storage class
+C. Backup files
+D. Versioning
+
+**Answer:** B
+**Explanation:** Lifecycle Management automatically moves files that haven't been accessed for a set period to the cost-effective IA storage class.
+
+---
+
+### 38. Which EBS feature creates a point-in-time copy?
+A. Backup
+B. Snapshot
+C. Clone
+D. Replica
+
+**Answer:** B
+**Explanation:** EBS Snapshots create a point-in-time copy of the volume stored in S3.
+
+---
+
+### 39. What is the maximum throughput for st1 volumes?
+A. 250 MB/s
+B. 500 MB/s
+C. 1,000 MB/s
+D. 4,000 MB/s
+
+**Answer:** B
+**Explanation:** st1 (Throughput Optimized HDD) volumes support up to 500 MB/s throughput.
+
+---
+
+### 40. Which EFS feature encrypts data in transit?
+A. TLS
+B. SSL
+C. VPN
+D. Direct Connect
+
+**Answer:** A
+**Explanation:** EFS supports encryption in transit using TLS when mounting the file system.
+
+---
+
+### 41. What is the purpose of EBS Fast Snapshot Restore (FSR)?
+A. Restore faster
+B. Instantly restore fully initialized volumes from snapshots (no lazy loading)
+C. Fast backup
+D. Fast clone
+
+**Answer:** B
+**Explanation:** FSR enables creating fully initialized volumes from snapshots instantly, eliminating the latency of lazy loading.
+
+---
+
+### 42. Which storage type provides lowest latency?
+A. EBS gp3
+B. EBS io2
+C. EFS
+D. Instance Store (NVMe)
+
+**Answer:** D
+**Explanation:** Instance Store (physically attached NVMe SSDs) provides the lowest latency and highest IOPS.
+
+---
+
+### 43. What is the maximum number of file systems per account?
+A. 100
+B. 1,000
+C. 10,000
+D. Unlimited
+
+**Answer:** B
+**Explanation:** Default limit is 1,000 EFS file systems per region per account.
+
+---
+
+### 44. Which EBS volume type supports boot volumes?
+A. gp2, gp3, io1, io2
+B. st1, sc1
+C. All types
+D. Only gp3
+
+**Answer:** A
+**Explanation:** Only SSD-backed volumes (gp2, gp3, io1, io2) can be used as boot volumes. HDD (st1, sc1) cannot.
+
+---
+
+### 45. What is the purpose of FSx for Lustre?
+A. Windows file server
+B. High-performance file system for compute-intensive workloads (HPC, ML)
+C. General purpose
+D. Archive
+
+**Answer:** B
+**Explanation:** FSx for Lustre is optimized for high-performance computing, machine learning, and media processing workloads.
+
+---
+
+### 46. Which EBS encryption feature is enabled by default?
+A. Encryption by default
+B. Snapshot encryption
+C. Volume encryption
+D. None (must be enabled)
+
+**Answer:** A
+**Explanation:** You can enable EBS encryption by default for your account in a region, ensuring all new volumes are encrypted.
+
+---
+
+### 47. What is the maximum IOPS for io2 Block Express?
+A. 64,000
+B. 100,000
+C. 256,000
+D. 500,000
+
+**Answer:** C
+**Explanation:** io2 Block Express supports up to 256,000 IOPS.
+
+---
+
+### 48. Which EFS access point feature enforces user identity?
+A. POSIX User
+B. Root directory
+C. IAM policy
+D. Owner
+
+**Answer:** A
+**Explanation:** Access Points can enforce a specific POSIX user ID and group ID for all connections through that point.
+
+---
+
+### 49. What is the purpose of EBS Data Lifecycle Manager (DLM)?
+A. Manage data
+B. Automate creation, retention, and deletion of EBS snapshots
+C. Move data
+D. Delete volumes
+
+**Answer:** B
+**Explanation:** DLM automates the creation, retention, and deletion of EBS snapshots based on schedules.
+
+---
+
+### 50. Which FSx type supports NetApp ONTAP?
+A. FSx for Windows
+B. FSx for Lustre
+C. FSx for NetApp ONTAP
+D. FSx for OpenZFS
+
+**Answer:** C
+**Explanation:** FSx for NetApp ONTAP provides fully managed shared storage built on NetApp's ONTAP file system.
+

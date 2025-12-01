@@ -270,3 +270,279 @@ D. !FindInMap
 
 **Answer:** C
 **Explanation:** !ImportValue references exported output values from other stacks using the export name.
+
+---
+
+### 26. What is the maximum number of parameters in a CloudFormation template?
+A. 60
+B. 100
+C. 200
+D. Unlimited
+
+**Answer:** C
+**Explanation:** CloudFormation templates support up to 200 parameters.
+
+---
+
+### 27. Which CloudFormation feature deploys stacks across multiple accounts and regions?
+A. Nested Stacks
+B. Stack Sets
+C. Cross-Stack References
+D. Change Sets
+
+**Answer:** B
+**Explanation:** Stack Sets deploy stacks across multiple AWS accounts and regions from a single template.
+
+---
+
+### 28. What is the purpose of CloudFormation Change Sets?
+A. Change templates
+B. Preview changes before executing stack updates
+C. Change parameters
+D. Change regions
+
+**Answer:** B
+**Explanation:** Change Sets show what changes will be made to a stack before executing the update.
+
+---
+
+### 29. Which CloudFormation helper script installs packages and files?
+A. cfn-init
+B. cfn-signal
+C. cfn-hup
+D. cfn-get-metadata
+
+**Answer:** A
+**Explanation:** cfn-init retrieves and interprets metadata to install packages, create files, and start services.
+
+---
+
+### 30. What is the maximum template size for direct upload?
+A. 51,200 bytes
+B. 460,800 bytes (450 KB)
+C. 1 MB
+D. 10 MB
+
+**Answer:** B
+**Explanation:** Direct upload limit is 51,200 bytes. Use S3 for templates up to 460,800 bytes (450 KB).
+
+---
+
+### 31. Which CloudFormation intrinsic function joins values with a delimiter?
+A. !Join
+B. !Sub
+C. !Concat
+D. !Merge
+
+**Answer:** A
+**Explanation:** !Join concatenates values with a specified delimiter.
+
+---
+
+### 32. What is the purpose of CloudFormation DependsOn attribute?
+A. Depend on other services
+B. Control resource creation order
+C. Depend on parameters
+D. Depend on outputs
+
+**Answer:** B
+**Explanation:** DependsOn explicitly defines resource creation order when automatic dependency detection isn't sufficient.
+
+---
+
+### 33. Which CloudFormation feature allows custom provisioning logic?
+A. Macros
+B. Custom Resources
+C. Transforms
+D. All of the above
+
+**Answer:** D
+**Explanation:** Macros, Custom Resources, and Transforms all enable custom provisioning logic.
+
+---
+
+### 34. What is the maximum number of outputs per stack?
+A. 60
+B. 100
+C. 200
+D. Unlimited
+
+**Answer:** A
+**Explanation:** CloudFormation stacks support up to 60 outputs.
+
+---
+
+### 35. Which CloudFormation helper script signals resource creation completion?
+A. cfn-init
+B. cfn-signal
+C. cfn-hup
+D. cfn-get-metadata
+
+**Answer:** B
+**Explanation:** cfn-signal sends a signal to CloudFormation indicating resource creation success or failure.
+
+---
+
+### 36. What is the purpose of CloudFormation Conditions?
+A. Conditional logic
+B. Control resource creation based on parameter values or mappings
+C. Error handling
+D. Validation
+
+**Answer:** B
+**Explanation:** Conditions control whether resources are created based on parameter values, mappings, or other conditions.
+
+---
+
+### 37. Which CloudFormation transform enables SAM syntax?
+A. AWS::Serverless
+B. AWS::Serverless-2016-10-31
+C. AWS::SAM
+D. AWS::Lambda
+
+**Answer:** B
+**Explanation:** AWS::Serverless-2016-10-31 transform enables AWS SAM syntax in CloudFormation templates.
+
+---
+
+### 38. What happens when a stack update fails?
+A. Stack is deleted
+B. Stack automatically rolls back to previous state
+C. Stack remains in failed state
+D. Stack is archived
+
+**Answer:** B
+**Explanation:** Failed stack updates automatically roll back to the previous working state by default.
+
+---
+
+### 39. Which CloudFormation feature prevents accidental stack deletion?
+A. DeletionPolicy
+B. Termination Protection
+C. Stack Lock
+D. Deletion Lock
+
+**Answer:** B
+**Explanation:** Termination Protection prevents accidental stack deletion until explicitly disabled.
+
+---
+
+### 40. What is the maximum number of resources per stack?
+A. 100
+B. 200
+C. 500
+D. 1,000
+
+**Answer:** C
+**Explanation:** CloudFormation stacks support up to 500 resources (use nested stacks for larger deployments).
+
+---
+
+### 41. Which CloudFormation helper script detects metadata changes?
+A. cfn-init
+B. cfn-signal
+C. cfn-hup
+D. cfn-get-metadata
+
+**Answer:** C
+**Explanation:** cfn-hup daemon detects changes to resource metadata and runs specified actions.
+
+---
+
+### 42. What is the purpose of CloudFormation Mappings?
+A. Map parameters
+B. Define static lookup tables (key-value pairs)
+C. Map resources
+D. Map outputs
+
+**Answer:** B
+**Explanation:** Mappings define static key-value lookup tables for values like AMI IDs per region.
+
+---
+
+### 43. Which CloudFormation DeletionPolicy retains resources after stack deletion?
+A. Delete
+B. Retain
+C. Snapshot
+D. Both B and C
+
+**Answer:** D
+**Explanation:** Both Retain (keeps resource) and Snapshot (creates snapshot then deletes) preserve data after stack deletion.
+
+---
+
+### 44. What is the maximum nesting depth for nested stacks?
+A. 3 levels
+B. 5 levels
+C. 10 levels
+D. Unlimited
+
+**Answer:** B
+**Explanation:** Nested stacks support up to 5 levels of nesting.
+
+---
+
+### 45. Which CloudFormation feature allows template reuse with modifications?
+A. Macros
+B. Nested Stacks
+C. Stack Sets
+D. Modules
+
+**Answer:** A
+**Explanation:** Macros process templates and can add, modify, or remove resources programmatically.
+
+---
+
+### 46. What is the purpose of CloudFormation CreationPolicy?
+A. Control who can create stacks
+B. Wait for resource signals before marking creation complete
+C. Define creation order
+D. Validate creation
+
+**Answer:** B
+**Explanation:** CreationPolicy waits for a specified number of success signals before marking resource creation complete.
+
+---
+
+### 47. Which CloudFormation status indicates a failed update with successful rollback?
+A. UPDATE_FAILED
+B. UPDATE_ROLLBACK_COMPLETE
+C. ROLLBACK_COMPLETE
+D. UPDATE_COMPLETE
+
+**Answer:** B
+**Explanation:** UPDATE_ROLLBACK_COMPLETE indicates the update failed and successfully rolled back.
+
+---
+
+### 48. What is the maximum number of Stack Sets per administrator account?
+A. 10
+B. 100
+C. 1,000
+D. 2,000
+
+**Answer:** B
+**Explanation:** Maximum of 100 Stack Sets per administrator account (soft limit).
+
+---
+
+### 49. Which CloudFormation intrinsic function retrieves attribute values?
+A. !Ref
+B. !GetAtt
+C. !FindInMap
+D. !Select
+
+**Answer:** B
+**Explanation:** !GetAtt retrieves attribute values from resources (e.g., ARN, DNS name).
+
+---
+
+### 50. What is the purpose of CloudFormation Stack Policies?
+A. IAM policies for stacks
+B. Prevent unintended updates to stack resources
+C. Network policies
+D. Security policies
+
+**Answer:** B
+**Explanation:** Stack Policies define which resources can be updated during stack updates, preventing accidental modifications.
+

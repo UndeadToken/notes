@@ -270,3 +270,279 @@ D. Tokens cannot be revoked
 
 **Answer:** B
 **Explanation:** GlobalSignOut (user) or AdminUserGlobalSignOut (admin) invalidates all tokens for a user.
+
+---
+
+### 26. What is the maximum number of custom attributes per user pool?
+A. 10
+B. 25
+C. 50
+D. 100
+
+**Answer:** C
+**Explanation:** User pools support up to 50 custom attributes.
+
+---
+
+### 27. Which Cognito feature provides temporary AWS credentials?
+A. User Pools
+B. Identity Pools (Federated Identities)
+C. App Clients
+D. Groups
+
+**Answer:** B
+**Explanation:** Identity Pools provide temporary AWS credentials for authenticated and unauthenticated users.
+
+---
+
+### 28. What is the maximum token validity period for ID tokens?
+A. 5 minutes
+B. 1 hour
+C. 1 day
+D. 30 days
+
+**Answer:** C
+**Explanation:** ID and access tokens can have validity from 5 minutes to 1 day.
+
+---
+
+### 29. Which Cognito authentication flow is most secure?
+A. USER_PASSWORD_AUTH
+B. USER_SRP_AUTH (Secure Remote Password)
+C. CUSTOM_AUTH
+D. ADMIN_NO_SRP_AUTH
+
+**Answer:** B
+**Explanation:** USER_SRP_AUTH uses Secure Remote Password protocol, never sending passwords over the network.
+
+---
+
+### 30. What is the purpose of Cognito Pre-Authentication Lambda trigger?
+A. Run before authentication
+B. Custom validation before allowing sign-in
+C. Modify authentication
+D. Log authentication
+
+**Answer:** B
+**Explanation:** Pre-Authentication trigger allows custom validation logic before allowing user sign-in.
+
+---
+
+### 31. Which Cognito feature allows custom authentication challenges?
+A. MFA
+B. Custom Authentication Flow (CUSTOM_AUTH)
+C. Password policies
+D. User migration
+
+**Answer:** B
+**Explanation:** CUSTOM_AUTH flow enables custom authentication challenges using Lambda triggers.
+
+---
+
+### 32. What is the maximum number of groups per user pool?
+A. 100
+B. 1,000
+C. 10,000
+D. Unlimited
+
+**Answer:** C
+**Explanation:** User pools support up to 10,000 groups.
+
+---
+
+### 33. Which Cognito token contains user attributes?
+A. Access Token
+B. ID Token
+C. Refresh Token
+D. Session Token
+
+**Answer:** B
+**Explanation:** ID Token contains user attributes (claims) as a JWT.
+
+---
+
+### 34. What is the purpose of Cognito Post-Confirmation Lambda trigger?
+A. Confirm users
+B. Run custom logic after user confirmation
+C. Send confirmation emails
+D. Validate confirmation
+
+**Answer:** B
+**Explanation:** Post-Confirmation trigger runs after user confirms registration (email/phone verification).
+
+---
+
+### 35. Which Cognito feature prevents brute force attacks?
+A. MFA
+B. Advanced Security Features (adaptive authentication)
+C. Password policies
+D. Account lockout
+
+**Answer:** B
+**Explanation:** Advanced Security Features detect and block suspicious sign-in attempts using risk scoring.
+
+---
+
+### 36. What is the maximum refresh token validity period?
+A. 1 day
+B. 30 days
+C. 1 year
+D. 10 years
+
+**Answer:** D
+**Explanation:** Refresh tokens can have validity from 1 hour to 10 years (3650 days).
+
+---
+
+### 37. Which Cognito identity provider supports SAML 2.0?
+A. User Pools
+B. Identity Pools
+C. Both A and B
+D. Neither
+
+**Answer:** A
+**Explanation:** User Pools support SAML 2.0 federation with enterprise identity providers.
+
+---
+
+### 38. What is the purpose of Cognito Pre-Token Generation Lambda trigger?
+A. Generate tokens
+B. Modify token claims before generation
+C. Validate tokens
+D. Encrypt tokens
+
+**Answer:** B
+**Explanation:** Pre-Token Generation trigger allows modifying or adding claims to ID and access tokens.
+
+---
+
+### 39. Which Cognito feature allows passwordless authentication?
+A. MFA
+B. Custom Authentication Flow with CUSTOM_CHALLENGE
+C. Social sign-in
+D. SAML
+
+**Answer:** B
+**Explanation:** Custom Authentication Flow with CUSTOM_CHALLENGE enables passwordless auth (magic links, biometrics, etc.).
+
+---
+
+### 40. What is the maximum number of users per user pool?
+A. 10,000
+B. 100,000
+C. 1 million
+D. 40 million
+
+**Answer:** D
+**Explanation:** User pools support up to 40 million users.
+
+---
+
+### 41. Which Cognito token is used to obtain new tokens?
+A. ID Token
+B. Access Token
+C. Refresh Token
+D. Session Token
+
+**Answer:** C
+**Explanation:** Refresh Token is used to obtain new ID and access tokens without re-authentication.
+
+---
+
+### 42. What is the purpose of Cognito User Migration Lambda trigger?
+A. Migrate users between pools
+B. Migrate users from existing system during sign-in
+C. Export users
+D. Import users
+
+**Answer:** B
+**Explanation:** User Migration trigger migrates users from existing systems during first sign-in without requiring password reset.
+
+---
+
+### 43. Which Cognito feature provides email/SMS verification?
+A. MFA
+B. User Pool Verification (email/phone)
+C. Custom verification
+D. Third-party verification
+
+**Answer:** B
+**Explanation:** User Pools provide built-in email and phone number verification.
+
+---
+
+### 44. What is the maximum number of app clients per user pool?
+A. 10
+B. 100
+C. 1,000
+D. 10,000
+
+**Answer:** C
+**Explanation:** User pools support up to 1,000 app clients.
+
+---
+
+### 45. Which Cognito authentication flow is used for server-side applications?
+A. Implicit Grant
+B. Authorization Code Grant
+C. Client Credentials
+D. Device Flow
+
+**Answer:** B
+**Explanation:** Authorization Code Grant is recommended for server-side applications (most secure).
+
+---
+
+### 46. What is the purpose of Cognito Identity Pool authentication providers?
+A. Authenticate users
+B. Map external identities to AWS credentials
+C. Provide MFA
+D. Verify emails
+
+**Answer:** B
+**Explanation:** Authentication providers (Cognito User Pools, Facebook, Google, SAML, OIDC) map external identities to temporary AWS credentials.
+
+---
+
+### 47. Which Cognito feature allows custom email/SMS messages?
+A. Custom Message Lambda trigger
+B. SES integration
+C. SNS integration
+D. Templates
+
+**Answer:** A
+**Explanation:** Custom Message Lambda trigger customizes email and SMS verification/MFA messages.
+
+---
+
+### 48. What is the maximum number of identity providers per user pool?
+A. 10
+B. 50
+C. 100
+D. 300
+
+**Answer:** D
+**Explanation:** User pools support up to 300 identity providers (SAML, OIDC, social).
+
+---
+
+### 49. Which Cognito feature prevents account enumeration attacks?
+A. MFA
+B. PreventUserExistenceErrors setting
+C. Password policies
+D. Rate limiting
+
+**Answer:** B
+**Explanation:** PreventUserExistenceErrors returns generic error messages to prevent attackers from discovering valid usernames.
+
+---
+
+### 50. What is the purpose of Cognito Define Auth Challenge Lambda trigger?
+A. Define authentication
+B. Determine next challenge in custom authentication flow
+C. Validate challenges
+D. Create challenges
+
+**Answer:** B
+**Explanation:** Define Auth Challenge trigger determines the next challenge in a custom authentication flow.
+

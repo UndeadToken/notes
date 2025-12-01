@@ -270,3 +270,279 @@ D. Database updates
 
 **Answer:** B
 **Explanation:** Managed Platform Updates automatically apply platform patches during a configured maintenance window.
+
+---
+
+### 26. What is the maximum number of application versions per application?
+A. 100
+B. 500
+C. 1,000
+D. Unlimited
+
+**Answer:** C
+**Explanation:** Elastic Beanstalk supports up to 1,000 application versions per application.
+
+---
+
+### 27. Which Elastic Beanstalk deployment policy has zero downtime?
+A. All at once
+B. Rolling
+C. Rolling with additional batch
+D. Immutable
+
+**Answer:** D
+**Explanation:** Immutable deployment launches new instances with new version, maintaining full capacity (zero downtime).
+
+---
+
+### 28. What is the purpose of .ebextensions folder?
+A. Store extensions
+B. Customize environment with configuration files
+C. Store logs
+D. Store backups
+
+**Answer:** B
+**Explanation:** .ebextensions contains YAML/JSON configuration files to customize the environment.
+
+---
+
+### 29. Which Elastic Beanstalk platform supports Docker Compose?
+A. Docker platform
+B. Multi-container Docker platform
+C. Both A and B
+D. Not supported
+
+**Answer:** B
+**Explanation:** Multi-container Docker platform uses Docker Compose (Dockerrun.aws.json v2).
+
+---
+
+### 30. What is the maximum number of environments per application?
+A. 10
+B. 50
+C. 100
+D. 200
+
+**Answer:** D
+**Explanation:** Each application supports up to 200 environments.
+
+---
+
+### 31. Which Elastic Beanstalk deployment policy is fastest?
+A. All at once
+B. Rolling
+C. Rolling with additional batch
+D. Immutable
+
+**Answer:** A
+**Explanation:** All at once deploys to all instances simultaneously (fastest, but has downtime).
+
+---
+
+### 32. What is the purpose of Elastic Beanstalk saved configurations?
+A. Save environment
+B. Save and reuse environment configuration
+C. Backup configurations
+D. Export configurations
+
+**Answer:** B
+**Explanation:** Saved configurations store environment settings for reuse across environments.
+
+---
+
+### 33. Which Elastic Beanstalk feature provides HTTPS?
+A. Load Balancer with SSL certificate
+B. CloudFront
+C. API Gateway
+D. Route 53
+
+**Answer:** A
+**Explanation:** Configure Load Balancer with SSL certificate for HTTPS support.
+
+---
+
+### 34. What is the maximum deployment timeout?
+A. 30 minutes
+B. 1 hour
+C. 4 hours
+D. No limit
+
+**Answer:** C
+**Explanation:** Maximum deployment timeout is 4 hours (240 minutes).
+
+---
+
+### 35. Which Elastic Beanstalk platform tier runs background tasks?
+A. Web Server tier
+B. Worker tier
+C. Batch tier
+D. Background tier
+
+**Answer:** B
+**Explanation:** Worker tier processes background tasks from SQS queues.
+
+---
+
+### 36. What is the purpose of Elastic Beanstalk environment cloning?
+A. Clone application
+B. Create exact copy of environment
+C. Backup environment
+D. Duplicate instances
+
+**Answer:** B
+**Explanation:** Cloning creates an exact copy of an environment with same configuration.
+
+---
+
+### 37. Which Elastic Beanstalk metric indicates application health?
+A. EnvironmentHealth
+B. InstanceHealth
+C. ApplicationHealth
+D. All of the above
+
+**Answer:** A
+**Explanation:** EnvironmentHealth metric indicates overall environment health status.
+
+---
+
+### 38. What is the maximum number of instances per environment?
+A. 100
+B. 500
+C. 1,000
+D. Depends on instance type and account limits
+
+**Answer:** D
+**Explanation:** Limited by EC2 instance limits and account quotas (typically hundreds).
+
+---
+
+### 39. Which Elastic Beanstalk deployment policy minimizes cost during deployment?
+A. All at once
+B. Rolling
+C. Rolling with additional batch
+D. Immutable
+
+**Answer:** B
+**Explanation:** Rolling deployment uses existing instances without launching additional capacity.
+
+---
+
+### 40. What is the purpose of Elastic Beanstalk lifecycle policies?
+A. Manage instance lifecycle
+B. Automatically delete old application versions
+C. Manage environment lifecycle
+D. Schedule updates
+
+**Answer:** B
+**Explanation:** Lifecycle policies automatically delete old application versions based on age or count.
+
+---
+
+### 41. Which Elastic Beanstalk configuration file format is supported?
+A. YAML
+B. JSON
+C. Both A and B
+D. XML
+
+**Answer:** C
+**Explanation:** .ebextensions supports both YAML (.config) and JSON configuration files.
+
+---
+
+### 42. What is the maximum size of application source bundle?
+A. 100 MB
+B. 512 MB
+C. 1 GB
+D. 5 GB
+
+**Answer:** B
+**Explanation:** Maximum application source bundle size is 512 MB.
+
+---
+
+### 43. Which Elastic Beanstalk feature provides blue/green deployments?
+A. Swap environment URLs
+B. Clone and swap
+C. Traffic splitting
+D. All of the above
+
+**Answer:** D
+**Explanation:** Blue/green deployments use environment cloning, URL swapping, or traffic splitting.
+
+---
+
+### 44. What is the purpose of Elastic Beanstalk enhanced health reporting?
+A. Basic health checks
+B. Detailed health metrics and monitoring
+C. Cost reporting
+D. Performance reporting
+
+**Answer:** B
+**Explanation:** Enhanced health reporting provides detailed metrics, causes of health issues, and instance-level health.
+
+---
+
+### 45. Which Elastic Beanstalk platform supports custom AMIs?
+A. All platforms
+B. Docker only
+C. Custom platform
+D. Not supported
+
+**Answer:** C
+**Explanation:** Custom platforms allow using custom AMIs with Packer.
+
+---
+
+### 46. What is the maximum number of tags per environment?
+A. 10
+B. 25
+C. 47
+D. 50
+
+**Answer:** C
+**Explanation:** Environments support up to 47 tags.
+
+---
+
+### 47. Which Elastic Beanstalk deployment policy is safest?
+A. All at once
+B. Rolling
+C. Rolling with additional batch
+D. Immutable
+
+**Answer:** D
+**Explanation:** Immutable deployment is safest - launches new instances, easy rollback, no impact on existing instances.
+
+---
+
+### 48. What is the purpose of Elastic Beanstalk environment links?
+A. Link environments
+B. Share resources between environments (RDS, ElastiCache)
+C. Network linking
+D. Load balancing
+
+**Answer:** B
+**Explanation:** Environment links allow sharing resources like RDS databases between environments.
+
+---
+
+### 49. Which Elastic Beanstalk feature allows gradual traffic shifting?
+A. Canary deployment
+B. Traffic splitting deployment
+C. Blue/green deployment
+D. Rolling deployment
+
+**Answer:** B
+**Explanation:** Traffic splitting deployment gradually shifts traffic to new version for testing.
+
+---
+
+### 50. What is the maximum number of environment properties?
+A. 50
+B. 100
+C. 200
+D. Unlimited
+
+**Answer:** C
+**Explanation:** Environments support up to 200 environment properties (key-value pairs).
+
