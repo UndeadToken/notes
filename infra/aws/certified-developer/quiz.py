@@ -5,6 +5,8 @@ Randomly selects 10 questions from all question files and provides interactive q
 """
 
 import os
+import time
+from datetime import timedelta
 import re
 import random
 from pathlib import Path
@@ -165,10 +167,13 @@ def generate_test_questions(domain_questions: Dict[str, List[Question]]) -> List
 
 
 
-def display_question(question: Question, question_num: int, total: int):
+def display_question(question: Question, question_num: int, total: int, elapsed_str: str = "", remaining_str: str = ""):
     """Display a single question with options."""
     print(f"\n{'='*80}")
-    print(f"Question {question_num}/{total} (Topic: {question.source})")
+    header = f"Question {question_num}/{total} (Topic: {question.source})"
+    if elapsed_str and remaining_str:
+        header += f" | Time: {elapsed_str} elapsed / {remaining_str} remaining"
+    print(header)
     print(f"{'='*80}")
     print(f"\n{question.text}\n")
     
@@ -201,8 +206,18 @@ def run_quiz(questions: List[Question], num_questions: int = 10, passing_score: 
     correct_count = 0
     results = []
     
+    start_time = time.time()
+    exam_duration_seconds = 130 * 60  # 130 minutes
+    
     for i, question in enumerate(selected_questions, 1):
-        display_question(question, i, num_questions)
+        current_time = time.time()
+        elapsed_seconds = int(current_time - start_time)
+        remaining_seconds = max(0, exam_duration_seconds - elapsed_seconds)
+        
+        elapsed_str = str(timedelta(seconds=elapsed_seconds))
+        remaining_str = str(timedelta(seconds=remaining_seconds))
+        
+        display_question(question, i, num_questions, elapsed_str, remaining_str)
         user_answer = get_user_answer()
         
         is_correct = user_answer == question.answer
