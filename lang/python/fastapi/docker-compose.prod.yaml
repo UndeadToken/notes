@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  api:
+    envinronment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - LOG_LEVEL=WARNING
+      - LOG_FORMAT=json
+    deploy:
+      replicas: 2
+      resources:
+        limits: 
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  celery:
+    envinronment:
+      - APP_ENV=production
+      - CELERY_LOG_LEVEL=warning
+      - CELERY_WORKER_CONNECTIONS=8
+    deploy:
+      replicas: 3
+      resources:
+        limits: 
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 1G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  celery_beat:
+    envinronment:
+      - APP_ENV=production
+      - CELERY_LOG_LEVEL=warning
+    deploy:
+      replicas: 1
+      resources:
+        limits: 
+          cpus: '0.5'
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  redis:
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    deploy:
+      resources:
+        limits: 
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  flower:
+    envinronment:
+      - FLOWER_BASIC_AUTH=${FLOWER_BASIC_AUTH:-admin:admin}
+    deploy:
+      replicas: 0 # TODO: Configure authentication
+

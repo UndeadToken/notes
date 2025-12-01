@@ -1,0 +1,145 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Install dependencies
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          uv sync --all-extras
+
+      - name: Run ruff linting
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          uv run ruff format --check app tests
+
+  check:
+    name: Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Install dependencies
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          uv sync --all-extras
+
+      - name: Runmypy
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          uv run mypy app
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Install dependencies
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          uv sync --all-extras
+
+      - name: Env
+        run: cp .env.example .env
+
+      - name: Run tests with coverage
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          uv run pytest \
+            --cov=app \
+            --cov-report=xml \
+            --cov-report=term-missing \
+            --cov-fail-under=80
+        env:
+          REDIS_HOST: localhost
+          REDIS_PORT: 6379
+          SECRET_KEY: test
+          CELERY_BROKER_URL: redis://localhost:6379/0
+          CELERY_RESULT_BACKEND: redis://localhost:6379/0
+    
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: [lint, check, test]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build API image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: api.docekrfile
+          push: false
+          tags: foo-api:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build Celery Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: celery.docekrfile
+          push: false
+          tags: foo-celery:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
