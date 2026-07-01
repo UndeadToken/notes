@@ -8,7 +8,7 @@ fn main() {
 	}
 }
 
-n main2() {
+fn main2() {
     let args: Vec<String> = env::args().collect();
     if args.contains(&"--help".to_string()) {
         println!("Usage: feud [--compile, -c] [--run, -r] [--interpret, -i]");

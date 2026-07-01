@@ -1,6 +1,6 @@
 # Pipeline Execution
 
-Pipelined execution is a technique that enabled microprocessor designers to incease the speed at which the processor oeprates, thereby decreasing the amount of time a processor takes to execute a program.
+Pipelined execution is a technique that enabled microprocessor designers to increase the speed at which the processor oeprates, thereby decreasing the amount of time a processor takes to execute a program.
 
 A pipeline can be defined as a series of stages that an instruction in a code stream must pass through when the code is being executed.
 

@@ -82,7 +82,7 @@ func main() {
 	}
 	defer dst.Close()
 
-	_, err = io.Copy(src, dst)
+	_, err = io.Copy(dst, src)
 	if err != nil {
 		panic(err)
 	}
